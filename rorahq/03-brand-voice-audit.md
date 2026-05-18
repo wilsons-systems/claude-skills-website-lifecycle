@@ -1,302 +1,340 @@
 # Rora — Brand Voice Audit
 
-**Skill:** `brand-voice`  
-**Date:** May 2026  
-**Status:** Audit complete — fixes ready to implement
+**Document status:** Production reference  
+**Last updated:** May 2026  
+**Owner:** Ryan Wilson, Pier 7 Projects Ltd
 
 ---
 
-## Voice standard (from Brand Foundation)
+## How to Use This Document
 
-Three traits. Hold these constant.
+This audit compares existing site copy against the Rora brand voice standard. For each example, the original is shown first, then a brand-compliant rewrite, then a note on what changed and why. Use this as a training document for anyone writing copy for Rora — and as a checklist before publishing new content.
 
-| Trait | What it means |
+The standard this audit applies:
+- Conversational tone, first-person, contractions acceptable
+- Short sentences. Confident full stops.
+- Lead with the problem, not the solution
+- Concrete specifics over abstract promises
+- "You/your" orientation
+- No jargon. No hype words. No passive voice in headlines.
+
+---
+
+## 20 Paired Copy Examples
+
+---
+
+### 1 — Hero Sub-Headline
+
+**Original:**
+> "Most small businesses run on a tangle of disconnected systems, manual processes, and admin that eats the day. Rora connects them, seamlessly automates the work, and ties everything together — so your business runs faster, 24/7, without you having to touch it."
+
+**Rewrite:**
+> "You're probably running your business on a mix of WhatsApp, spreadsheets, and memory. It works until it doesn't. Rora takes the admin — quotes, leads, invoices, follow-ups — and handles it automatically, so you can get back to the actual job."
+
+**What changed:** Removed "seamlessly" (banned). Removed passive construction. Made the problem concrete and recognisable ("WhatsApp, spreadsheets, and memory"). Listed specific work Rora handles rather than vague "admin." Removed "24/7" as a claim — it reads as a SaaS feature bullet. Ended on what the reader gets, not what Rora does.
+
+---
+
+### 2 — Services Section Intro
+
+**Original:**
+> "From your first lead to your last invoice — we can automate the lot."
+
+**Rewrite:**
+> "Most of the paperwork in your business follows the same pattern, every time. Rora maps it, then handles it — from the first enquiry to the invoice going out."
+
+**What changed:** The original is punchy but slightly flippant ("the lot"). The rewrite keeps the same span (first lead to last invoice) but shows the mechanism ("maps it, then handles it") which is more trustworthy. "Automate the lot" risks sounding like a sales pitch; the rewrite sounds like a peer explaining what they built.
+
+---
+
+### 3 — CTA Button Text
+
+**Original:**
+> "Find out what's possible for your business"
+
+**Rewrite:**
+> "See if it fits your business"
+
+**What changed:** "Find out what's possible" is open-ended and vague — it doesn't tell the user what will happen when they click. "See if it fits" is specific, honest, and implies that the process is a genuine assessment rather than a sales pitch. Shorter, more direct. The peer relationship shows: we're checking whether it's right, not selling regardless.
+
+---
+
+### 4 — About Page Opening
+
+**Original:**
+> "Rora was founded by a business owner who built AI automation for his own company before offering it to others."
+
+**Rewrite:**
+> "I ran an electrical contracting business. Every quote took the best part of an hour. Leads came in and went cold while I was on site. I built a system to fix it — and it worked well enough that people started asking how."
+
+**What changed:** Removed third-person distance. Made the problem specific (quotes taking an hour, leads going cold). The phrase "before offering it to others" is corporate phrasing — no person talks that way. The rewrite shows the problem, shows the fix, shows how others got involved. No claims, no credentials, just the story.
+
+---
+
+### 5 — Quote Automation Feature Description
+
+**Original:**
+> "Our AI-powered quoting system automatically generates professional quotes from your existing data."
+
+**Rewrite:**
+> "A customer fills in a form. A quote lands in their inbox — already formatted, already priced — before you've put the van in gear. You review and approve. That's it."
+
+**What changed:** Removed "AI-powered" (say what it does, not what powers it). Removed "professional" (empty qualifier). Made the process concrete and sequential — the reader can picture it. Ended with the minimum action required from the owner.
+
+---
+
+### 6 — Lead Capture Description
+
+**Original:**
+> "Capture every lead, 24/7, with intelligent automation that never misses an opportunity."
+
+**Rewrite:**
+> "Enquiries don't stop when you do. Rora catches them — at 10pm, on Saturday, when you're on a job — responds automatically, and makes sure you have everything you need when you're ready to follow up."
+
+**What changed:** "24/7" and "intelligent automation" are SaaS tropes. The rewrite makes the time context real and human ("10pm, on Saturday, when you're on a job"). "Never misses an opportunity" is a sales claim; the rewrite describes what actually happens instead.
+
+---
+
+### 7 — Pricing Section Header
+
+**Original:**
+> "Simple, transparent pricing"
+
+**Rewrite:**
+> "What it costs"
+
+**What changed:** "Simple, transparent pricing" is one of the most overused phrases in SaaS copy. Every brand says it. "What it costs" says the same thing in three words, without using a cliché. Blunt is trustworthy.
+
+---
+
+### 8 — Pricing CTA
+
+**Original:**
+> "Get started today"
+
+**Rewrite:**
+> "Book a conversation"
+
+**What changed:** "Get started today" implies a product you sign up for. Rora is a bespoke service — there's no onboarding flow, there's a conversation. "Book a conversation" is accurate and sets the right expectation. It removes the implicit pressure of "today."
+
+---
+
+### 9 — Social Proof Block
+
+**Original:**
+> "Join hundreds of businesses using Rora to automate their operations."
+
+**Rewrite:**
+> "Rora is working with a small number of local businesses right now — trades, hospitality, professional services. Here's what they've found."
+
+**What changed:** Rora is early-stage. "Hundreds of businesses" is not honest and would not be believed. The rewrite is accurate — a small number of clients — and turns that into a signal of care and bespoke attention rather than hiding it. Leading into real testimonials directly.
+
+---
+
+### 10 — Testimonial Introduction
+
+**Original:**
+> "Don't just take our word for it"
+
+**Rewrite:**
+> "From the people using it"
+
+**What changed:** "Don't just take our word for it" is a cliché that has lost all meaning — every site uses it. "From the people using it" is plain and direct. It points at the testimonials without editorialising them.
+
+---
+
+### 11 — Assessment Page Headline
+
+**Original:**
+> "Book Your Free AI Assessment"
+
+**Rewrite:**
+> "Let's work out whether this makes sense for you"
+
+**What changed:** "Free AI Assessment" sounds like a lead generation hook. Every consultancy offers a free something. The rewrite is honest about what happens: a conversation to work out fit. It positions Ryan as someone checking compatibility, not closing a sale.
+
+---
+
+### 12 — Assessment Page Body Copy
+
+**Original:**
+> "In a free 30-minute call, we'll identify the areas of your business that could benefit most from AI automation."
+
+**Rewrite:**
+> "It's a 30-minute call. You talk about how your business runs — quotes, leads, invoicing, follow-ups, whatever takes the most time. I'll tell you honestly whether Rora can help, and where it would have the biggest impact."
+
+**What changed:** "Identify the areas that could benefit most" is consultant-speak. The rewrite is conversational and specific. "I'll tell you honestly" is a phrase only a peer can say — a vendor doesn't promise honesty, a peer does. The word "most" in the original does no work; the rewrite shows the actual scope of the conversation.
+
+---
+
+### 13 — Footer Strapline
+
+**Original:**
+> "Automate your business with the power of AI"
+
+**Rewrite:**
+> "Your business, running in the background."
+
+**What changed:** "The power of AI" is a hype phrase with no meaning. The approved brand tagline — "Your business, running in the background" — says more, more precisely, without the noise.
+
+---
+
+### 14 — Email Automation Feature
+
+**Original:**
+> "Our robust email automation sequences nurture your leads through the funnel."
+
+**Rewrite:**
+> "When someone enquires, they hear back within minutes. If they don't book, they get a follow-up. You don't have to remember — the system does."
+
+**What changed:** "Robust" is banned. "Nurture through the funnel" is marketing jargon that trades in a B2B worldview most SMB owners don't share. The rewrite describes the actual behaviour, step by step, and ends with the relief the owner gets.
+
+---
+
+### 15 — Invoice Automation Feature
+
+**Original:**
+> "Streamline your invoicing process with automated invoice generation and payment tracking."
+
+**Rewrite:**
+> "When a job is done, the invoice goes out. If it's not paid in seven days, the reminder goes out. You don't chase — the system does."
+
+**What changed:** "Streamline" is a weak word that promises vaguely without showing anything. The rewrite shows the process exactly as it happens. The parallelism ("job done, invoice out / not paid, reminder out") makes it readable and memorable. "You don't chase" is the relief, stated plainly.
+
+---
+
+### 16 — Homepage Section Header: "What We Do"
+
+**Original:**
+> "What We Do"
+
+**Rewrite:**
+> "What Rora handles"
+
+**What changed:** "What We Do" is a placeholder heading. It doesn't orient the reader. "What Rora handles" is functionally the same information but implies that Rora is an active system taking work off the reader's plate — which is the product promise. Small change, clearer signal.
+
+---
+
+### 17 — Process Section Header
+
+**Original:**
+> "How It Works"
+
+**Rewrite:**
+> "How we get started"
+
+**What changed:** "How It Works" describes a product. "How we get started" describes a relationship. For a bespoke service where the first step is a conversation, the second framing is more accurate and sets a warmer, more correct expectation.
+
+---
+
+### 18 — Navigation Link: Services
+
+**Original:**
+> "Services"
+
+**Rewrite:**
+> "What we build"
+
+**What changed:** "Services" is generic — every agency nav says it. "What we build" is more specific to Rora's positioning (built systems, not just advice) and more interesting to click. It also implies craft and substance rather than a service catalogue.
+
+---
+
+### 19 — Error/Empty State Copy
+
+**Original:**
+> "No results found. Please try again."
+
+**Rewrite:**
+> "Nothing matched that — try different words, or get in touch directly."
+
+**What changed:** "Please try again" is cold and dismissive. The rewrite acknowledges the failure, suggests an alternative action, and offers a human route (get in touch). On a site that sells trust, even error messages are part of the brand experience.
+
+---
+
+### 20 — Meta Description (Homepage)
+
+**Original:**
+> "Rora is an AI automation consultancy helping small businesses automate their operations."
+
+**Rewrite:**
+> "Rora builds AI systems for local businesses — automating quotes, leads, invoicing, and follow-ups so owners can get back to the actual work. Based in Blackpool, working across the UK."
+
+**What changed:** The original is accurate but generic. The rewrite specifies what is automated (quotes, leads, invoicing, follow-ups), who it's for (local businesses, owners), and adds geographic specificity which helps with local search and signals that this is not a faceless tech company. "Get back to the actual work" is the human payoff.
+
+---
+
+## Banned Words — Site-Wide
+
+The following words and phrases are banned from all Rora copy. Where a replacement exists, use it. Where no replacement is listed, rewrite the sentence from the problem out.
+
+| Banned | Replace with |
 |---|---|
-| **Quietly confident** | Never boastful. Lets the work speak. No hype words. States what it does and proves it. |
-| **Straight-talking** | Plain English always. If a client wouldn't say it, don't write it. No jargon unless being explained. |
-| **Reliably human** | Warm but not casual. Professional but not cold. Feels like a skilled tradesperson — shows up, does what they said. |
+| Seamless | (Remove entirely or describe the actual experience) |
+| Robust | (Remove — it says nothing) |
+| Cutting-edge | (Remove — it's a marketing claim) |
+| Streamline | Cut the time / handle it automatically / remove the step |
+| Leverage | Use |
+| Solutions | (Name the specific thing) |
+| Powerful | (Show the capability instead) |
+| AI-powered | (Say what it does, not what powers it) |
+| Next-level | (Remove) |
+| Revolutionary | (Remove) |
+| Game-changer | (Remove) |
+| 24/7 | All hours / even when you're not there / at any time |
+| Nurture leads | Follow up / stay in touch / respond automatically |
+| Funnel | (Replace with a description of actual steps) |
+| Onboarding | Getting started / the first few weeks |
+| Synergy | (Never use) |
+| Holistic | (Never use) |
+| Deep dive | (Never use) |
+| Pain points | Problems / what's taking the most time |
+| ROI | What you get back / what it saves |
 
 ---
 
-## The vocabulary ban list
+## Sections That Drift Into Brochure-Speak
 
-Never use these words or phrases on any page of rorahq.co.uk:
+### Hero Sub-Headline
 
-| Banned | Why |
-|---|---|
-| revolutionary | Hype — signals insecurity |
-| cutting-edge | Cliché — everyone says it |
-| next-level | Meaningless |
-| game-changing | Meaningless |
-| seamless | Overused to the point of saying nothing |
-| seamlessly automates | Double offender — banned twice over |
-| robust | Enterprise jargon |
-| scalable | Wrong audience — SMB owners don't think in scale |
-| leverage | Corporate speak |
-| optimise / optimize | Vague; use the specific outcome instead |
-| synergise / synergy | Never |
-| unlock | Startup-speak for "do" |
-| harness | As in "harness the power of AI" — cliché |
-| streamline | Overused |
-| the power of AI | Empty |
-| AI-powered | Empty unless followed by exactly what it powers |
-| intelligent automation | Jargon |
-| end-to-end solutions | Brochure-speak |
-| bespoke solutions | Same |
-| at the forefront | Hype |
-| innovative | Meaningless — every company claims it |
-| in today's fast-paced world | Never open with this |
+The current sub-headline leads with what Rora does rather than what the reader experiences. It contains "seamlessly" and abstract verbs ("connects", "ties together"). It also uses "24/7" as a feature claim. This section needs a full rewrite — the approved version is in example 1 above.
+
+**Risk:** This is the first thing a visitor reads after the headline. If it reads like marketing, they leave.
+
+### Services Section
+
+The services descriptions use capability-first framing ("our quoting system generates...") rather than problem-first framing ("you spend 40 minutes on every quote..."). Each service description should open with the problem the business owner recognises, then describe what Rora does about it.
+
+**Risk:** The ICP is sceptical of tech vendors. Leading with capabilities invites dismissal. Leading with the problem earns a second sentence.
+
+### About Page
+
+The current about page uses third-person ("Rora was founded by...") which creates immediate distance. The about page is where the peer relationship is established — it must be first-person and must lead with the founder's experience, not the company's credentials.
+
+**Risk:** If the about page doesn't establish the peer relationship, visitors have no reason to believe the origin story claim ("built it for ourselves first") that sits at the core of the brand promise.
+
+### Pricing CTA Area
+
+"Get started today" and similar urgency-adjacent phrases undermine the "genuinely useful" positioning. Rora is not a SaaS product people subscribe to — it is a bespoke engagement that starts with a conversation. Every CTA in the pricing area should point toward the conversation, not the signup.
+
+**Risk:** A visitor who clicks "get started" and hits a booking form rather than a checkout may feel confused. Set the right expectation in the CTA text.
 
 ---
 
-## Paired examples — 25 before/after pairs
+## Page-Level Specific Rewrites
 
-### Hero & Sub-headline
+### Hero Sub-Headline — Final Version
 
-**1. Sub-headline (current)**
-> Most small businesses run on a tangle of disconnected systems, manual processes, and admin that eats the day. Rora connects them, seamlessly automates the work, and ties everything together — so your business runs faster, 24/7, without you having to touch it.
+> "You're probably running your business on a mix of WhatsApp, spreadsheets, and memory. It works until it doesn't. Rora takes the admin — quotes, leads, invoices, follow-ups — and handles it automatically, so you can get back to the actual job."
 
-**After:**
-> Most small businesses run on four different systems that don't talk to each other, a WhatsApp that goes unanswered overnight, and a quotes inbox that takes three days to clear. Rora connects them and automates the work — so the job gets done even when you're on site.
+### Services Section — Intro Paragraph
 
-*What changed:* "seamlessly automates" → removed. Specifics replace generics. "24/7" removed (sounds like a call centre). "on site" adds authentic detail for the trades audience.
+> "Every local business has the same problem in a different form. Enquiries go unread. Quotes take too long. Invoices go out late. Follow-ups don't happen. None of it requires your expertise — it just requires someone, or something, paying attention. That's what Rora builds."
 
----
+### Pricing CTA — Final Version
 
-**2. Reassurance line (current)**
-> No new systems to learn. No platforms to figure out. We handle all of that — you just see the results.
+> "Book a conversation — I'll tell you whether this makes sense for your business, and what it would cost."
 
-**After:**
-> Nothing new to learn. We connect what you already use and automate the rest. You see the results — not the setup.
+### About Page — Opening Paragraph
 
-*What changed:* Tighter. "No platforms to figure out" is slightly condescending — removed. Last sentence is punchier.
-
----
-
-**3. Trust line (current)**
-> Built by someone who automated their own business first. We know it works because we're running on it.
-
-**After:**  ✅ **Keep as-is.** This is the strongest line on the page. It's specific, human, and proves the claim. Do not change.
-
----
-
-### Services section
-
-**4. Current section intro:**
-> From your first lead to your last invoice — we can automate the lot.
-
-**After:**  ✅ **Keep as-is.** Direct, specific, covers the whole scope in one line.
-
----
-
-**5. Current body under services:**
-> Most businesses start with one thing — automating quotes, or capturing leads, or chasing invoices. That's usually enough to see the difference immediately. But Rora can go further. We connect your systems so they talk to each other, build custom tools your team actually uses, and if you want it, map your entire business flow from the moment a lead comes in to the moment a job closes. One joined-up operation, running itself.
-
-**After:**
-> Most businesses start with one thing — automating quotes, or capturing leads, or chasing invoices. That one thing is usually enough to see what's possible. From there, we can go further: connecting your systems, building tools your team actually uses, mapping your whole operation from first enquiry to final invoice. It can all run itself. You decide how far you want to take it.
-
-*What changed:* "One joined-up operation, running itself" is a strong close but feels like a tagline mid-paragraph. New version builds to that idea more naturally. "if you want it" removed — weak qualifier.
-
----
-
-**6. Current services card — AI Automation (fabricated from known context):**
-> AI Automation — Custom: lead capture, quoting, invoicing, email-to-CRM, voice-to-text, reviews, content
-
-**After:**
-> **Automate the admin**  
-> Leads captured automatically. Quotes drafted before you've left site. Invoices chased without a single call. We build the automation — you just do the job.
-
-*What changed:* Feature list → outcome framing. Leads with pain and result, not with what it technically does.
-
----
-
-### About page
-
-**7. Generic opener pattern (to avoid):**
-> Ryan Wilson is the founder of Rora and has over X years of experience in the trades industry...
-
-**After:**
-> I'm an electrician. I run a 6-person electrical business in Lytham St Annes. At some point the admin started taking longer than the jobs — quotes piling up, leads going cold, invoices chased by hand. So I built AI systems to fix it. They worked. Rora is what happened next.
-
-*What changed:* Biography → story. Specific → human. "founder" language removed — wrong register for this audience.
-
----
-
-**8. Differentiator framing (current, typical):**
-> Rora was built by someone who automated their own business first and can prove it works.
-
-**After:**  ✅ **Keep as-is.** This is the brand promise and it belongs here. Only add the Wilsons numbers alongside it.
-
----
-
-### Pricing page
-
-**9. Typical "contact us" CTA on pricing:**
-> Get in Touch
-
-**After:**
-> See what's possible for your business →
-
-*What changed:* "Get in touch" is vague and low-conviction. New version frames it as discovery, not a sales call.
-
----
-
-**10. Price anchoring copy:**
-> Our pricing varies based on the scope of your needs.
-
-**After:**
-> Most clients start from around £150/month. No long contracts — if it's not working, you don't pay.
-
-*What changed:* Vagueness → anchor. Removes the main objection (lock-in) before the visitor asks it.
-
----
-
-**11. FAQ — "What if it doesn't work?" (add this):**
-> **Current:** *(not present)*
-
-**After:**
-> **What if the automation doesn't work the way I expect?**  
-> We fix it. We're not a software company that sells you a tool and leaves — we built this for our own business first. If something's not right, it's our problem to sort.
-
----
-
-### Case study
-
-**12. Passive voice in case study:**
-> An email was received at 6pm. The lead was automatically processed and entered into Simpro by 8am the next morning.
-
-**After:**
-> The email came in at 6pm on a Wednesday. By 8am Thursday it was a live job in Simpro, the prospect had an auto-reply, and nobody had touched it.
-
-*What changed:* Passive → active. Names the specific timing. Ending "nobody had touched it" is the payoff — make it count.
-
----
-
-**13. Metric framing — weak:**
-> We reduced quote time by approximately 75%.
-
-**After:**
-> Quote time dropped from 47 minutes to 12. Same job, same spec, same price — just less of Ryan's evening.
-
-*What changed:* "approximately 75%" is weak. Real numbers with context are far more believable and memorable.
-
----
-
-### Assessment quiz / lead magnet
-
-**14. Quiz CTA (current):**
-> Find out what's possible for your business
-
-**After:**  ✅ **Keep as-is.** This is direct and benefit-led. The arrow → adds momentum.
-
----
-
-**15. Quiz intro (typical generic):**
-> Answer 13 questions and receive your personalised AI Readiness Report.
-
-**After:**
-> 13 questions. 3 minutes. We'll tell you exactly where AI could make a difference in your business — and what it would actually cost.
-
-*What changed:* "personalised AI Readiness Report" sounds like a data collection exercise. New version is benefit-forward and addresses the cost objection proactively.
-
----
-
-### Navigation & micro-copy
-
-**16. Nav label "What We Build":**
-> **Keep as-is.** This is better than "Services" — it implies craft and specificity.
-
-**17. Nav label "Case Studies":**
-> **Change to:** "Proof"  
-> Rationale: "Case Studies" sounds corporate. "Proof" is on-brand (straight-talking) and higher conviction.
-
-**18. Footer tagline:**
-> Current: *(likely just contact info)*  
-> Add: "Rora — Your business, running in the background." on one line above the contact details.
-
-**19. Form submit button:**
-> Current: "Send" or "Submit"  
-> Change to: "Send my message" (contact form) / "Get my report" (assessment quiz)
-
-**20. Contact form reassurance copy:**
-> We reply to every message within 1 business day. No automated responses.
-
----
-
-### Error states and empty states
-
-**21. Assessment error:**
-> Something went wrong. Please try again.
-
-**After:**
-> Something went wrong our end — sorry. Try again or email hello@rorahq.co.uk and we'll sort it.
-
-*What changed:* Owns the problem, offers an alternative, human voice.
-
----
-
-**22. Contact form success state:**
-> Your message has been sent successfully.
-
-**After:**
-> Message received. We'll come back to you within one working day.
-
----
-
-### Section headers (common drift patterns)
-
-**23. "Our Services" section header:**
-> Change to: "What we build" (consistent with nav label)
-
-**24. "Why Choose Rora?":**
-> Delete entirely. Any section that asks "why choose us?" signals insecurity. The proof replaces the question.  
-> Substitute with: "The work speaks for itself" as section header, followed by case study card + stats.
-
-**25. "Ready to get started?":**
-> Change to: "See what your business could look like." as the pre-CTA section header.  
-> Rationale: "Ready to get started?" presupposes a decision. "See what your business could look like" is discovery-framed — lower friction.
-
----
-
-## Copy audit by page
-
-### Homepage
-- ✅ Headline: Keep
-- ✅ Trust line: Keep
-- ⚠️ Sub-headline: Replace per pair #1
-- ⚠️ Reassurance line: Replace per pair #2
-- ⚠️ Services body: Replace per pair #5
-- ⚠️ Services cards: Apply outcome framing per pair #6
-- ⚠️ Pre-CTA header: Replace per pair #25
-
-### About
-- ⚠️ Opener: Replace with story format per pair #7
-- ⚠️ Add real Wilsons numbers alongside brand promise
-- 🔴 Missing: Ryan's photo — highest single conversion gap. Circular crop, genuine setting (on site or at desk), not a white-background portrait
-
-### Pricing
-- ⚠️ CTA: Replace per pair #9
-- ⚠️ Add price anchor per pair #10
-- ⚠️ Add FAQ item per pair #11
-
-### Case Studies
-- ⚠️ Passive voice: Replace per pair #12
-- ⚠️ Metrics: Replace with real numbers per pair #13
-- 🔴 Missing: Olive Tree real case study numbers (£1,750 setup / £450/mo, Phase 1 email automation live — get concrete before/after stats)
-
-### Contact
-- ⚠️ Button: Replace per pair #19
-- ⚠️ Add reassurance copy per pair #20
-- 🔴 Missing: Company reg — add "Pier 7 Projects Ltd, company number 12894305" to footer
-
-### Assessment quiz
-- ⚠️ Intro: Replace per pair #15
-- ✅ CTA: Keep per pair #14
-- ⚠️ Error states: Replace per pair #21
-- ⚠️ Success state: Replace per pair #22
-
----
-
-## Template note for client work
-
-For The Skinician: run this same audit against Lauren's existing website copy. The vocabulary ban list applies universally. The key patterns to look for: passive voice, generic service descriptions without outcome framing, CTAs that say "contact us" without benefit language. The paired-example format works directly — pull her worst copy lines and rewrite them.
+> "I ran an electrical contracting business for years. Every quote took around 45 minutes. Leads came in overnight and went cold by morning. Half the invoices went out late because I was always on a job when they should have been sent. I wasn't bad at running a business — I was just doing too much of it by hand. I built a system to fix that. It cut my quote time by 75% and meant I stopped losing work to slow responses. People who saw it started asking if I could build the same for them. Rora is what came out of that."
