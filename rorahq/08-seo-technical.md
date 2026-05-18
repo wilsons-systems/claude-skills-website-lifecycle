@@ -1,356 +1,562 @@
-# Rora — Technical SEO & Launch Fix Checklist
-
-**Skill:** `seo-technical`  
-**Date:** May 2026  
-**Status:** Ordered fix list — work top to bottom
+# Rora — Technical SEO Fix Checklist
+**File:** `08-seo-technical.md`
+**Status:** Production-ready — work through in order. Items 1–4 are search prerequisites; do not defer.
+**Site:** rorahq.co.uk — Next.js 15, Vercel, Cloudflare DNS
+**Code repo:** wilsons-systems/ai-consultancy-web
 
 ---
 
-## Priority 1 — Blockers (fix before promoting the site)
+## How to Use This Checklist
 
-### 1.1 — JSON-LD LocalBusiness Schema
+Work through items in order. Items 1–4 are hard prerequisites for Google indexing and local discovery — none of the other SEO work matters until these are done. Items 5–12 are conversion and compliance improvements that can be batched.
 
-**Why it matters:** Tells Google exactly what Rora is, where it's based, and what it does. Required for local search visibility. Currently blocked by a hookify security hook that prevents script injection patterns.
+Mark each item complete with [x] when done.
 
-**Fix:**
-Add an exception in hookify for `type="application/ld+json"` script tags. This is a data-only script — no executable code — so the security concern is a false positive.
+---
 
-In hookify config, add:
-```js
-// Allow JSON-LD structured data scripts (not executable — data only)
-allowScriptTypes: ['application/ld+json']
-```
+## ITEM 1 — JSON-LD LocalBusiness Schema
 
-Once unblocked, add to `app/layout.tsx` inside `<head>`:
+**What it is:** Structured data that tells Google exactly what Rora is, where it is, and what it does. Without it, Google has to guess from body text. With it, Rora becomes eligible for Knowledge Panel display, local pack results, and rich snippets.
 
-```html
-<script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Rora",
-      "legalName": "Pier 7 Projects Ltd",
-      "url": "https://rorahq.co.uk",
-      "logo": "https://rorahq.co.uk/brand/rora-logo.png",
-      "description": "AI automation consultancy for small businesses. We automate lead capture, quoting, invoicing, and admin — built by a trades business owner who automated his own business first.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Lytham St Annes",
-        "addressRegion": "Lancashire",
-        "postalCode": "FY8",
-        "addressCountry": "GB"
+**Why it matters:** LocalBusiness schema is the single most impactful structured data addition for a local service business. It directly improves local search visibility and is required for Google Business Profile integration to work at its best.
+
+**Current blocker:** Hookify security hook blocks `<script type="application/ld+json">`. Fix this first.
+
+### Step 1: Fix hookify config
+
+In your hookify security configuration, add `application/ld+json` to the allowed script types list. The exact config key depends on your hookify version — look for a `allowedScriptTypes`, `scriptTypeWhitelist`, or `csp.scriptTypes` key. Add `"application/ld+json"` to the array. This does not introduce a security risk — JSON-LD is not executable JavaScript.
+
+### Step 2: Create the schema component
+
+Create a new file at `app/schema.tsx`:
+
+```tsx
+export function LocalBusinessSchema() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Rora",
+    "alternateName": "Rora AI Consultancy",
+    "description": "AI automation consultancy for UK small businesses. We automate lead capture, quoting, invoicing, and admin — so your business runs faster, 24/7.",
+    "url": "https://rorahq.co.uk",
+    "telephone": "[PHONE_PLACEHOLDER]",
+    "email": "ryan@rorahq.co.uk",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Blackpool",
+      "addressRegion": "Lancashire",
+      "addressCountry": "GB"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "53.8175",
+      "longitude": "-3.0357"
+    },
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Blackpool"
       },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 53.7268,
-        "longitude": -2.9637
+      {
+        "@type": "AdministrativeArea",
+        "name": "Fylde Coast"
       },
-      "areaServed": [
-        "Lytham St Annes",
-        "Fylde Coast",
-        "Preston",
-        "Blackpool",
-        "Lancashire",
-        "United Kingdom"
-      ],
-      "serviceType": [
-        "AI Automation",
-        "Business Automation",
-        "Lead Capture Automation",
-        "Quote Generation",
-        "Invoice Automation"
-      ],
-      "priceRange": "££",
-      "foundingDate": "2026",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "customer support",
-        "email": "hello@rorahq.co.uk",
-        "availableLanguage": "English"
+      {
+        "@type": "AdministrativeArea",
+        "name": "Lancashire"
+      },
+      {
+        "@type": "Country",
+        "name": "United Kingdom"
       }
-    })
-  }}
-/>
+    ],
+    "serviceType": [
+      "AI Automation Consultancy",
+      "Business Process Automation",
+      "AI-Powered Website Development",
+      "Lead Capture Automation",
+      "Invoice Automation",
+      "CRM Integration"
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": "Ryan Wilson"
+    },
+    "legalName": "Pier 7 Projects Ltd",
+    "priceRange": "££",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
 ```
 
-**Status:** ⏳ Blocked by hookify — needs exception first
+### Step 3: Add to layout
+
+In `app/layout.tsx`, import and render inside `<head>`:
+
+```tsx
+import { LocalBusinessSchema } from './schema';
+
+// Inside the <head> section:
+<LocalBusinessSchema />
+```
+
+**Replace `[PHONE_PLACEHOLDER]` when the WhatsApp Business number is confirmed.**
 
 ---
 
-### 1.2 — FAQ Schema (Pricing page)
+## ITEM 2 — FAQ Schema on Pricing Page
 
-**Why it matters:** FAQ schema can produce rich results (expanded answers in Google search). Pricing page FAQs are ideal candidates.
+**What it is:** Structured data that marks up FAQ content so Google can display it as expandable Q&A directly in search results — giving Rora more screen space without a higher ranking.
 
-**Add FAQ schema to `app/pricing/page.tsx`:**
+**Why it matters:** FAQ rich results are free additional visibility. For a pricing page specifically, they pre-answer objections before the user even clicks — which improves click-through rate and pre-qualifies visitors.
 
-```html
-<script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How much does AI automation cost for a small business?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Most clients start from around £150/month. Setup costs vary by scope — trial builds are free. No long contracts."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do I need to learn a new system?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. We connect what you already use — your email, quoting software, and calendar. You don't manage the automation. You just see the results."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is there a minimum contract?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No minimum term after the trial period. If it's not working within 60 days, you don't continue."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What if the automation doesn't work for my business?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We fix it. We built these systems for our own business — if something's not right, it's our problem to sort, not yours."
-          }
+**Prerequisite:** Item 1 hookify fix must be complete.
+
+### Implementation
+
+Add to `app/pricing/page.tsx` (or the relevant pricing route):
+
+```tsx
+export function PricingFAQSchema() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What's included in the £1,500 setup fee?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The setup fee covers the full build: scoping, configuration, integration with your existing tools, testing, and handover. You get a working automation from day one — not a template that needs configuring."
         }
-      ]
-    })
-  }}
-/>
+      },
+      {
+        "@type": "Question",
+        "name": "What does the monthly fee pay for?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ongoing hosting, monitoring, and support. If something breaks, we fix it. If you need a small change, we handle it. The monthly fee keeps your automation running and keeps us available when you need us."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does setup take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most businesses have a working automation within 48 hours of the initial call. Complex builds with multiple integrations take up to two weeks. We'll tell you the exact timeline before you commit."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I start with just one automation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Most clients do. We'll identify the one thing that saves you the most time first — usually lead capture or quoting — and start there. You can add more automations as your business grows."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to sign a long-term contract?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The monthly retainer is month-to-month. If you want to pause or stop, you can. The automations we've built remain yours — we'll hand over documentation so you know what you've got."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if I already use Simpro, Xero, or another system?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We work with them. Rora connects your existing tools — it doesn't replace them. If you're already using Simpro, Xero, or Google Workspace, we build around what you have, not over it."
+        }
+      }
+    ]
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
 ```
 
-**Status:** ⏳ Same hookify blocker as 1.1
+Add `<PricingFAQSchema />` inside the `<head>` section of the pricing page, or render it in the page component and let Next.js handle placement.
+
+Verify the schema at: https://search.google.com/test/rich-results
 
 ---
 
-### 1.3 — Google Business Profile
+## ITEM 3 — Google Business Profile
 
-**Why it matters:** The #1 local SEO action available. Rora won't appear in "AI consultant near me" or maps results without it. Postcard verification takes 2 weeks — start immediately.
+**What it is:** A free Google listing that shows Rora in local search results, Google Maps, and the Knowledge Panel on the right side of search. For local service businesses, this is often more valuable than the website at this stage.
 
-**Steps:**
-1. Go to `business.google.com`
-2. Create profile: Business name = "Rora", Category = "Business management consultant" (closest match)
-3. Address: Lytham St Annes, Lancashire FY8 (use office or home address — this is verified by postcard)
-4. Phone: add once available
-5. Website: `https://rorahq.co.uk`
-6. Description (use this exactly):
-   > Rora is an AI automation consultancy for small businesses in the Fylde Coast, Preston, and Lancashire. We automate lead capture, quotes, invoicing, and admin — built by a trades business owner who automated his own 6-person business first. Free AI assessment at rorahq.co.uk.
-7. Request postcard verification — allow 2 weeks
-8. While waiting: upload logo, add services, add opening hours
+**Why it matters:** A verified Google Business Profile is the single fastest path to appearing when someone in Blackpool or Lancashire searches for an AI consultant. It also feeds reviews, photos, and business information directly into Google Search. Do not delay this.
 
-**Secondary categories to add:**
-- "Information technology consultant"
-- "Software company" (if allowed as secondary)
+**Estimated time:** 15 minutes to create, ~2 weeks to receive the verification postcard.
 
-**Status:** 🔴 Not started — start today
+### Exact Steps
 
----
+1. Go to https://business.google.com
+2. Sign in with the Google account that will manage Rora's business presence (ideally a dedicated Google Workspace account, not a personal Gmail).
+3. Click "Manage now" or "Add your business."
+4. Enter the business name: **Rora**
+5. Choose the primary category: **Business Management Consultant** (most accurate available — do not use "Software Company" or "IT Company").
+6. Secondary categories to add: **Marketing Consultant**, **Computer Consultant**
+7. Select "I deliver goods and services to my customers" — Rora is a service-area business, not a walk-in premises.
+8. Set your service area:
+   - Blackpool
+   - Fylde
+   - Lancashire
+   - (optionally: "United Kingdom" for national reach)
+9. Add phone number (once confirmed WhatsApp Business number is live).
+10. Add website: https://rorahq.co.uk
+11. Choose verification method: **Postcard by mail**. Enter the Blackpool address. Postcard arrives in approximately 2 weeks.
 
-### 1.4 — Google Search Console
+### After Verification
 
-**Why it matters:** Without this, you don't know whether Google can crawl the site, and the sitemap isn't submitted.
+- Add all services: AI Automation, AI-Powered Website, Monthly AI Retainer, Free AI Assessment.
+- Write a business description (use this copy): "Rora is an AI automation consultancy based in Blackpool. We help UK small businesses automate their admin — lead capture, quoting, invoicing, and more. Built by Ryan Wilson, who cut his own quote time by 75% before doing the same for clients."
+- Upload at minimum: logo, a cover photo, and Ryan's headshot.
+- Set business hours.
+- Enable messaging (Google Business messaging connects to Gmail or the GBP app).
 
-**Steps:**
-1. Go to `search.google.com/search-console`
-2. Add property: `https://rorahq.co.uk` (URL prefix)
-3. Verify via HTML tag — add the meta verification tag to `app/layout.tsx`:
-   ```jsx
-   // In metadata object:
-   verification: {
-     google: 'YOUR_VERIFICATION_CODE_HERE'
-   }
-   ```
-4. Submit sitemap: `https://rorahq.co.uk/sitemap.xml` (already exists from April 27 session)
-5. Check coverage report — ensure 0 indexing errors
-
-**Status:** 🔴 Not started
+**Do not skip this item.** It is more important for local search visibility than any code change on the website.
 
 ---
 
-## Priority 2 — Website code fixes (can be batched in one PR)
+## ITEM 4 — Google Search Console: Sitemap Submission
 
-### 2.1 — OG Image colour (wrong hex)
+**What it is:** Google Search Console is the tool Google provides to monitor how it crawls and indexes your site. Submitting the sitemap tells Google exactly which pages exist and should be indexed.
 
-**File:** `app/opengraph-image.tsx`  
-**Issue:** Hardcoded periwinkle hex (#6C8EEF) — predates palette migration  
-**Fix:** Update to navy (#1B2430) background with cream (#F5F1EB) text and coral (#C8715A) accent
+**Why it matters:** Without sitemap submission, Google relies entirely on discovering pages through links. New sites with few external links can take months to be fully indexed. Submitting the sitemap can reduce this to days.
+
+**Prerequisite:** DNS access to Cloudflare (for verification).
+
+### Exact Steps
+
+1. Go to https://search.google.com/search-console
+2. Click "Add property."
+3. Choose "Domain" (not "URL prefix") and enter: `rorahq.co.uk`
+4. Google will display a DNS TXT record to add — copy it. It looks like: `google-site-verification=XXXXXXXXXXXXX`
+5. Go to Cloudflare DNS for rorahq.co.uk.
+6. Add a new TXT record:
+   - Name: `@`
+   - Content: the full verification string from Google
+   - TTL: Auto
+7. Return to Google Search Console and click "Verify." DNS propagation is usually instant on Cloudflare.
+8. Once verified, go to **Sitemaps** in the left sidebar.
+9. Enter: `https://rorahq.co.uk/sitemap.xml`
+10. Click "Submit."
+
+### After Submission
+
+- Check that the sitemap returns a 200 status and is valid XML. Visit https://rorahq.co.uk/sitemap.xml in a browser — it should list all key pages.
+- In Search Console, check "Coverage" after 24–48 hours to see if any pages are being excluded or throwing errors.
+- If any pages appear as "Excluded > Noindex", check that `robots.txt` and the Next.js metadata config are not accidentally noindexing production pages.
+
+---
+
+## ITEM 5 — OG Image Colour Update
+
+**What it is:** The Open Graph (OG) image is what appears when a link to rorahq.co.uk is shared on social media, WhatsApp, or iMessage. Currently, it uses an old periwinkle background (#6C8EEF) which no longer matches the brand.
+
+**Why it matters:** Every shared link is a brand impression. The wrong colours undermine credibility and visual consistency — especially important when sending a link to a potential client.
+
+**File to edit:** `app/opengraph-image.tsx`
+
+### Exact Change
+
+Locate the background colour value. It will look something like:
 
 ```tsx
-// Change:
-background: '#6C8EEF'
-
-// To:
-background: '#1B2430'
-
-// Change text colour:
-color: '#F5F1EB'
+// Current (old periwinkle):
+style={{ background: '#6C8EEF' }}
+// or
+fill="#6C8EEF"
+// or
+backgroundColor: '#6C8EEF'
 ```
 
----
-
-### 2.2 — Nav/content container mismatch
-
-**Files:** `components/layout/nav.tsx` and page components  
-**Issue:** Nav is `max-w-6xl`, content sections are `max-w-7xl` — creates a visible misalignment on wide screens  
-**Fix:** Make nav `max-w-7xl` to match content, OR change all content to `max-w-6xl` for a tighter layout
-
-**Recommendation:** Change all to `max-w-6xl`. At 7xl (80rem / 1280px), lines of body text become too long for comfortable reading. 6xl (72rem / 1152px) is the right cap for a consultancy site.
+Replace with:
 
 ```tsx
-// In nav.tsx — change:
-className="max-w-6xl mx-auto"
-
-// In all page components — change:
-className="max-w-7xl mx-auto"
-// To:
-className="max-w-6xl mx-auto"
+// Updated (navy):
+style={{ background: '#1B2430' }}
+// or
+fill="#1B2430"
+// or
+backgroundColor: '#1B2430'
 ```
 
----
-
-### 2.3 — Skip-to-content link
-
-**File:** `app/layout.tsx`  
-**Why:** Accessibility requirement (WCAG 2.4.1) + small SEO signal  
-**Fix:** Add as the very first element inside `<body>`:
+For text/foreground elements, ensure text colour is set to cream `#F5F2ED`:
 
 ```tsx
-<a
-  href="#main-content"
-  className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-navy focus:text-cream focus:rounded"
->
-  Skip to main content
-</a>
+// Text colour:
+color: '#F5F2ED'
 ```
 
-Add `id="main-content"` to the `<main>` element.
+The complete updated ImageResponse should produce: navy `#1B2430` background, cream `#F5F2ED` text, Rora wordmark and tagline.
+
+After editing, clear Cloudflare cache and verify the new image appears at: https://rorahq.co.uk/opengraph-image
+
+Test share previews at: https://developers.facebook.com/tools/debug/ and https://cards-dev.twitter.com/validator
 
 ---
 
-### 2.4 — Company registration in footer
+## ITEM 6 — Container Width Mismatch
 
-**File:** `components/layout/footer.tsx`  
-**Fix:** Add to footer bottom bar:
+**What it is:** The site navigation uses `max-w-6xl` (72rem / 1152px) while content areas use `max-w-7xl` (80rem / 1280px). This creates a visible misalignment: content extends 128px wider than the nav on large screens, breaking visual alignment.
+
+**Why it matters:** This is a layout integrity issue. It looks unpolished on wide monitors, which is where potential clients reviewing the site on a desktop will notice it. It also affects perceived professionalism.
+
+**File to edit:** `components/layout/nav.tsx`
+
+### Exact Change
+
+Find the nav container element — it will look like:
 
 ```tsx
-<p className="text-sm text-muted">
-  Pier 7 Projects Ltd · Company No. 12894305 · Registered in England and Wales
-</p>
+<div className="max-w-6xl mx-auto px-4 ...">
+```
+
+Change `max-w-6xl` to `max-w-7xl`:
+
+```tsx
+<div className="max-w-7xl mx-auto px-4 ...">
+```
+
+One line. One class name. Verify on a wide monitor after deployment that nav and content now align.
+
+---
+
+## ITEM 7 — Skip-to-Content Link
+
+**What it is:** A hidden link that appears only when keyboard users focus it (e.g., pressing Tab on page load). It allows keyboard and screen reader users to skip over the navigation and jump directly to the main content.
+
+**Why it matters:** Required for WCAG 2.1 AA compliance (the UK accessibility standard under the Equality Act 2010). Failing this is both an accessibility issue and a legal risk. It is also a ranking signal — Google's quality guidelines reference accessibility as part of page quality assessment.
+
+**File to edit:** `app/layout.tsx`
+
+### Exact Addition
+
+Add the skip link immediately after the opening `<body>` tag, before `<header>`:
+
+```tsx
+<body>
+  <a
+    href="#main-content"
+    className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 bg-navy text-cream px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-cream"
+  >
+    Skip to main content
+  </a>
+  <header>
+    {/* existing header/nav */}
+  </header>
+  <main id="main-content">
+    {/* existing main content */}
+  </main>
+```
+
+If `bg-navy` and `text-cream` are not Tailwind utility classes in your config, replace with inline hex values or the appropriate config class names for `#1B2430` and `#F5F2ED`.
+
+Also add `id="main-content"` to the `<main>` element if it doesn't already have one.
+
+---
+
+## ITEM 8 — Footer Company Registration
+
+**What it is:** Legal identification of the registered company behind Rora. Required under the Companies Act 2006 for all UK companies with a website.
+
+**Why it matters:** Legally required. Also a trust signal — showing a company registration number confirms Rora is a real, verifiable business. This matters to prospective clients who are evaluating a £1,500+ purchase.
+
+**File to edit:** Footer component (likely `components/layout/footer.tsx` or similar).
+
+### Exact Copy to Add
+
+Add this sentence to the footer, in a small text size below the main footer content:
+
+```
+Rora is a trading name of Pier 7 Projects Ltd. Company number 12894305. Registered in England and Wales.
+```
+
+This should sit alongside (or just below) copyright information. It does not need to be prominent — small text, subdued colour is appropriate — but it must be on every page via the shared footer component.
+
+---
+
+## ITEM 9 — ICO Registration
+
+**What it is:** Registration as a data controller with the Information Commissioner's Office (ICO) under the UK GDPR. If Rora collects any personal data (names, emails, enquiry forms, assessment responses), registration is required.
+
+**Why it matters:** Legally required under the Data Protection Act 2018. Penalty for non-registration: up to £4,000 fine. Cost to register: £52/year (tier 1 — turnover under £632,000). This is not optional.
+
+### Steps to Register
+
+1. Go to https://ico.org.uk/registration
+2. Complete the self-assessment — answer "yes" to processing personal data.
+3. Select Tier 1 (small businesses/sole traders) — £52/year.
+4. Pay by card.
+5. You will receive a registration number in the format: **ZA followed by 6 digits** (e.g., ZA123456).
+6. The registration is valid for 12 months and must be renewed annually.
+
+### After Registration
+
+Open `app/privacy-policy/page.tsx` and find the ICO_NUMBER placeholder. Replace it with the actual registration number received:
+
+```tsx
+// Find:
+ICO_NUMBER
+// or:
+[ICO registration number]
+
+// Replace with your actual number, e.g.:
+ZA123456
+```
+
+Also add the ICO registration number to the footer alongside the company registration details:
+
+```
+ICO registration: ZA123456
 ```
 
 ---
 
-### 2.5 — "Service 1/2/3/4" internal labels
+## ITEM 10 — WhatsApp Business Number
 
-**Issue:** Placeholder service names in data arrays (identified in April 27 audit)  
-**Fix:** Search codebase for "Service 1", "Service 2" etc. and replace with real service names:
-- Service 1 → "Lead & Enquiry Automation"
-- Service 2 → "Quote & Job Automation"
-- Service 3 → "Invoice & Admin Automation"
-- Service 4 → "Custom Tools & Dashboards"
+**What it is:** Two placeholder links in the codebase (`[WHATSAPP]`) that point to the confirmed WhatsApp Business number — one in the footer and one on the contact page.
+
+**Why it matters:** WhatsApp is the primary contact channel for many trades businesses and hospitality clients. Missing or broken WhatsApp links are a direct conversion loss — a plumber who wants to send a quick message will leave if there's no easy option.
+
+### Steps
+
+1. Set up WhatsApp Business on the confirmed number (if not already done).
+2. Search the codebase for `[WHATSAPP]`:
 
 ```bash
-grep -r "Service [1-4]" app/ components/
+grep -r "\[WHATSAPP\]" --include="*.tsx" --include="*.ts" .
+```
+
+3. Replace each instance with the WhatsApp click-to-chat link format:
+
+```
+https://wa.me/44XXXXXXXXXX
+```
+
+Where `44XXXXXXXXXX` is the UK number without the leading 0, e.g., `447700900123`.
+
+4. For the link text in the footer, use: `Chat on WhatsApp →`
+5. For the contact page, the button should read: `Message us on WhatsApp →`
+
+---
+
+## ITEM 11 — Ryan's Photo (About Page)
+
+**What it is:** A real headshot of Ryan Wilson for the /about page. Currently the page has a placeholder or missing image.
+
+**Why it matters:** This is the single highest-converting missing element on the site. Prospective clients spending £1,500–£2,200+ on an AI system need to trust the person building it. A real face — specifically Ryan's face — converts significantly better than any written claim. Google's E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) guidelines also specifically reward evidence of real people behind a business.
+
+### Photo Specification
+
+- Minimum resolution: 400×400px. 600×600 or higher preferred.
+- Format: JPEG or WebP. Name it `ryan-wilson-rora.jpg` (descriptive filenames contribute marginally to image SEO).
+- Style: Natural light, neutral or uncluttered background, approachable expression. Business casual — not formal corporate.
+- Crop: Circular crop applied in CSS (`rounded-full`). Ensure the face is centred and not cut off.
+- Location: `/public/images/ryan-wilson-rora.jpg`
+
+**A phone selfie in good light is better than waiting for a professional shoot.** Do not block the site launch or the About page on this — upload a decent phone photo now and replace with a professional shot later. The absence of any photo is a far bigger problem than an imperfect one.
+
+### Implementation
+
+```tsx
+<Image
+  src="/images/ryan-wilson-rora.jpg"
+  alt="Ryan Wilson, founder of Rora — AI automation consultant, Blackpool"
+  width={400}
+  height={400}
+  className="rounded-full"
+/>
 ```
 
 ---
 
-### 2.6 — WhatsApp Business links (restore when ready)
+## ITEM 12 — robots.txt Verification
 
-**Files:** `components/layout/footer.tsx`, `app/contact/page.tsx`  
-**Status:** Removed April 27 pending WhatsApp Business number confirmation  
-**Action when number is confirmed:** Restore the 2 footer links using the business number. Use format: `https://wa.me/44XXXXXXXXXX`
+**What it is:** The `robots.txt` file tells search engine crawlers which pages they are and aren't allowed to index. Misconfigured `robots.txt` can accidentally block the entire site from being indexed.
 
----
+**Why it matters:** If `Disallow: /` is present in production (a common mistake left over from staging config), Google will not index any page. This is silent — no error, just no traffic.
 
-## Priority 3 — Content gaps (Ryan's actions required)
+### Verification Steps
 
-### 3.1 — Ryan's photo on About page
+1. Visit https://rorahq.co.uk/robots.txt in a browser.
+2. Confirm the file contains at minimum:
 
-**Why it matters:** The #1 conversion gap on the site. "Built by someone who automated their own business first" lands differently with a face attached.  
-**Spec:** One genuine photo. Not a studio portrait. On site, at a desk, or at the business — real setting. Circular crop at 400×400. Warm, natural light.  
-**File location when ready:** `public/images/ryan-wilson.jpg`  
-**Implementation:** Add to `app/about/page.tsx` in the founder section.
+```
+User-agent: *
+Disallow: /api/
+Allow: /
 
----
+Sitemap: https://rorahq.co.uk/sitemap.xml
+```
 
-### 3.2 — Olive Tree real case study numbers
+3. Confirm:
+   - `Disallow: /` is NOT present (this would block the whole site).
+   - `/api/*` routes are disallowed (prevents crawling of API endpoints).
+   - The sitemap URL is listed.
+   - `noindex` is not set in `next.config.js` or in a meta robots tag in `app/layout.tsx` for the production environment.
 
-**Status:** Contract signed, £1,750 setup / £450/mo. Phase 1 email automation live.  
-**Needed:** Before/after metrics — what has changed since the automation went live?  
-- Email response time: before → after
-- Lead volume captured: before → after
-- Any specific result Ryan can cite
+4. Check for a `<meta name="robots" content="noindex">` tag in the HTML source of the homepage. If present on production, remove it.
 
-**Once available:** Update `/case-studies` page Olive Tree card with real numbers. Remove "placeholder" status.
+### To Check for noindex in Next.js config
 
----
+In `app/layout.tsx`, look for:
 
-### 3.3 — ICO Registration
+```tsx
+export const metadata: Metadata = {
+  robots: {
+    index: false,  // <-- THIS IS THE PROBLEM
+  }
+}
+```
 
-**Status:** Pending (£52 at ico.org.uk)  
-**Blocker:** Cannot sign Data Processing Agreements with clients until this is complete.  
-**Action:** Register at ico.org.uk/registration. Update `app/privacy-policy/page.tsx` — replace "ICO registration is in progress" with the actual ICO registration number.
+In production, this should be:
 
----
+```tsx
+robots: {
+  index: true,
+  follow: true,
+}
+```
 
-## Priority 4 — Performance (nice-to-have, already mostly good)
-
-### 4.1 — Core Web Vitals baseline
-
-The site is Next.js 15 on Vercel with static rendering — it should already be fast. Verify:
-1. Run PageSpeed Insights on `https://rorahq.co.uk`
-2. Target: LCP < 2.5s, INP < 200ms, CLS < 0.1
-3. If LCP is slow: check the Remotion demo video — ensure it has `loading="lazy"` and a poster image
-4. Run both mobile and desktop — mobile is the priority for this audience
-
----
-
-### 4.2 — Canonical tag check
-
-The `vercel.json` www→non-www redirect is in place (from April 27). Verify:
-- `https://www.rorahq.co.uk` → 301 → `https://rorahq.co.uk` ✅
-- `https://ai-consultancy-web.vercel.app` → should not be indexed. Confirm `robots: { index: false }` is set on the Vercel preview domain or that it's not accessible publicly.
+Or simply not set (the default is indexable).
 
 ---
 
-## Full checklist (copy this into Todoist)
+## Quick Reference: Priority Order
 
-**Blockers — fix first:**
-- [ ] Add hookify exception for `application/ld+json` scripts
-- [ ] Add LocalBusiness JSON-LD schema to `app/layout.tsx`
-- [ ] Add FAQ JSON-LD schema to `app/pricing/page.tsx`
-- [ ] Start Google Business Profile verification (2-week lead time)
-- [ ] Submit sitemap to Google Search Console
-
-**Code fixes — batch PR:**
-- [ ] Update OG image colours in `app/opengraph-image.tsx`
-- [ ] Fix container mismatch (nav → `max-w-6xl` everywhere)
-- [ ] Add skip-to-content link in `app/layout.tsx`
-- [ ] Add company reg to footer in `components/layout/footer.tsx`
-- [ ] Fix "Service 1/2/3/4" labels in data arrays
-- [ ] Update all page metadata with new title tags and meta descriptions from `07-seo-onpage.md`
-
-**Ryan's actions:**
-- [ ] Register ICO (£52 at ico.org.uk)
-- [ ] Get and add Ryan's photo to about page
-- [ ] Confirm Olive Tree case study numbers
-- [ ] Confirm WhatsApp Business number → restore footer links
-
-**Content:**
-- [ ] Expand `/ai-for-electricians` with Simpro automation section
-- [ ] Create `/simpro-automation` page (or redirect to electricians page with Simpro anchor)
-- [ ] Add 3 local geo terms to about page copy (Lytham St Annes, Preston, Fylde Coast)
-- [ ] Write first blog article: "How we cut quote time from 47 minutes to 12"
+| # | Item | Effort | Blocks |
+|---|---|---|---|
+| 1 | JSON-LD LocalBusiness schema | Medium (hookify fix + schema component) | Local search, Knowledge Panel |
+| 2 | FAQ schema on pricing page | Low (copy-paste JSON-LD) | Rich results in search |
+| 3 | Google Business Profile | Low-medium (15 min setup + 2 week postcard wait) | Local pack, Maps, all local rankings |
+| 4 | Google Search Console sitemap | Low (20 min) | Knowing if indexing is working at all |
+| 5 | OG image colour | Very low (one CSS value) | Brand consistency on social/WhatsApp shares |
+| 6 | Container width mismatch | Very low (one Tailwind class) | Visual polish |
+| 7 | Skip-to-content link | Low (copy-paste JSX) | Accessibility compliance |
+| 8 | Footer company reg | Very low (one sentence) | Legal compliance |
+| 9 | ICO registration | Low (£52, 20 min) | Legal compliance |
+| 10 | WhatsApp number | Low (find/replace) | Conversion on contact page |
+| 11 | Ryan's photo | Medium (logistics, not code) | Highest single conversion gap |
+| 12 | robots.txt verification | Very low (browser check) | Confirms none of the above SEO work is wasted |

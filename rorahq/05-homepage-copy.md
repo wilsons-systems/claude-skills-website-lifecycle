@@ -1,223 +1,162 @@
-# Rora — Homepage Copy (Full Rewrite)
-
-**Skill:** `landing-page-copy`  
-**Date:** May 2026  
-**Conversion goal:** Free AI Assessment completion → discovery call booking  
-**Brand voice:** Quietly confident, straight-talking, reliably human  
-**Status:** Ready to implement in `app/page.tsx`
+# Rora Homepage Copy
+**File:** `05-homepage-copy.md`
+**Status:** Production-ready draft — all sections complete
+**Locked elements:** Hero headline. Do not change.
+**Note:** Testimonial quote marked [OLIVE TREE QUOTE] — insert real quote before launch.
 
 ---
 
-## Section 1 — Hero
+## SECTION 1 — HERO
 
-**Pre-heading (small label above headline):**
-> AI automation for small businesses
+### Headline (LOCKED)
+> rora — Your business, running in the background.
 
-**Headline:**
-> Your business, running in the background.
+### Sub-headline
+You're losing jobs to voicemails you haven't heard and emails you'll get to later. We fix the bits of your business that only work when you're watching them.
 
-*Keep the locked tagline. It is the strongest line on the page.*
+*[38 words. Leads with the owner's problem — the missed call, the unread email — before any mention of product or features.]*
 
-**Sub-headline:**
-> Most businesses run on four systems that don't talk to each other, leads that go cold overnight, and quotes that take an hour to write. We connect them, automate the work, and hand you back your evenings.
+### Reassurance line
+Nothing to install, nothing to learn. We build it, we run it, we keep it working.
 
-**Reassurance line (below sub-headline, smaller weight):**
-> Nothing new to learn. We connect what you already use.
+### Trust line
+Ryan built this for his own electrical business first. Quote time down 75%. Lead entry gone. Invoice backlog cleared. Then he started doing it for everyone else.
 
-**Primary CTA:**
-> See what's possible for your business →
+### Primary CTA
+**Book your free 30-minute AI assessment →**
 
-*Links to `/assessment`*
-
-**Social proof hook (directly under CTA — small text):**
-> Trusted by trades businesses across the Fylde Coast and Lancashire
+*Sub-copy under CTA:* No commitment. We'll tell you exactly what's possible — and what isn't.
 
 ---
 
-## Section 2 — Proof bridge (full-width centred, large type)
+## SECTION 2 — SOCIAL PROOF
 
-*This section acts as a pivot — it acknowledges the scepticism and answers it before the visitor asks.*
+### Stat cards (3)
 
-**Headline:**
-> Built by someone who automated their own business first.
+**Card 1**
+> **75%**
+> Reduction in quote time at Wilsons Systems — from 45 minutes per quote to under 10.
 
-**Three-beat sub-line:**
-> Quote time: 47 minutes → 12.  Leads: captured overnight, not next morning.  Invoices: chased automatically, not by hand.
+**Card 2**
+> **Month 1**
+> Cleared 50+ invoices outstanding at Wilsons Systems. Lead capture fully automated from day one.
 
-**Body:**
-> These aren't projections. They're what happened when we fixed our own business. Rora does the same for yours.
+**Card 3**
+> **48 hrs**
+> Average time from first conversation to a working automation in your business.
 
----
+### Client testimonial
 
-## Section 3 — Problem
-
-*Make the pain specific. The visitor should recognise themselves.*
-
-**Section label:** THE PROBLEM
-
-**Headline:**
-> The admin doesn't stop when you leave site.
-
-**Body:**
-> A lead comes in at 7pm. Nobody enters it until tomorrow. By then the prospect has already called someone else.
->
-> A job finishes on Friday. The invoice doesn't go out until Tuesday. That's four days of cash sat on a spreadsheet.
->
-> You spend 45 minutes writing a quote that took 15 minutes to spec. Then you do it again. And again.
->
-> The work is good. The business runs fine. But the admin is always one step behind.
+**[OLIVE TREE QUOTE]**
+> *"[Real quote to be inserted — Olive Tree restaurant, Blackpool]"*
+> — [Name], Olive Tree Restaurant
 
 ---
 
-## Section 4 — Solution
+## SECTION 3 — THE PROBLEM
 
-**Section label:** WHAT WE BUILD
+### Heading
+The work that should take an hour takes a day. Here's why.
 
-**Headline:**
-> From your first lead to your last invoice — we automate the lot.
+### Problem cards (3)
 
-**Intro paragraph:**
-> Most clients start with one thing. Automating quotes, or capturing leads, or chasing invoices. That first fix usually proves the point. Then we go further.
+**Pain 1 — Missed leads**
+You know this feeling. An enquiry comes in at 6pm on a Friday. You're still on site. By Monday morning, they've already booked someone else. You didn't even know it arrived.
 
-**Three service blocks:**
+**Pain 2 — Manual quoting**
+You know this feeling. Every quote is 45 minutes of your time — pulling numbers, typing it up, formatting it, sending it. You do twelve a week. That's nine hours of quoting. Nine hours you're not getting paid for.
 
----
-
-**Block 1: Lead & Enquiry Automation**
-
-> An email lands at 10pm. By morning it's a lead in your system, the prospect has an auto-reply, and you've got a job to look at. Nothing touched — just handled.
->
-> Works with: Gmail, WhatsApp, website contact forms, Instagram DMs.
-
-**Mini CTA:** What does this look like? →
+**Pain 3 — Chasing invoices**
+You know this feeling. The job's done. The invoice is sent. And then nothing. You're back on the tools, and somewhere in a spreadsheet there's a list of people who owe you money that you'll get to on Friday. You don't get to it on Friday.
 
 ---
 
-**Block 2: Quote & Job Automation**
+## SECTION 4 — THE SOLUTION
 
-> Describe the job in plain English — or by voice note on the drive over. We produce a structured quote: line items, labour, materials, margin. Ready to send before you've started the next job.
->
-> Works with: Simpro, ServiceM8, plain email — we meet your system, not the other way round.
+### Heading
+We plug the gaps. You get your time back.
 
-**Mini CTA:** See a live example →
+### Intro paragraph
+Most businesses start with one thing and see the difference immediately. Whether it's a chatbot that captures leads at midnight, a quoting system that does in minutes what took you an hour, or invoices that send themselves — we build what you need, make it work, and keep it running.
 
----
+### Service cards (3)
 
-**Block 3: Admin & Invoicing Automation**
+**Card 1 — AI Automation**
+**From £1,500 + £200/mo**
+Lead capture, quoting, invoicing, email-to-CRM, voice-to-text, WhatsApp. If it's admin, we can automate it.
+[See what's included →]
 
-> Every Monday morning: what's overdue, what needs chasing, what's at risk. Invoices chased automatically at set intervals. No more calls you'd rather not make.
->
-> The backlog doesn't come back.
+**Card 2 — AI-Powered Website**
+**£1,500 + £150/mo**
+PageSpeed 99. Built-in chatbot. WhatsApp integration. Full SEO. A website that actually works for your business — not just a brochure that sits there.
+[See what's included →]
 
-**Mini CTA:** How does it run? →
+**Card 3 — Monthly AI Retainer**
+**From £300/mo**
+We stay on, keep building, keep improving. Priority support. New automations as you need them.
+[See what's included →]
 
----
-
-**Bespoke build note (below three blocks):**
-
-> Need something more specific? That's where we start. Custom dashboards, client portals, live job trackers, sector-specific tools — if it's a recurring headache, it's buildable.
-
----
-
-## Section 5 — Proof (case study card)
-
-**Section label:** REAL RESULTS
-
-**Headline:**
-> A 6-person electrical business. Before and after.
-
-**Case study card — Wilsons Electrical:**
-
-> **The situation:** 50+ overdue invoices. Quotes taking 47 minutes each. Leads coming in overnight with no one to respond.
->
-> **What we built:** AI quote generation from voice note. Automated lead capture from email and WhatsApp. Daily admin briefing with overdue invoice list.
->
-> **The result:**
-> - Quote time: 47 min → 12 min
-> - Invoice backlog: cleared in first month
-> - Overnight leads: responded to automatically, in Simpro by morning
-> - Hours saved per week: ~6
->
-> *This is our own business. The numbers are real.*
-
-**CTA under card:**
-> Read the full case study →  
-> Or: See your own numbers with the free assessment →
+### Service bridge line
+Not sure where to start? The free assessment takes 13 minutes. You'll get a personalised report showing exactly where automation would have the biggest impact in your business.
 
 ---
 
-## Section 6 — Objection handling
+## SECTION 5 — PROOF
 
-*The three objections this audience brings: "it won't work for my business", "I'll have to learn something new", "it'll cost too much".*
+### Heading
+What it actually looks like in a real business.
 
-**Section label:** THE HONEST BIT
+### Case study card — Wilsons Systems (Electrical)
 
-**Headline:**
-> Three questions we get asked every time.
+**The business:** Ryan Wilson, sole trader electrician. Blackpool-based. Running his own jobs, doing his own admin, quoting his own work.
 
-**Q&A format:**
+| | Before | After |
+|---|---|---|
+| **Quoting** | 40–60 minutes per quote | Under 10 minutes |
+| **Lead capture** | Manual entry from email and voicemail | Fully automated — every lead logged instantly |
+| **Invoicing** | 50+ invoices outstanding. Hours spent chasing. | Cleared in month 1. Automated reminders running. |
+| **Admin hours/week** | ~9 hours in quoting alone | Under 2 hours total |
 
----
+**The outcome:** Ryan stopped losing evenings to admin. Quotes go out faster. Leads don't fall through gaps. The business still runs when he's on site.
 
-**Q: Will this actually work for a business like mine?**
-
-> We only take on clients we're confident we can improve. The free assessment tells you honestly — whether that's a yes with a clear plan, or a "not right now, but here's why."
-
----
-
-**Q: Do I need to learn a new system?**
-
-> No. We connect what you already use — your email, your quoting software, your calendar. You don't touch the automation. You just see the results.
+[Read the full case study →]
 
 ---
 
-**Q: What does it cost?**
+## SECTION 6 — OBJECTION HANDLING
 
-> Most clients start from around £150/month. No setup fees on trial builds. No long contracts — if it's not working within 60 days, you don't continue.
+### Heading
+The three things people usually ask us.
 
----
+### Objection cards (3)
 
-## Section 7 — Final CTA
+**"We already have software — Simpro, Xero, whatever."**
+Good. We work with it. Rora connects your existing tools, it doesn't replace them. If anything, the automations are more useful when they're built around systems you already know.
 
-**Headline:**
-> See what your business could look like.
+**"This sounds like a lot to set up."**
+It takes 48 hours from your first conversation to a working automation. You don't touch anything — we build it, test it, and hand it over running. Most clients say the first week feels strange because things are just happening without them.
 
-**Body:**
-> 13 questions. 3 minutes. We'll tell you exactly where AI makes a difference in your business — and what it would cost.
-
-**Primary CTA (large, coral button):**
-> Get your free AI assessment →
-
-**Secondary CTA (text link below):**
-> Or get in touch directly → hello@rorahq.co.uk
-
-**Reassurance micro-copy (below CTA):**
-> No sales call required to get your report. No commitment. Just an honest assessment.
+**"What if I need to change something later?"**
+You call us. That's what the monthly retainer is for. The system isn't locked — it's yours, and it grows as your business does.
 
 ---
 
-## Implementation notes
+## SECTION 7 — FINAL CTA
 
-**File:** `app/page.tsx`
+### Heading
+Find out what automation would actually mean for your business.
 
-**Changes from current version:**
-1. Section 1 sub-headline: replace with new version above
-2. Section 2 (pivot/proof bridge): update numbers to match Wilsons actual figures
-3. Section 3 (problem): replace "tangle of disconnected systems" copy with specific scenarios above
-4. Section 4 (solution): replace service card copy with outcome-led versions above
-5. Section 5 (case study): ensure Olive Tree numbers are added once Ryan provides final data; Wilsons card should show real numbers as above
-6. Section 6 (FAQ/objection): check current FAQ items — ensure all 3 objections are covered with direct, plain-English answers
-7. Section 7 (final CTA): change "Find out what's possible" → "See what your business could look like"
+### Primary CTA block
+**Take the free AI assessment — 13 questions, 13 minutes.**
+You'll get a personalised AI Readiness Report showing where you're losing time, what can be automated, and what it's likely to cost.
 
-**Ryan's photo:** Needs adding to section 2 or section 5. Circular crop, genuine setting. Without it, section 2 reads as a claim. With it, it reads as a person making a claim — far higher trust signal.
+After that: a free 30-minute call with Ryan. No hard sell. No jargon. Just a straight conversation about whether this makes sense for you.
 
----
+**[Start your free assessment →]**
 
-## Template note for client work (The Skinician)
+### Secondary CTA
+Just want to talk? **Email ryan@rorahq.co.uk** and we'll get back to you same day.
 
-The 7-section structure adapts directly. Swap:
-- Section 2: Ryan's automation story → Lauren's treatments + appointment workflow story
-- Section 3: "admin after site" → "enquiries missed on Instagram overnight"
-- Section 5: Wilsons case study card → Skinician results (after 60 days)
-- Section 6: "learn a new system?" objection stays. Cost objection: "£200/month, 30 days notice"
-- Section 7: CTA → book a free consultation rather than assessment quiz
+### Footer trust line
+Built in Blackpool. Working across Lancashire and the UK.
+Rora is a trading name of Pier 7 Projects Ltd.

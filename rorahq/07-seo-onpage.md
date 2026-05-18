@@ -1,295 +1,280 @@
 # Rora — On-Page SEO Audit
-
-**Skill:** `seo-onpage`  
-**Date:** May 2026  
-**Scope:** All 7 main pages + top 3 sector pages  
-**Status:** Audit complete — rewrites ready to implement
-
----
-
-## Audit method
-
-For each page: score current title/meta/H1 against keyword intent, then provide the replacement. Priority: Critical (blocks ranking), Important (significant impact), Nice-to-have (polish).
+**File:** `07-seo-onpage.md`
+**Status:** Production-ready — implement before first Google Search Console submission
+**Scope:** All key pages. Based on current site structure and known content.
+**Note:** Where current state is marked "assumed", verify against live site before implementing.
 
 ---
 
-## Page 1 — Homepage (`/`)
+## Page Audit Table
 
-**Target query:** "AI consultant Lytham St Annes" / "AI automation small business Lancashire"
+### 1. Homepage (/)
 
-**Current title tag:**
-> Rora — AI Automation for Small Businesses
-
-**Assessment:** No geo. No specific audience signal. Generic.
-
-**New title tag:**
-> Rora — AI Automation for Small Businesses | Lytham St Annes, Lancashire
-
-**Current meta description:**
-> *(likely auto-generated or missing)*
-
-**New meta description:**
-> We built AI systems for our own 6-person trades business — cut quote time by 75%, automated lead capture, cleared a 50-invoice backlog. Now we do the same for small businesses across the Fylde Coast and Lancashire. Free assessment →
-
-**Current H1:**
-> Your business, running in the background.
-
-**Assessment:** ✅ Keep as-is. This is the headline, not the SEO H1 — but as the hero, it's fine. Add a visually-hidden SEO-oriented H1 before the hero, or ensure the page description in the metadata section carries the keyword weight.
-
-**Internal linking opportunities:**
-- Link "Free AI Assessment" in hero CTA to `/assessment`
-- Link service mentions ("quotes", "lead capture", "invoicing") to `/what-we-build` specific sections
-- Link the Wilsons case study to `/case-studies`
-
-**Priority: Critical** — geo terms completely missing from title.
-
----
-
-## Page 2 — Services / What We Build (`/what-we-build`)
-
-**Target query:** "AI automation for small business UK" / "automate quotes trades"
-
-**Current title tag:**
-> What We Build — Rora
-
-**New title tag:**
-> AI Automation for Trades & Small Businesses — What Rora Builds
-
-**Current meta description:**
-> *(missing or generic)*
-
-**New meta description:**
-> Lead capture, quote automation, invoice chasing, custom admin tools — built for real small businesses. From one workflow to your entire operation. See what we build and what it costs.
-
-**Current H1:**
-> What We Build
-
-**New H1 (update `<h1>` in page component):**
-> AI automation for trades businesses and local SMBs
-
-**Internal linking:**
-- Each service section should link to the relevant sector page (e.g. "If you're a trades business →" to `/ai-for-electricians`)
-- Link to `/assessment` ("Not sure what you need? Start with the free assessment")
-
-**Priority: Important**
-
----
-
-## Page 3 — Pricing (`/pricing`)
-
-**Target query:** "AI automation pricing UK" / "how much does AI automation cost small business"
-
-**Current title tag:**
-> Pricing — Rora
-
-**New title tag:**
-> AI Automation Pricing for Small Businesses — Rora
-
-**New meta description:**
-> Most clients start from £150/month. No lock-in, no long contracts. See what's included and what to expect — or start with a free AI assessment and we'll scope it for your business.
-
-**H1 (currently likely "Pricing" or "Our Packages"):**
-
-**New H1:**
-> What AI automation costs — and what you get for it
-
-**FAQ section additions (for FAQ schema in Step 8):**
-Add these explicitly as `<details>` or accordion items so they can receive FAQ schema:
-- "How much does AI automation cost for a small business?"
-- "Is there a contract or minimum term?"
-- "What's included in the monthly fee?"
-- "Can I start with just one automation?"
-- "What if it doesn't work for my business?"
-
-**Priority: Important**
-
----
-
-## Page 4 — About (`/about`)
-
-**Target query:** "AI consultant Lytham St Annes" / "Rora AI" + brand searches
-
-**Current title tag:**
-> About — Rora
-
-**New title tag:**
-> About Rora — AI Automation Consultancy | Lytham St Annes
-
-**New meta description:**
-> Ryan Wilson is a NICEIC electrician from Lytham St Annes who automated his own 6-person trades business with AI — and now does the same for local businesses across the Fylde Coast, Preston, and Lancashire.
-
-**H1 (likely "About" or "About Rora"):**
-
-**New H1:**
-> Built by a trades business owner, for trades business owners
-
-**Content improvements:**
-- Add explicit mention of Lytham St Annes as base location
-- Add service area mention: "Serving businesses across the Fylde Coast, Preston, and Lancashire"
-- Add Ryan's photo (highest single conversion gap — see voice audit)
-- Add company details: Pier 7 Projects Ltd, Co. No. 12894305
-
-**Priority: Critical** — currently no geo signals on About page.
-
----
-
-## Page 5 — Case Studies (`/case-studies`)
-
-**Target query:** "AI automation case study UK trades" / "Simpro automation results"
-
-**Current title tag:**
-> Case Studies — Rora
-
-**New title tag:**
-> AI Automation Case Studies — Real Results for UK Trades Businesses | Rora
-
-**New meta description:**
-> How a 6-person electrical business cut quote time from 47 minutes to 12, automated overnight lead capture, and cleared a 50-invoice backlog with AI. Real numbers, real business.
-
-**H1:**
-
-**New H1:**
-> What AI automation actually delivers — real case studies
-
-**Content notes:**
-- Olive Tree case study: add real numbers once Ryan has them (month 1 email automation results)
-- Wilsons card should show all 4 metrics (quote time, invoice backlog, leads, hours saved)
-- Add a "This is our own business" badge/note to the Wilsons card — it's the strongest trust signal on the site
-
-**Priority: Important**
-
----
-
-## Page 6 — Contact (`/contact`)
-
-**Target query:** "AI automation consultant Lytham St Annes contact" / brand navigational
-
-**Current title tag:**
-> Contact — Rora
-
-**New title tag:**
-> Contact Rora — AI Automation for Fylde Coast & Lancashire Businesses
-
-**New meta description:**
-> Get in touch with Rora. Based in Lytham St Annes, serving businesses across Preston, Blackpool, and Lancashire. Or start with a free AI assessment — no call required.
-
-**H1:**
-
-**New H1:**
-> Get in touch
-
-*(H1 can stay simple on contact pages — the title/meta carry the keyword weight)*
-
-**Content improvements:**
-- Add "Based in Lytham St Annes, Fylde Coast" somewhere visible on the page
-- Add company registration to footer if not already there
-- Once WhatsApp Business number is confirmed: restore WhatsApp link
-
-**Priority: Important**
-
----
-
-## Page 7 — Free Assessment (`/assessment`)
-
-**Target query:** "free AI assessment small business UK" / "AI readiness check"
-
-**Current title tag:**
-> Free AI Assessment — Rora
-
-**New title tag:**
-> Free AI Readiness Assessment for Small Businesses — Rora
-
-**New meta description:**
-> 13 questions. 3 minutes. Get a personalised AI readiness report showing exactly where AI could help your business and what it would cost. Free — no sales call required.
-
-**H1:**
-
-**New H1:**
-> Find out how AI-ready your business is — free assessment
-
-**Content improvements:**
-- Add "No sales call required to get your report" copy near the submit button
-- Add a brief "What you'll get" list before the quiz starts:
-  - Your AI readiness score (0–100)
-  - 3 specific recommendations for your business
-  - Indicative costs
-  - Honest assessment of what's viable
-
-**Priority: Important**
-
----
-
-## Sector Page 1 — AI for Electricians (`/ai-for-electricians`)
-
-**Target query:** "AI for electricians UK" / "Simpro automation" / "AI quote generator for electricians"
-
-**Current title tag:**
-> AI for Electricians — Rora
-
-**New title tag:**
-> AI Automation for Electricians | Simpro Integration & Quote Generation — Rora
-
-**New meta description:**
-> We built AI quote generation and lead automation for our own electrical business. Cut quote time from 47 minutes to 12. Automated lead capture from Gmail and WhatsApp. Works with Simpro. Free assessment →
-
-**H1:**
-
-**New H1:**
-> AI automation for electrical contractors — built by one of us
-
-**Content expansion (currently thin — needs this):**
-- Add Simpro integration section: "The only AI consultancy with deep Simpro expertise"
-- Explain the voice-to-quote workflow specifically for electricians
-- Add a "What Simpro automation looks like" walkthrough (3 steps)
-- Link to Wilsons case study
-
-**Priority: Critical** — this is the highest-intent sector page and the most differentiated content Rora has. Currently too thin to rank.
-
----
-
-## Sector Page 2 — AI for Plumbers (`/ai-for-plumbers`)
-
-**New title tag:**
-> AI Automation for Plumbers and Heating Engineers — Rora
-
-**New meta description:**
-> Lead capture, quote automation, and job management AI for plumbing businesses. Works with ServiceM8, Simpro, or your existing system. See what changes — free assessment included.
-
-**H1:**
-> AI for plumbers — less admin, more jobs
-
-**Priority: Nice-to-have** (electricians page first)
-
----
-
-## Sector Page 3 — AI for Builders (`/ai-for-builders`)
-
-**New title tag:**
-> AI Automation for Builders and Construction Businesses — Rora
-
-**New meta description:**
-> Quote generation, subcontractor communication, project admin — we automate the parts of a building business that eat time. Plain English, no IT department needed. Free assessment →
-
-**H1:**
-> AI for builders — from first enquiry to final invoice
-
-**Priority: Nice-to-have** (electricians page first)
-
----
-
-## Implementation summary
-
-| Page | Change | Priority |
+| Element | Current State | Recommendation |
 |---|---|---|
-| Homepage | Add geo terms to title tag | 🔴 Critical |
-| About | New title, meta, H1 + geo content | 🔴 Critical |
-| /ai-for-electricians | New title, meta, H1 + expand Simpro content | 🔴 Critical |
-| Pricing | New title, meta, H1 + FAQ items | 🟡 Important |
-| What We Build | New title, meta, H1 | 🟡 Important |
-| Case Studies | New title, meta, H1 + real numbers | 🟡 Important |
-| Contact | New title, meta + geo mention | 🟡 Important |
-| Assessment | New title, meta, H1 + pre-quiz copy | 🟡 Important |
-| Plumbers / Builders | New title, meta, H1 | 🟢 Nice-to-have |
+| Title tag | Assumed: "Rora — AI Automation" or similar | `Rora — AI Automation for UK Small Businesses` (48 chars) |
+| Meta description | Unknown/assumed missing | `We automate the admin that eats your day — leads, quotes, invoices, and more. Built in Blackpool. Book a free assessment.` (124 chars) |
+| H1 | "Your business, running in the background." | Keep. This is locked and works. Ensure it's an H1 tag, not styled div. |
+| Internal links | Assumed: nav links to all pages | Add in-body links to /what-we-build, /assessment, /case-studies from relevant sections |
+| Schema | None (blocked by hookify) | LocalBusiness JSON-LD — see 08-seo-technical.md |
+| Image alt text | Unknown | Any hero image: "Rora AI automation dashboard — Blackpool SMB" |
 
-**How to implement in Next.js 15:**
-Each page's `export const metadata` object in the page component. Update `title`, `description`, and ensure `openGraph.title` and `openGraph.description` are also updated (they were added in the April 27 SEO pass but need updating with the new copy).
+---
+
+### 2. What We Build / Services (/what-we-build)
+
+| Element | Current State | Recommendation |
+|---|---|---|
+| Title tag | Unknown | `AI Automation Services for UK Businesses — Rora` (49 chars) |
+| Meta description | Unknown | `Lead capture, quoting, invoicing, AI websites — we build and run your automations from £1,500. Free assessment available.` (122 chars) |
+| H1 | "From your first lead to your last invoice — we can automate the lot." | Good. Keep. Verify it's an H1 tag. |
+| Internal links | Unknown | Link to /pricing (pricing anchor), /assessment (CTA), relevant sector pages from each service card |
+| Schema | None | Service schema — one per main service offering |
+| Image alt text | Unknown | Service icons: "AI lead capture automation for trades businesses" |
+
+---
+
+### 3. Pricing (/pricing)
+
+| Element | Current State | Recommendation |
+|---|---|---|
+| Title tag | Unknown | `Rora Pricing — AI Automation for UK SMBs` (42 chars) |
+| Meta description | Unknown | `AI Automation from £1,500 + £200/mo. AI Website from £1,500 + £150/mo. Transparent pricing, no hidden costs. See what's included.` (131 chars) |
+| H1 | Unknown | `Straightforward pricing. No surprises.` |
+| Internal links | Minimal assumed | Link to /what-we-build (what's included detail), /assessment (can't decide CTA), /contact (custom quote) |
+| Schema | None | FAQPage JSON-LD — see FAQ section below |
+| Image alt text | N/A (pricing tables) | N/A |
+
+---
+
+### 4. About (/about)
+
+| Element | Current State | Recommendation |
+|---|---|---|
+| Title tag | Unknown | `About Rora — AI Consultant, Blackpool` (38 chars) |
+| Meta description | Unknown | `Ryan Wilson built AI automation for his own electrical business. Now he does it for yours. Based in Blackpool, working UK-wide.` (127 chars) |
+| H1 | Unknown | `AI automation consultant, Blackpool — built it for ourselves first.` |
+| Internal links | Minimal | Link to /case-studies (proof), /assessment (next step), /what-we-build (services) |
+| Schema | None | Person schema (Ryan Wilson) + LocalBusiness |
+| Image alt text | Ryan's photo missing | When added: "Ryan Wilson, founder of Rora — AI automation consultant, Blackpool" |
+
+**Note:** Ryan's photo is the highest single conversion gap on this page. A clear headshot with accurate alt text also contributes to E-E-A-T signals for Google. See 08-seo-technical.md item 11.
+
+---
+
+### 5. Case Studies (/case-studies)
+
+| Element | Current State | Recommendation |
+|---|---|---|
+| Title tag | Unknown | `AI Automation Case Studies — Rora` (34 chars) |
+| Meta description | Unknown | `See how Rora cut quote time by 75% and cleared a 50-invoice backlog in month 1. Real results for UK trades businesses.` (120 chars) |
+| H1 | Unknown | `What it actually looks like in a real business.` |
+| Internal links | Unknown | Link back to relevant sector pages (/ai-for-electricians from Wilsons), /contact (enquiry CTA), /pricing |
+| Schema | None | Article or ItemList schema for case study cards |
+| Image alt text | Unknown | "Wilsons Systems electrical — before and after AI automation with Rora" |
+
+---
+
+### 6. Contact (/contact)
+
+| Element | Current State | Recommendation |
+|---|---|---|
+| Title tag | Unknown | `Contact Rora — AI Automation Consultant, Blackpool` (51 chars) |
+| Meta description | Unknown | `Get in touch with Rora. Based in Blackpool, working across Lancashire and the UK. Free 30-minute call — no commitment needed.` (125 chars) |
+| H1 | Unknown | `Let's talk. No hard sell, no jargon.` |
+| Internal links | Minimal | Link to /assessment (for those not ready to call), /about (who you're contacting) |
+| Schema | None | LocalBusiness (address, phone, email) |
+| Image alt text | N/A | N/A |
+
+---
+
+### 7. Free Assessment (/assessment)
+
+| Element | Current State | Recommendation |
+|---|---|---|
+| Title tag | Unknown | `Free AI Assessment for UK Businesses — Rora` (44 chars) |
+| Meta description | Unknown | `13 questions. 13 minutes. Get your personalised AI Readiness Report — free. Find out exactly where automation would help.` (122 chars) |
+| H1 | Unknown | `Find out if your business is ready for AI — in 13 minutes.` |
+| Internal links | Minimal | Link back to /what-we-build (what we'd actually do), /pricing (cost context) |
+| Schema | None | FAQPage — common questions about the assessment process |
+| Image alt text | N/A (quiz interface) | N/A |
+
+---
+
+### 8. /ai-for-electricians
+
+| Element | Current State | Recommendation |
+|---|---|---|
+| Title tag | Unknown | `AI Automation for Electricians UK — Rora` (41 chars) |
+| Meta description | Unknown | `Stop losing quotes and leads to manual admin. Rora automates your quoting, invoicing, and lead capture. Built for UK electricians.` (131 chars) |
+| H1 | Unknown | `AI automation for electricians — built by one, run for all.` |
+| Internal links | Minimal | Link to /case-studies (Wilsons Systems proof), /assessment, /pricing |
+| Schema | None | Service schema + LocalBusiness |
+| Image alt text | Unknown | "Electrician using automated quoting system on mobile — Rora AI" |
+
+---
+
+### 9. /ai-for-plumbers
+
+| Element | Current State | Recommendation |
+|---|---|---|
+| Title tag | Unknown | `AI Automation for Plumbers UK — Rora` (37 chars) |
+| Meta description | Unknown | `Automate your quotes, leads, and invoices. Rora builds AI systems for UK plumbers — so you spend less time on admin and more time on jobs.` (139 chars) |
+| H1 | Unknown | `AI automation for plumbers — less admin, more jobs.` |
+| Internal links | Minimal | Link to /assessment, /what-we-build, /pricing |
+| Schema | None | Service schema |
+| Image alt text | Unknown | "Plumber checking automated invoice system on phone — Rora AI automation" |
+
+---
+
+### 10. /ai-for-builders
+
+| Element | Current State | Recommendation |
+|---|---|---|
+| Title tag | Unknown | `AI Automation for Builders UK — Rora` (37 chars) |
+| Meta description | Unknown | `Builders spend hours on quotes, chasing invoices, and managing leads. Rora automates the lot — from £1,500. Free assessment available.` (135 chars) |
+| H1 | Unknown | `AI automation for builders — your office runs itself.` |
+| Internal links | Minimal | Link to /ai-for-construction (related), /assessment, /pricing |
+| Schema | None | Service schema |
+| Image alt text | Unknown | "Builder reviewing automated quoting workflow on tablet — Rora AI" |
+
+---
+
+## TOP 3 PRIORITY FIXES (Expanded Notes)
+
+### Priority 1: /about Page — Title, H1, and Ryan's Photo Alt Text
+
+**Why this is top priority:**
+The /about page is where local intent searches land ("AI consultant Blackpool") and where prospective clients decide if they trust the person behind the business. Both Google and humans need the same thing from this page: a clear signal that a real, expert, local person runs this business.
+
+**Specific fixes:**
+
+1. Set the title tag to: `About Rora — AI Consultant, Blackpool` (38 chars, includes primary local keyword)
+2. Write the H1 as: `AI automation consultant, Blackpool — built it for ourselves first.` — this gives Google a clear keyword signal without it reading like keyword stuffing.
+3. First 100 words of body copy must include: "Blackpool", "AI automation", and Ryan's name. These are the three signals Google needs to confirm local relevance.
+4. Meta description must include: "Blackpool", a result (75% reduction in quote time), and a CTA.
+5. When Ryan's photo is added (see 08-seo-technical.md item 11), the alt text must be: `Ryan Wilson, founder of Rora — AI automation consultant, Blackpool`. No generic "profile photo" or "headshot" alt text — Google reads this as part of E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness).
+
+---
+
+### Priority 2: Pricing Page — FAQ Schema and Meta Description
+
+**Why this is second priority:**
+The pricing page is the highest-intent page after the contact page. Anyone who reaches it is actively evaluating buying. Two things hurt conversion and rankings here: no schema (missed rich snippet opportunity) and an unknown/weak meta description (low click-through rate from search results).
+
+**Specific fixes:**
+
+1. Rewrite the meta description to include a price anchor: `AI Automation from £1,500 + £200/mo. AI Website from £1,500 + £150/mo. Transparent pricing, no hidden costs.`
+2. Add FAQ schema (full JSON-LD in the FAQ section below). This makes Rora eligible for Google's FAQ rich results — free expanded real estate in search.
+3. Ensure the H1 is "Straightforward pricing. No surprises." — leads with the reassurance buyers need before they even read the numbers.
+4. Add 3 internal links from the pricing page: to /what-we-build (for detail), to /assessment (for those undecided), and to /contact (for custom enquiries).
+
+---
+
+### Priority 3: Homepage — H1 Tag Verification and Internal Link Depth
+
+**Why this is third priority:**
+The headline is locked and strong. But if it's rendered as a styled `<div>` or `<p>` rather than an actual `<h1>` tag, Google treats the page as having no H1 — a basic on-page failure that limits ranking ability.
+
+**Specific fixes:**
+
+1. Inspect the homepage HTML and confirm the headline "Your business, running in the background." is wrapped in `<h1>` tags (not `<div class="text-4xl">` or similar). If not — change the element, not the style.
+2. Add in-body text links (not just nav links) to: /what-we-build (from the Solution section), /case-studies (from the Proof section), and /assessment (from the CTA section). Google values contextual links within body copy more than nav links.
+3. Confirm the meta description is set and under 155 characters. The current sub-headline is 38 words — good for users, too long for a meta description. They need to be separate.
+
+---
+
+## FAQ PAGE RECOMMENDATION
+
+### Add FAQ Section to Pricing Page
+
+Add a visible FAQ section at the bottom of `/pricing` with schema markup. This serves two purposes: it answers the objections that prevent conversion, and it gives Rora eligibility for Google FAQ rich results (additional search real estate at no cost).
+
+### 6 FAQ Pairs (Pricing Page)
+
+**Q1: What's included in the £1,500 setup fee?**
+The setup fee covers the full build: scoping, configuration, integration with your existing tools, testing, and handover. You get a working automation from day one — not a template that needs configuring.
+
+**Q2: What does the monthly fee pay for?**
+Ongoing hosting, monitoring, and support. If something breaks, we fix it. If you need a small change, we handle it. The monthly fee keeps your automation running and keeps us available when you need us.
+
+**Q3: How long does setup take?**
+Most businesses have a working automation within 48 hours of the initial call. Complex builds with multiple integrations take up to two weeks. We'll tell you the exact timeline before you commit.
+
+**Q4: Can I start with just one automation?**
+Yes. Most clients do. We'll identify the one thing that saves you the most time first — usually lead capture or quoting — and start there. You can add more automations as your business grows.
+
+**Q5: Do I need to sign a long-term contract?**
+No. The monthly retainer is month-to-month. If you want to pause or stop, you can. The automations we've built remain yours — we'll hand over documentation so you know what you've got.
+
+**Q6: What if I already use Simpro, Xero, or another system?**
+We work with them. Rora connects your existing tools — it doesn't replace them. If you're already using Simpro, Xero, or Google Workspace, we build around what you have, not over it.
+
+---
+
+### FAQ Schema JSON-LD — Ready to Paste
+
+Add this inside a `<script type="application/ld+json">` tag on the `/pricing` page. Note: requires hookify `application/ld+json` exception to be active first (see 08-seo-technical.md item 1).
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What's included in the £1,500 setup fee?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The setup fee covers the full build: scoping, configuration, integration with your existing tools, testing, and handover. You get a working automation from day one — not a template that needs configuring."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the monthly fee pay for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ongoing hosting, monitoring, and support. If something breaks, we fix it. If you need a small change, we handle it. The monthly fee keeps your automation running and keeps us available when you need us."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does setup take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most businesses have a working automation within 48 hours of the initial call. Complex builds with multiple integrations take up to two weeks. We'll tell you the exact timeline before you commit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I start with just one automation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Most clients do. We'll identify the one thing that saves you the most time first — usually lead capture or quoting — and start there. You can add more automations as your business grows."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to sign a long-term contract?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The monthly retainer is month-to-month. If you want to pause or stop, you can. The automations we've built remain yours — we'll hand over documentation so you know what you've got."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I already use Simpro, Xero, or another system?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We work with them. Rora connects your existing tools — it doesn't replace them. If you're already using Simpro, Xero, or Google Workspace, we build around what you have, not over it."
+      }
+    }
+  ]
+}
+```
+
+---
+
+## IMAGE ALT TEXT GUIDANCE
+
+Write alt text that describes what the image shows and who it's for — not what it looks like. "Ryan Wilson, Rora founder, reviewing an automation workflow on a laptop" is useful. "Photo of a man at a desk" is not. Avoid keyword stuffing in alt text (e.g., "AI automation Blackpool Lancashire AI consultant Ryan Wilson") — Google treats this as spam and it fails accessibility guidelines. One clear, descriptive sentence per image is enough.
