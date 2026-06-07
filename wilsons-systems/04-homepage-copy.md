@@ -1,366 +1,128 @@
-# Homepage Copy — Wilsons Systems
+# Homepage Copy Assessment — Wilsons Systems
 
-**Client:** Wilsons Systems / Wilsons Electrical Ltd
-**Skill applied:** Landing Page Copywriting
-**Date:** May 2026
-**Status:** Production-ready. Replaces current homepage copy (~200 words).
+## Framing
 
----
-
-## Notes for the Developer
-
-- Phone number is marked `[PHONE]` throughout — replace with the actual number in `<a href="tel:...">` format
-- Google review count is marked `[REVIEW_COUNT]` — update when the widget is live (currently 13)
-- NICEIC approval year is marked `[YEAR]` — confirm with Ryan
-- All headings should map to H tags as noted
-- Schema markup for this page is in File 6
+The homepage is already built, ranking, and converting. This is not a rewrite brief. The SEO preservation rules are absolute: do not touch the title tag, do not touch the H1, do not change any URL. This document identifies incremental improvements — additions and refinements that lift conversion without disturbing what is working.
 
 ---
 
-## HERO SECTION
+## Hero Section — Confirmed Copy (Do Not Change)
 
-### Headline Options — Choose One, A/B Test the Others
+**Title tag (must not change):**
+"Electricians Lytham St Annes | CCTV, Security & Smart Homes | Wilsons Systems"
 
-**Option A (recommended — keyword-led, multi-discipline):**
-> Blackpool's Most Trusted Electrical & Smart Home Contractors
+**H1 (must not change):**
+"Electricians in Lytham St Annes & Blackpool — Smart Home, CCTV & Security Specialists"
 
-**Option B (authority-led, 40-year angle):**
-> 40 Years on the Fylde Coast. One Team for Every Trade.
+Both are well-constructed. The H1 leads with Lytham (primary, affluent audience) and includes Blackpool (wider reach), then lists the three service pillars. There is nothing to improve here. The risk of any change outweighs any potential gain.
 
-**Option C (differentiator-led, Control4 angle):**
-> Electricians, Security, Smart Home. NICEIC Approved. The Fylde Coast's Complete Contractors.
-
-*Option A is the recommended primary headline. It places the primary keyword ("Blackpool") and the two highest-value service categories in the H1. Options B and C can be tested as variants if the site allows A/B testing.*
+**Hero subtext / supporting copy:** Assess on the live site. If it currently describes the offer well and includes a clear CTA, leave it. If it is generic or missing a CTA, the only safe addition is a social proof line below the H1 — see below.
 
 ---
 
-### Sub-Headline
+## What Could Be Added (Without Affecting Rankings)
 
-> NICEIC Approved Contractors with over 40 years of experience on the Fylde Coast. We handle everything from consumer unit upgrades and landlord electrical certificates to full Control4 smart home installations — one team, one point of contact, every time.
+### 1. Social proof metric
 
----
+A quantified trust line near the hero section would reinforce credibility for first-time visitors. This does not require a page change that touches keyword-bearing elements.
 
-### Hero CTAs
+Suggested line: "Trusted by 500+ homes and businesses across the Fylde Coast for over 40 years."
 
-**Primary CTA button:**
-> Get a Free Quote
+Alternatively, if job completion data is available from Simpro: "Over [X] jobs completed across Lancashire — with a 5-star Google rating."
 
-*(Links to `/quote` or scrolls to the contact section at page bottom)*
+This line sits below the H1 as supporting copy, not as a heading. It does not affect title tag or H1.
 
-**Secondary — click-to-call:**
-> Call us: [PHONE]
+### 2. Quick Quote CTA — review the button copy
 
-*(Displayed as prominent text or button. On mobile: `<a href="tel:[PHONE]">Call us now: [PHONE]</a>`. On desktop: display as plain text — most users won't click a phone number on desktop.)*
+The Quick Quote system is a genuine differentiator — instant quote generation via Simpro integration is not what a typical local electrician offers. The CTA button copy should communicate this clearly.
 
----
+**Assess the current button text.** If it says "Get a Quote" or "Contact Us", this is underperforming. The correct copy for a quick-response system is:
 
-## ACCREDITATIONS STRIP
+- "Get Your Quick Quote" (clear, action-oriented, unique)
+- "Get a Same-Day Quote" (if response time can be guaranteed)
+- "Quick Quote — 2 Minutes" (communicates ease, reduces friction)
 
-*A horizontal bar immediately below the hero. Four logo slots + one text line. Background: slightly lighter than the main dark background — enough contrast to make the logos readable.*
+The button should be high-contrast against the dark background (#C41E2A red is already defined for this purpose) and appear in the hero section — not buried below the fold.
 
-| Logo | Caption |
-|------|---------|
-| NICEIC Approved Contractor | "The UK's leading electrical accreditation" |
-| Control4 Authorised Dealer | "The only dealer on the Fylde Coast" |
-| Safe Trader — Lancashire County Council | "Trading Standards approved" |
-| Part P Registered | "Certified for domestic electrical work" |
+### 3. FAQ section — review the 8 questions
 
-**Supporting line (beneath the logos):**
-> Fully insured. All work certified. Certificates issued within 3 working days.
+The homepage FAQ uses FAQPage schema and contributes to visibility in Google's FAQ rich results. The 8 questions are a good number — do not add more without removing an equivalent one. The right set of questions to keep are the ones that:
+a) Represent genuine pre-booking objections
+b) Are specific enough to carry keyword value
 
----
+**Questions likely already there (based on CLAUDE.md and site structure):**
+- What areas do you cover?
+- Are you NICEIC approved?
+- Can you install Control4 systems?
+- Do you install EV chargers? (if this is there, it supports the case for a dedicated page)
+- What's the difference between a consumer unit and a fuse box?
 
-## SERVICES OVERVIEW
+**Questions possibly missing from the current 8:**
+- "How quickly can you attend for an emergency?" — critical pre-booking question for emergency electrical work. If not in the FAQ, add it. If the 8 is already full, replace the weakest existing question.
+- "Do you offer payment plans?" — not answered anywhere on the site. If Wilsons does offer staged payment or finance, this should be answered prominently. If they do not, the question can be skipped — do not raise an objection you cannot answer positively.
+- "Can I see examples of your work?" — if the /projects/ page exists, the FAQ can direct users there: "Yes — visit our projects page to see examples of completed smart home, CCTV, and electrical installations." This is a useful internal link opportunity.
 
-*6-card grid (2 rows of 3 on desktop, stacked on mobile). Each card: icon, heading, description, link.*
+### 4. Areas we cover section
 
-### Card 1 — Electrical
+This section already exists. One safe improvement: link each town name to its corresponding location page. This passes internal link equity to the location pages and gives users a clear click path to location-specific content.
 
-**Heading:** Electrical Services
+**Example change:** "Lytham St Annes" in the areas list links to `/electrician-lytham-st-annes/`, "Blackpool" links to the Blackpool location page, "Poulton-le-Fylde" links to `/poulton-le-fylde/`, and so on.
 
-**Description:**
-> Rewires, consumer unit upgrades, EICRs, emergency callouts, and commercial electrical work — all certified under our NICEIC Approved Contractor status.
-
-**Link text:** See all electrical services →
-
-**Link target:** `/services/electrical`
-
----
-
-### Card 2 — Security Alarms
-
-**Heading:** Security Alarms
-
-**Description:**
-> Texecom Premier Elite intruder alarm systems, installed and maintained by Wilsons. Domestic and commercial. Wired and wireless.
-
-**Link text:** See alarm systems →
-
-**Link target:** `/services/security-alarms`
+This is a minimal HTML change (wrapping existing text in anchor tags) with meaningful SEO and UX benefit.
 
 ---
 
-### Card 3 — CCTV Systems
+## The #1 Conversion Gap: Real Photography
 
-**Heading:** CCTV Systems
+If the smart home, CCTV, and Control4 sections of the homepage still use placehold.co placeholder images, this is the single most impactful improvement available.
 
-**Description:**
-> Hikvision CCTV installation for homes and businesses across the Fylde Coast. Full setup, remote access configured, 12-month installation warranty.
+The Lytham St Annes audience — affluent homeowners making £5k–£50k+ investment decisions — will notice placeholder imagery. They compare Wilsons against other premium installers. A competitor with real photography of finished Control4 installs will convert better, all else being equal.
 
-**Link text:** See CCTV options →
+**Specifically needed:**
+- A real photograph of a Control4 panel or touch screen in a high-end Lytham or Fylde Coast property
+- A real photograph of a Hikvision CCTV installation (professional rack, cameras in situ)
+- A real photograph of a completed electrical installation (new consumer unit, or clean cable management)
 
-**Link target:** `/services/cctv`
-
----
-
-### Card 4 — Smart Home & Control4
-
-**Heading:** Smart Home
-
-**Description:**
-> We're the only Control4 Authorised Dealer on the Fylde Coast. Lighting, heating, audio, CCTV, and security — all controlled from one app.
-
-**Link text:** See smart home →
-
-**Link target:** `/services/smart-home`
+If professional photography is not immediately available, clear smartphone photos of real installations are substantially better than placehold.co. The bar is not high — it is genuine versus obviously fake.
 
 ---
 
-### Card 5 — Fire Alarms
+## Social Proof: Google Review Volume
 
-**Heading:** Fire Alarms
+The site embeds real Google reviews (Russell Dawson, Iain McIntyre, Andrew Wild) in Review JSON-LD schema. This is correct and valuable. However, 13 reviews total is below the threshold where the review count itself becomes a positive trust signal. At 50+ reviews, the volume becomes a selling point. At 100+, it is a significant competitive advantage.
 
-**Description:**
-> C-Tec CAST fire alarm systems for commercial and residential properties. Design, installation, and ongoing maintenance contracts available.
+**Review count target: 50+ within 12 months.**
 
-**Link text:** See fire alarms →
-
-**Link target:** `/services/fire-alarms`
+The most effective method is a consistent post-job request process. The following WhatsApp message template should be sent to every completed job, within 24 hours of completion:
 
 ---
 
-### Card 6 — EV Chargers
+**WhatsApp review request template:**
 
-**Heading:** EV Charger Installation
-
-**Description:**
-> Home EV charger installation across Blackpool and the Fylde Coast. NICEIC certified installation. We'll confirm your supply is suitable before we start.
-
-**Link text:** See EV chargers →
-
-**Link target:** `/services/ev-chargers`
+Hi [Name], thanks for having us out today — really glad to get your [service type, e.g. consumer unit upgrade / Control4 installation / CCTV install] sorted. If you have 2 minutes, a Google review would mean a lot to us — it helps other homeowners on the Fylde Coast find us: [Google review direct link]. Ryan & the Wilsons team
 
 ---
 
-## SOCIAL PROOF SECTION
+Notes on the template:
+- Use the customer's first name (personalisation lifts response rate)
+- Specify the service type (jogs their memory, makes the message feel personal not generic)
+- Give a reason that appeals to community reciprocity ("helps other homeowners") rather than just asking for a favour
+- Include the direct Google review link (not the Google Maps page — the direct review link opens the review box immediately)
+- Keep the tone warm but not sycophantic — consistent with the brand voice
+- No emojis beyond a single thumbs up — matches the brand register
 
-*A dark-background band, full width. Three stats side by side on desktop, stacked on mobile.*
+**How to get the direct Google review link:** In Google Business Profile → "Get more reviews" → copy the direct link. It looks like: https://g.page/r/[business-ID]/review
 
-### Stat 1
-> **40+ Years**
-> Serving the Fylde Coast
-
-### Stat 2
-> **[REVIEW_COUNT]+ Five-Star Reviews**
-> on Google
-
-### Stat 3
-> **NICEIC Approved**
-> Since [YEAR]
-
-*Below the stats, one sentence:*
-> Every job we carry out is covered by our NICEIC approval — your guarantee that the work meets the current wiring regulations and is properly certified.
+**Volume goal:** Send to every completed job. If Wilsons completes 10–15 jobs per week, a 20–30% response rate yields 2–4 new reviews per week. At that rate, 50 reviews is achievable within 4–6 months.
 
 ---
 
-## THE PITCH — WHY WILSONS
+## Copy Tone Check for the Homepage
 
-*Section heading (H2):* **Why Our Customers Keep Coming Back**
+The homepage copy should be assessed against the brand voice criteria. Specifically:
 
-*Three punchy differentiators. Not bullet points — write them as short standalone paragraphs with a bold lead sentence.*
+- Does the hero subtext use the advisory register ("we recommend", "in our experience") or does it drift into contractor clichés ("fully qualified", "competitive rates")?
+- Does the services grid describe services in terms of what the client gets (outcomes) or what Wilsons does (inputs)?
+- Does the Control4 section describe the Control4 experience — what it feels like to use a properly integrated system — or does it list technical specifications?
 
----
-
-**The only Control4 dealer on the Fylde Coast.**
-
-Control4 is the world's most capable home automation system. There is no other authorised dealer between Blackpool and Preston. When you work with us, you're getting a team that's been trained, tested, and accredited by Control4 themselves — not someone who installed one system and called themselves a smart home company.
-
----
-
-**One team. Every trade.**
-
-Electrical, security, CCTV, fire alarms, smart home, networking, access control, EV chargers. One team handles it all. That means one project manager, one point of contact, and no gaps between subcontractors pointing fingers at each other when something needs fixing. It's also cheaper — one mobilisation, one set of cable runs, one tidy-up at the end.
-
----
-
-**40 years of Fylde Coast knowledge.**
-
-We know the electrical quirks of 1930s Blackpool bay-fronted houses. We know the wiring challenges in converted Lytham hotels. We know the planning considerations for CCTV on listed buildings in the town centre. That knowledge comes from four decades of working in these specific properties, for people who live here, in a town we actually care about.
-
----
-
-## FEATURED PROJECT
-
-*Section heading (H2):* **Recent Project**
-
-*One featured project card. Photo on left (or top on mobile), text on right.*
-
-### Corka Bridge House — Full Smart Home & Electrical Installation
-
-> A complete install across a substantial Fylde Coast property: full electrical design and certification, a dedicated AV and networking rack, Control4 home automation controlling lighting, heating, security, and entertainment, UniFi networking throughout, Hikvision CCTV with remote access, Texecom Premier Elite alarm, and an air source heat pump integration. One team. One project. Everything connected.
-
-**Project details:**
-- Services: Electrical, Smart Home (Control4), Networking (UniFi), CCTV (Hikvision), Security (Texecom), ASHP
-- Location: Fylde Coast
-- Duration: [Duration — confirm with Ryan]
-
-**[Link] View more projects →**
-
-*(This links to a future Projects or Case Studies page — placeholder until that page is built.)*
-
----
-
-## TESTIMONIAL
-
-*One featured Google review, displayed with star rating, name, and location.*
-
-> ★★★★★
-> "[Review text — pull from existing Google review that mentions a specific service and location]"
->
-> — [Customer name], [Town], via Google
-
-*Below the testimonial:*
-> Read all [REVIEW_COUNT] reviews on Google →
-
-*(Link to the Google Business Profile reviews page, opens in new tab)*
-
----
-
-## COVERAGE SECTION
-
-*Section heading (H2):* **We Work Across the Fylde Coast and Beyond**
-
-> Our main base is Blackpool, and we cover the whole Fylde Coast — Lytham St Annes, Poulton-le-Fylde, Cleveleys, Thornton, Fleetwood, and Kirkham. We also work regularly in Preston, Chorley, Leyland, Lancaster, and Morecambe. For larger smart home or commercial projects, we travel further across Lancashire and the North West.
-
-**Town list (linked to location pages):**
-
-- [Blackpool](/locations/electrician-blackpool)
-- [Lytham St Annes](/locations/electrician-lytham-st-annes)
-- [Poulton-le-Fylde](/locations/electrician-poulton-le-fylde)
-- [Cleveleys](/locations/electrician-cleveleys)
-- [Thornton](/locations/electrician-thornton)
-- [Fleetwood](/locations/electrician-fleetwood)
-- [Kirkham](/locations/electrician-kirkham)
-- [Preston](/locations/electrician-preston)
-
----
-
-## CONTACT / CLOSING CTA
-
-*Section heading (H2):* **Ready to Get Started?**
-
-*Two-column layout on desktop (text left, form right). Single column on mobile.*
-
-### Left Column — Text
-
-> Whether you need a landlord's electrical certificate this week or you're planning a full smart home for a new build, we're the same team either way. Call us during business hours and you'll speak to someone who knows what they're talking about. Request a quote online and we'll come back to you the same day.
-
-> **Call us now:**
-> [PHONE]
-> *(Click to call on mobile)*
-
-> **Business hours:**
-> Monday to Friday, 8am – 5pm
-> Emergency callouts available
-
-### Right Column — Quote Form
-
-**Form heading:** Request a Free Quote
-
-**Fields:**
-- Your name *
-- Your phone number *
-- Your email address
-- What do you need? (dropdown or free text)
-  - Electrical / EICR / Certificate
-  - Security Alarm
-  - CCTV
-  - Smart Home / Control4
-  - Fire Alarm
-  - EV Charger
-  - Not sure — I'll explain when you call
-- Brief details (textarea — optional, 3 lines)
-
-**Submit button:**
-> Send My Request
-
-**Below the button:**
-> We respond same day during business hours. Your details are not shared with anyone.
-
----
-
-## FOOTER CONTENT
-
-*(Separate from homepage copy but defined here for completeness.)*
-
-**Footer columns (desktop — 4 columns):**
-
-**Column 1 — About**
-Wilsons Systems / Wilsons Electrical Ltd
-NICEIC Approved Contractor
-Control4 Authorised Dealer
-Safe Trader Approved
-[Company registration number]
-[Registered address]
-
-**Column 2 — Services**
-Electrical Services
-Security Alarms
-CCTV Systems
-Fire Alarms
-Smart Home & Control4
-Audio Visual
-Access Control
-EV Charger Installation
-Networking & Wi-Fi
-
-**Column 3 — Locations**
-Electrician Blackpool
-Electrician Lytham St Annes
-Electrician Poulton
-Electrician Cleveleys
-Electrician Fleetwood
-Electrician Kirkham
-Electrician Preston
-All locations →
-
-**Column 4 — Contact**
-[PHONE]
-[Email address]
-[Address]
-[Opening hours]
-
-**Accreditation logos strip (below all columns):**
-NICEIC | Control4 | Safe Trader | Part P
-
-**Legal line:**
-> © [Year] Wilsons Electrical Ltd. Company No. [XXXXXX]. Registered in England and Wales. VAT No. [XXXXXX]. All rights reserved.
-
----
-
-## Word Count
-
-| Section | Approx. Words |
-|---------|--------------|
-| Hero (headline + sub-headline) | 60 |
-| Accreditations strip | 30 |
-| Services (6 cards) | 120 |
-| Social proof | 60 |
-| The Pitch (3 differentiators) | 180 |
-| Featured project | 80 |
-| Testimonial | 40 |
-| Coverage section | 80 |
-| Contact CTA | 80 |
-| **Total** | **~730** |
-
-This is approximately 4× the current homepage word count, structured for both SEO (keyword-rich, location-specific, service-specific) and conversion (multiple CTAs, social proof, credentials visible throughout).
+If any of these are drifting toward generic contractor language, the fix is targeted copy replacement on those specific elements — not a page rewrite. The H1 and page structure do not change.

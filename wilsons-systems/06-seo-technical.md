@@ -1,639 +1,289 @@
 # Technical SEO — Wilsons Systems
 
-**Client:** Wilsons Systems / Wilsons Electrical Ltd
-**Skill applied:** SEO Technical
-**Date:** May 2026
+## Framing
+
+The site is technically solid. The technical foundations that many sites lack are already in place. This document does not list them as fixes needed — they are done. The focus is on the genuine remaining gaps, ordered by impact.
 
 ---
 
-## Current State
+## Already Done — Do Not List as Actions Required
 
-- **Platform:** WordPress (version unknown) on Cloudflare CDN
-- **Page speed:** Not yet measured — assumed poor (typical WordPress default)
-- **Mobile performance:** Unknown — assumed low, given no click-to-call and no documented responsive testing
-- **Schema markup:** None
-- **Sitemap:** Not confirmed as submitted to Google Search Console
-- **Known issues:** Wrong H1, thin content, comment form on homepage, no service/location pages, no schema, image alt text using filenames, no click-to-call on mobile
+The following technical elements are confirmed complete as of March 2026. Do not recommend implementing any of these:
 
----
-
-## Fix List — Ordered by Priority
-
-Items are ordered: fix the things that cost the most to leave broken first, then fix the things that compound over time, then optimise.
-
----
-
-### Fix 1 — H1 Tag on Homepage
-
-**Priority: Immediate — today**
-**Effort: 10 minutes**
-
-**Current state:** The H1 is "About Us." This is the single biggest ranking signal on the page, and it tells Google the page is about a company description — not about electrical services in Blackpool.
-
-**Fix:**
-
-Change the H1 to:
-
-```
-Blackpool's Most Trusted Electrical & Smart Home Contractors
-```
-
-Or the more keyword-direct variant:
-
-```
-Electrician Blackpool & Fylde Coast — Wilsons Systems
-```
-
-**How to fix in WordPress:**
-
-Option A (recommended if using a page builder like Elementor or the Block Editor):
-1. Log into WordPress admin
-2. Pages > Home > Edit
-3. Find the H1 element — it may be in a Hero block or a Heading block set to H1
-4. Change the text to the recommended wording
-5. Save and publish
-6. Verify with browser dev tools (right-click > Inspect > search for `<h1>`)
-
-Option B (if H1 is hardcoded in the theme):
-1. Appearance > Theme Editor (or access via FTP/SFTP)
-2. Search for "About Us" in the homepage template file
-3. Replace with the new H1 text
-4. Save
-
-**Do not have two H1 tags on the page.** If the page builder creates a heading and the theme also outputs one, use browser inspect to confirm which is the H1 and remove or demote the other to H2.
+- Schema markup on every page (LocalBusiness/Electrician, FAQPage, BreadcrumbList, Review JSON-LD) ✓
+- sitemap.xml ✓
+- robots.txt ✓
+- Breadcrumb schema ✓
+- Real Review schema with named reviewers (Russell Dawson, Iain McIntyre, Andrew Wild) ✓
+- WebP image conversion across all images ✓
+- Google Fonts loaded non-render-blocking ✓
+- Custom 404 page ✓
+- PageSpeed Desktop 99–100 ✓
+- PageSpeed Mobile 91–96 ✓
+- Tailwind CDN removed (saves 124KB) — do not add back ✓
+- hCaptcha removed (saves 195KB, 990ms TBT removed) — do not add back ✓
+- Internal linking implemented (service↔service, service↔location, location↔location) ✓
+- Per-page keyword audit complete ✓
+- Canonical tags ✓
+- Cloudflare Workers hosting (fast, globally distributed) ✓
 
 ---
 
-### Fix 2 — LocalBusiness JSON-LD Schema
+## Gap 1: Google Analytics 4 — Critical
 
-**Priority: Immediate — this week**
-**Effort: 20 minutes to paste; 5 minutes to verify**
+**Status: Not set up. This is the most important missing element.**
 
-**Current state:** No structured data on any page. Google has no machine-readable confirmation of the business name, address, phone number, services, or opening hours.
+Without GA4, there is no data on:
+- Which pages are receiving traffic
+- Which pages drive enquiries (form submissions, Quick Quote completions)
+- Whether the AI chatbot generates enquiries that convert
+- Which geographic areas the traffic comes from
+- Mobile vs desktop split
+- What users do before and after visiting the homepage
 
-**Fix:**
+Every decision about what to build next is currently based on assumptions rather than evidence. GA4 fixes this.
 
-Paste the following JSON-LD into the `<head>` of every page. The easiest method on WordPress is the "Insert Headers and Footers" plugin (free, by WPCode). Go to Settings > Insert Headers and Footers > paste in the Scripts in Header box.
+### Setup steps
 
-```json
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ElectricalContractor",
-  "name": "Wilsons Systems",
-  "alternateName": "Wilsons Electrical Ltd",
-  "url": "https://wilsonssystems.com",
-  "logo": "https://wilsonssystems.com/wp-content/uploads/[logo-filename].svg",
-  "image": "https://wilsonssystems.com/wp-content/uploads/[team-photo-filename].jpg",
-  "description": "NICEIC Approved Contractor and Control4 Authorised Dealer serving Blackpool and the Fylde Coast for over 40 years. Multi-discipline electrical, security, CCTV, smart home, fire alarms, EV chargers and networking.",
-  "telephone": "[PHONE]",
-  "email": "[EMAIL]",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "[STREET ADDRESS]",
-    "addressLocality": "Blackpool",
-    "addressRegion": "Lancashire",
-    "postalCode": "[POSTCODE]",
-    "addressCountry": "GB"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": "[LATITUDE]",
-    "longitude": "[LONGITUDE]"
-  },
-  "areaServed": [
-    {
-      "@type": "City",
-      "name": "Blackpool"
-    },
-    {
-      "@type": "City",
-      "name": "Lytham St Annes"
-    },
-    {
-      "@type": "City",
-      "name": "Poulton-le-Fylde"
-    },
-    {
-      "@type": "City",
-      "name": "Cleveleys"
-    },
-    {
-      "@type": "City",
-      "name": "Thornton"
-    },
-    {
-      "@type": "City",
-      "name": "Fleetwood"
-    },
-    {
-      "@type": "City",
-      "name": "Kirkham"
-    },
-    {
-      "@type": "City",
-      "name": "Preston"
-    }
-  ],
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
-      ],
-      "opens": "08:00",
-      "closes": "17:00"
-    }
-  ],
-  "sameAs": [
-    "https://www.google.com/maps?cid=[GOOGLE_BUSINESS_PROFILE_CID]",
-    "https://www.facebook.com/[FACEBOOK_PAGE_URL]",
-    "https://www.checkatrade.com/trades/[CHECKATRADE_SLUG]"
-  ],
-  "hasMap": "https://www.google.com/maps?cid=[GOOGLE_BUSINESS_PROFILE_CID]",
-  "priceRange": "££",
-  "currenciesAccepted": "GBP",
-  "paymentAccepted": "Cash, Bank Transfer, Card",
-  "founder": {
-    "@type": "Person",
-    "name": "Ryan Wilson",
-    "jobTitle": "Managing Director and NICEIC Qualified Supervisor"
-  },
-  "knowsAbout": [
-    "Electrical Installation",
-    "EICR Inspections",
-    "Consumer Unit Upgrades",
-    "House Rewiring",
-    "Security Alarm Systems",
-    "CCTV Installation",
-    "Fire Alarm Systems",
-    "Control4 Smart Home",
-    "EV Charger Installation",
-    "UniFi Networking"
-  ],
-  "hasCredential": [
-    {
-      "@type": "EducationalOccupationalCredential",
-      "credentialCategory": "NICEIC Approved Contractor"
-    },
-    {
-      "@type": "EducationalOccupationalCredential",
-      "credentialCategory": "Control4 Authorised Dealer"
-    },
-    {
-      "@type": "EducationalOccupationalCredential",
-      "credentialCategory": "Part P Registered"
-    }
-  ]
-}
-</script>
-```
+1. Go to analytics.google.com → sign in with the business Google account
+2. Create a new GA4 property: property name "Wilsons Systems", reporting time zone "United Kingdom", currency "British Pound (£)"
+3. Create a Web data stream: URL https://www.wilsonssystems.com, stream name "Wilsons Systems Website"
+4. Copy the Measurement ID (format: G-XXXXXXXXXX)
 
-**Placeholders to replace before pasting:**
-- `[PHONE]` — actual phone number in format `+441253XXXXXX`
-- `[EMAIL]` — contact email address
-- `[STREET ADDRESS]`, `[POSTCODE]` — registered business address
-- `[LATITUDE]`, `[LONGITUDE]` — from Google Maps (right-click on pin > copy coordinates)
-- `[GOOGLE_BUSINESS_PROFILE_CID]` — find in the GBP URL when logged in, or from Maps share link
-- `[logo-filename].svg` — actual logo filename once SVG is uploaded
-- `[team-photo-filename].jpg` — main team/site photo once uploaded
-- `[FACEBOOK_PAGE_URL]` — if Facebook is active; remove `sameAs` entry if not
+### Implementation on the static site
 
-**How to verify:** After publishing, paste the page URL into [Google's Rich Results Test](https://search.google.com/test/rich-results). It should detect the `ElectricalContractor` type and show no errors.
+The site uses static HTML files deployed via a `deploy.sh` script. There are two approaches:
+
+**Option A (recommended): Google Tag Manager**
+- Create a GTM container at tagmanager.google.com
+- Add the GTM snippet to `<head>` and `<body>` of every HTML page
+- Configure GA4 as a tag within GTM, using the Measurement ID
+- Advantage: Future tracking changes (adding conversion events, heatmaps, etc.) can be made in GTM without touching HTML files
+- This is the cleaner long-term approach
+
+**Option B: Direct GA4 tag**
+- Add the GA4 `gtag.js` snippet directly to the `<head>` of every HTML page
+- Simpler but means editing all 30+ HTML files for any tracking change
+
+**Implementation approach for static files:**
+Since all pages are plain HTML, the cleanest approach is to add the GA4/GTM snippet to a shared header template that is injected at build time by `deploy.sh`. If no shared template currently exists, the snippet needs to be added to each HTML file — consider creating a shared `_header.html` partial that gets included during the build, reducing future maintenance burden.
+
+### Conversion events to configure
+
+Set these up immediately after GA4 is live:
+
+| Event name | Trigger | What it measures |
+|---|---|---|
+| `contact_form_submit` | Contact form submission (thank you page or form event) | Direct enquiries |
+| `quick_quote_complete` | Quick Quote form completion | Quote requests (highest intent) |
+| `chatbot_enquiry` | Chatbot session that results in a contact attempt | Chatbot-driven leads |
+| `phone_click` | Click on the phone number (click-to-call) | Calls initiated from the site |
+| `guide_view` | Pageview on /guides/* | Content engagement |
+
+For the phone click event: the phone number should be wrapped in a `tel:` link (`<a href="tel:01253795050">01253 795050</a>`). GA4 can then track clicks on this link as a conversion event using a GTM click trigger.
+
+### GA4 custom reports to set up
+
+Once data is flowing (allow 30 days for meaningful data):
+- **Landing page performance:** Which pages receive the first visit, and what % of those sessions result in a conversion event
+- **Conversion by service:** Tag pages by service category and measure which service areas generate the most enquiries
+- **Location performance:** GA4's geographic report will show whether Lytham St Annes traffic converts differently from Blackpool traffic — this directly informs the Lytham-primary strategy
 
 ---
 
-### Fix 3 — Remove Comment Form from Homepage
+## Gap 2: Google Search Console — Critical
 
-**Priority: Immediate — today**
-**Effort: 5 minutes**
+**Status: Not set up. Must be done alongside GA4.**
 
-**Current state:** A comment form is visible on the homepage. It is attracting spam and makes the page look like a blog post rather than a business homepage.
+Without Search Console, there is no visibility on:
+- Which search queries drive clicks to the site
+- Whether all 30+ pages are indexed by Google
+- Whether any pages have crawl errors or indexing issues
+- Whether the sitemap is being processed
+- Whether any manual actions (penalties) have been applied
 
-**Fix:**
+Search Console is free and takes 15 minutes to set up.
 
-In WordPress:
-1. Pages > Home > Edit
-2. Look for a Comments block or a comment form widget — delete it
-3. If comments are enabled at the page level: in the right sidebar under Discussion, uncheck "Allow comments"
-4. Alternatively: Settings > Discussion > uncheck "Allow people to post comments on new articles" (disables comments site-wide — usually safer for a business site)
+### Setup steps
 
-If the comment form is appearing from the theme and cannot be found in the editor, add this to your child theme's `functions.php`:
+1. Go to search.google.com/search-console
+2. Add property → URL prefix → enter: `https://www.wilsonssystems.com`
+3. Verify ownership via DNS: Google will provide a TXT record value
+4. In Cloudflare dashboard → DNS → Add record → Type: TXT, Name: @ (root), Value: [Google's TXT record value], TTL: Auto
+5. Return to Search Console → click Verify
+6. Once verified: Sitemaps → Add sitemap → enter: `sitemap.xml`
+7. Allow 48–72 hours for Google to process the sitemap
 
-```php
-// Disable comments on all pages and posts
-add_action('init', function() {
-    remove_post_type_support('page', 'comments');
-    remove_post_type_support('post', 'comments');
-});
-```
+### What to check weekly (15 minutes)
 
----
+- **Coverage report:** Are all 30+ pages in the "Valid" state? Any "Excluded" or "Error" pages need investigation.
+- **Performance report:** Which queries are generating impressions and clicks? This will reveal keywords the site is ranking for that are not yet in the keyword strategy.
+- **Core Web Vitals:** Will show real-user data for LCP, INP, and CLS. This supplements the lab data from PageSpeed Insights.
+- **Manual Actions:** A clean manual actions report confirms no penalties. Check monthly.
 
-### Fix 4 — Google Business Profile — Review Growth Process
+### Link GA4 to Search Console
 
-**Priority: This week**
-**Effort: 1 hour setup, then 5 minutes per job ongoing**
-
-**Current state:** 13 Google reviews. Target: 50+ within 6 months. Google Business Profile listing exists but has not been fully optimised.
-
-**Step 1 — Audit and update the GBP listing:**
-
-Log into [business.google.com](https://business.google.com) and verify/update:
-
-| Field | What to check / set |
-|-------|---------------------|
-| Business name | "Wilsons Systems" — must match the website name exactly |
-| Primary category | **Electrician** — this must be the primary category |
-| Additional categories | Security alarm installer, CCTV installer, Home automation company, Fire alarm supplier, EV charging station (if applicable) |
-| Business description | Write 250+ words covering all services, NICEIC approval, Control4 dealership, 40 years, service area |
-| Phone number | Must match the website exactly (NAP consistency) |
-| Website URL | `https://wilsonssystems.com` |
-| Service area | Add all towns: Blackpool, Lytham St Annes, Poulton-le-Fylde, Cleveleys, Thornton, Fleetwood, Kirkham, Preston, Chorley, Lancaster |
-| Services | Add all services from the IA in File 2 — GBP has a services field |
-| Photos | Minimum 10 photos: team photo, van(s), at least 3 completed project photos, office/premises if applicable, NICEIC certificate, Control4 badge |
-| Opening hours | Set correctly including any emergency callout notes |
-
-**Step 2 — Get the review link:**
-
-1. In Google Business Profile, go to Home > Get more reviews
-2. Copy the short review link (format: `g.page/[business-name]/review`)
-3. Save this link — it goes directly to the Google review form
-
-**Step 3 — Review request process (WhatsApp template):**
-
-Send this message to every customer within 24 hours of job completion:
-
-> Hi [Name], thanks for having us out today. If you're happy with the work, would you mind leaving us a quick Google review? It takes about 2 minutes and really helps small businesses like ours. Here's the link: [REVIEW LINK]
->
-> — Ryan / Wilsons Systems
-
-**Step 4 — Track progress:**
-
-Create a simple spreadsheet: job date, customer name, WhatsApp sent (Y/N), review received (Y/N). Review it weekly. If a customer said they would leave one and hasn't after 2 weeks, one follow-up is acceptable.
-
-**Target timeline for 50 reviews:**
-- Currently 13
-- Need 37 more
-- Wilsons does approximately 3–5 jobs per week
-- 30% response rate to review requests = 1–1.5 reviews per week
-- At 1.5 per week: 37 reviews in ~25 weeks (6 months)
-- If response rate is higher, or if satisfied past customers are contacted, target can be hit faster
-
-**Past customer outreach (one-time effort):**
-Ryan can send a review request to every satisfied customer from the last 2 years via WhatsApp or text. This could generate 10–15 reviews in the first week. Do this once, then rely on the ongoing post-job process.
+Once both are set up: in GA4 → Admin → Property Settings → Search Console Links → Link → select the Search Console property. This adds a "Search Console" report to GA4 showing which queries led to clicks that then resulted in sessions — the most useful cross-referencing view available.
 
 ---
 
-### Fix 5 — XML Sitemap — Submit to Google Search Console
+## Gap 3: Google Business Profile Audit
 
-**Priority: This week**
-**Effort: 15 minutes**
+**Status: GBP listing exists. Needs a thorough audit and update.**
 
-**Current state:** Sitemap status unconfirmed. Likely not submitted to Google Search Console if the site has not been actively managed.
+GBP is one of the primary ranking factors for local search. A listing with incomplete service categories, sparse photos, and no recent posts will rank below a fully optimised listing from a competitor.
 
-**Step 1 — Generate the sitemap:**
+### Categories
 
-If Yoast SEO is installed (standard on most WordPress sites):
-- The sitemap is automatically generated at `https://wilsonssystems.com/sitemap_index.xml`
-- Go to Yoast SEO > General > Features — ensure "XML sitemaps" is toggled on
-- Verify the sitemap exists by visiting the URL above in a browser
+**Primary category:** Electrician ✓ (likely already set)
 
-If Rank Math is installed:
-- Sitemap is at `https://wilsonssystems.com/sitemap.xml`
-- Settings > Sitemap — ensure all page types are included
+**Secondary categories to add (if not already set):**
+- Security system supplier
+- Home automation company
+- CCTV installer
+- Smart home installer
+- Electrical installation service
+- Security system installer
 
-**Step 2 — Submit to Google Search Console:**
+Google allows up to 10 categories. Use all relevant ones. The secondary categories expand the search queries for which the GBP listing appears.
 
-1. Log into [Google Search Console](https://search.google.com/search-console) — verify ownership if not already done (Cloudflare makes DNS verification the easiest method)
-2. In the left menu: Sitemaps
-3. Paste the sitemap URL and click Submit
-4. Check back after 24 hours — GSC will show how many URLs were indexed vs submitted
+### Business description
 
-**Step 3 — Submit to Bing Webmaster Tools:**
+The GBP description is 750 characters max (but only ~250 show without "more" click). The first 250 characters should carry the most important information:
 
-Bing has roughly 6–10% of UK search traffic. Worth 5 minutes:
-1. Register at [bing.com/webmasters](https://www.bing.com/webmasters)
-2. Add the site and submit the sitemap URL
+Suggested description:
+> NICEIC approved electrical contractors and Control4 Authorised Dealers serving Lytham St Annes and the Fylde Coast since 1984. We specialise in smart home automation, CCTV and security alarms, EV charger installation, house rewiring, consumer unit upgrades, and EICR testing. Covering Lytham St Annes, Blackpool, Poulton-le-Fylde, Fleetwood, Kirkham, and Preston.
 
----
+### Services list
 
-### Fix 6 — Image Alt Text
+GBP has a services section where individual services can be listed with names and descriptions. Many businesses leave this incomplete. Ryan should log in and add every service Wilsons offers:
+- House Rewiring
+- Consumer Unit Upgrades
+- EICR Testing
+- Emergency Electrician
+- EV Charger Installation
+- Heat Pump Electrical Work
+- Smart Home Installation (Control4)
+- Multi-Room Audio
+- Lighting Control
+- Home Cinema
+- CCTV Installation (Hikvision)
+- Security Alarm Installation (Texecom)
+- Access Control (Videx)
+- Gate Automation
+- Networking & Data
 
-**Priority: Week 2**
-**Effort: 1–2 hours (manual), or 30 minutes with a plugin**
+### Photos to add
 
-**Current state:** All images are using filenames as alt text (e.g., `IMG_4521.jpg`). This wastes a ranking signal and fails accessibility standards.
+GBP listings with 10+ photos receive significantly more engagement. Priority photos:
+1. Team photo (Ryan + team, ideally in front of the van or a completed installation)
+2. Van / vehicles (legitimacy signal — shows a real business with physical assets)
+3. Corka Bridge House Control4 installation (or another premium smart home install)
+4. Hikvision CCTV installation (professional camera installation, equipment rack)
+5. Consumer unit installation (clean, professional work)
+6. NICEIC certificate / accreditation (physical paperwork = trust)
+7. Office / workshop at 6E Peel Hall Business Village (legitimacy signal)
 
-**Fix formula:**
+All photos should be high quality (minimum 720px, ideally 1080p+). Avoid screenshots and placeholder images.
 
-```
-[service] in [location] — Wilsons Systems
-```
+### Q&A section
 
-**Examples:**
+Seed the GBP Q&A section with the 8 questions from the homepage FAQ. Businesses can post their own questions and answers — this ensures accurate answers appear rather than leaving it to the public. Log in as the business owner, go to the listing, find the Q&A section, and post each question with its answer.
 
-| Filename (current) | Alt text (recommended) |
-|--------------------|-----------------------|
-| `IMG_4521.jpg` | `consumer unit installation Blackpool — Wilsons Systems` |
-| `DSC_0012.jpg` | `house rewiring Lytham St Annes — Wilsons Systems` |
-| `photo1.jpg` | `Hikvision CCTV installation Blackpool — Wilsons Systems` |
-| `team.jpg` | `Wilsons Systems team — electricians Blackpool` |
-| `van.jpg` | `Wilsons Systems van — NICEIC approved electricians Fylde Coast` |
+### Posts
 
-**How to fix in WordPress:**
+Google Business posts appear in the knowledge panel for local searches. They remain visible for approximately 7 days (standard posts) or until manually removed (offers/events). The algorithm appears to give a small ranking lift to active listings.
 
-Option A (manual): Media Library > select each image > edit alt text field. Time-consuming but accurate.
-
-Option B (plugin): "SEO Optimized Images" plugin auto-generates alt text from the attachment title — faster but requires titles to already be set correctly. Better as a foundation than a complete fix.
-
-Option C (if using Yoast): Yoast will flag images with missing alt text in its analysis. Use this to find offenders quickly.
-
-**Priority order for manual fixing:** Homepage images first, then service page images, then blog images.
-
----
-
-### Fix 7 — Page Speed
-
-**Priority: Week 2–3**
-**Effort: 2–4 hours depending on current WordPress configuration**
-
-**Current state:** Not measured. WordPress without caching and image optimisation typically scores 30–60 on Google PageSpeed Insights mobile. Target: 70+ mobile, 85+ desktop.
-
-**Step 1 — Measure current state:**
-
-Run the current homepage through:
-- [PageSpeed Insights](https://pagespeed.web.dev/) — Google's official tool; mobile score is what matters most
-- [GTmetrix](https://gtmetrix.com) — gives more detail on what's slowing the page down
-
-Note the current scores before making changes. Then re-test after each fix to confirm improvement.
-
-**Step 2 — Install a caching plugin:**
-
-Recommended: **WP Rocket** (paid, approximately £45/year — worth every penny) or **W3 Total Cache** (free but more complex to configure).
-
-WP Rocket default settings will handle:
-- Page caching
-- Browser caching
-- GZIP compression
-- Database optimisation
-
-**Step 3 — Cloudflare caching (free, already available):**
-
-In the Cloudflare dashboard:
-1. Caching > Configuration > Caching Level: Standard
-2. Browser Cache TTL: 4 hours
-3. Create a Page Rule for `/wp-admin/*` to bypass cache (so admin edits don't get cached)
-4. Speed > Optimization > Auto Minify — enable for CSS, JS, HTML
-5. Speed > Optimization > Rocket Loader — test this carefully; it can break some plugins
-
-**Step 4 — Convert images to WebP:**
-
-WebP is ~30% smaller than JPEG for the same quality. WordPress 5.8+ supports WebP natively.
-
-Options:
-- **ShortPixel** (freemium): bulk converts existing images and serves WebP to supporting browsers. Best balance of quality and compression.
-- **Smush** (free tier): similar functionality, slightly less aggressive compression
-- **Cloudflare Image Resizing** (paid Cloudflare plan): handles it at CDN level without a plugin
-
-**Step 5 — Defer JavaScript:**
-
-WP Rocket handles this. If not using WP Rocket, install **Async JavaScript** (free plugin). Deferring non-essential JavaScript means the page visually loads faster even if total load time is similar.
+**Post schedule:** One post per month minimum. Content ideas:
+- Completed project highlight (brief description, 1–2 photos)
+- New guide published (link to the /guides/ page)
+- Seasonal tip (winter — check your consumer unit; spring — time for an EICR if your rental is due)
+- Service spotlight (rotate through different services each month)
 
 ---
 
-### Fix 8 — Click-to-Call
+## Gap 4: Placeholder Image Replacement
 
-**Priority: Immediate — today or this week**
-**Effort: 30 minutes**
+**Status: Some placehold.co URLs remain on the site.**
 
-**Current state:** Phone number is visible on the site but likely not formatted as a clickable link on mobile. On mobile, every phone number must be tappable — this is a direct conversion issue.
+Placehold.co is a third-party image placeholder service. Pages containing these URLs:
+- Make a network request to a third-party domain (minor performance consideration)
+- Clearly signal to Google (and users) that the page is not finished
+- Lose the E-E-A-T opportunity that a real photograph would provide
+- Cannot have meaningful alt text because the image has no meaningful content
 
-**Fix:**
+**Priority order for replacement:**
+1. Smart home / Control4 page — highest value service, most premium audience
+2. CCTV and security pages — real installation photos demonstrate capability
+3. About page — team photo is the single most impactful human trust signal
+4. Projects page — every entry needs a real photo; placeholder photos make project write-ups unconvincing
+5. Homepage — if any placehold.co images remain in the hero or services grid
 
-Every instance of the phone number on the site must use this HTML:
-
-```html
-<a href="tel:+441253XXXXXX">01253 XXXXXX</a>
-```
-
-Replace `XXXXXX` with the actual digits. The `href` must use the international format with `+44` and no leading zero.
-
-**Locations that must have click-to-call:**
-1. Header — visible on all pages, all device sizes
-2. Homepage hero — immediately visible on load
-3. Homepage contact/CTA section
-4. Every service page (in the page body and sidebar if applicable)
-5. Every location page
-6. Footer
-7. Contact page
-
-**Mobile header specific:**
-
-On mobile, the phone number in the header should be formatted as an icon + number or a styled button — not just plain text that might be too small to tap accurately. Minimum tap target size: 44×44 pixels (Apple HIG recommendation, also used by Google's mobile usability guidelines).
-
-```html
-<!-- Example mobile header click-to-call button -->
-<a href="tel:+441253XXXXXX" class="cta-phone-mobile">
-  <svg><!-- phone icon svg --></svg>
-  01253 XXXXXX
-</a>
-```
-
-CSS minimum:
-```css
-.cta-phone-mobile {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 44px;
-  padding: 10px 16px;
-  font-size: 16px; /* prevents iOS auto-zoom on tap */
-  font-weight: 600;
-  color: #ffffff;
-  background: #cc1414; /* red accent */
-  border-radius: 4px;
-  text-decoration: none;
-}
-```
+If professional photography is not immediately available: clear, well-lit smartphone photographs of real completed installations are substantially better than placeholders. The bar is "genuine" not "perfect."
 
 ---
 
-### Fix 9 — HTTPS and Mixed Content
+## Gap 5: Directory Listings / NAP Citations
 
-**Priority: Week 1**
-**Effort: 30 minutes to audit, variable to fix**
+**Status: Not confirmed as set up across key directories.**
 
-**Current state:** Site is on Cloudflare, which typically handles HTTPS termination. However, internal links or media may still reference `http://` URLs.
+NAP consistency (Name, Address, Phone) across online directories is a local SEO trust signal. The more places Google finds consistent NAP data, the more confident it is that the business is real, established, and located where it claims.
 
-**Fix:**
+**Canonical NAP (use exactly this format everywhere):**
 
-**Step 1 — Verify Cloudflare SSL:**
-Cloudflare dashboard > SSL/TLS > Overview. Should show "Full (strict)" mode. If it's showing "Flexible," upgrade to Full Strict — Flexible mode has security implications.
+- **Name:** Wilsons Systems
+- **Address:** 6E Peel Hall Business Village, Blackpool, FY4 5JX
+- **Phone:** 01253 795050
+- **Website:** https://www.wilsonssystems.com
 
-**Step 2 — Force HTTPS:**
-Cloudflare > SSL/TLS > Edge Certificates > Always Use HTTPS: On
-This redirects all HTTP requests to HTTPS at the CDN level.
+Do not use variations (no "Wilson's Systems", no "Wilson Systems", no abbreviating the address). Inconsistency creates confusion in Google's local index.
 
-**Step 3 — Update WordPress site URL:**
-WordPress Admin > Settings > General:
-- WordPress Address (URL): `https://wilsonssystems.com`
-- Site Address (URL): `https://wilsonssystems.com`
+**Directories to claim/create (in priority order):**
 
-If these show `http://`, changing them to `https://` will fix the WordPress-generated URLs.
+| Directory | Why it matters | Notes |
+|---|---|---|
+| NICEIC contractor finder | Clients actively search niceic.com for approved contractors — direct referral traffic | Log in at niceic.com/contractors, claim the Wilsons listing, ensure photo and services are current |
+| Google Business Profile | Already exists — see Gap 3 | Audit and update as above |
+| Checkatrade | High-volume local trades directory, good domain authority | Create listing with full NAP and services list |
+| Trustpilot | Increasingly checked by consumers before booking | Create company page, invite existing happy clients to leave reviews |
+| Yell.com | Old but still indexed by Google | Claim or create listing with NAP |
+| Local.co.uk | UK local directory, decent local SEO value | Create listing |
+| Yelp UK | Lower volume but another citation | Create listing |
+| Scoot | UK directory | Create listing |
+| 118 118 | Legacy but still carries citation value | Create/claim listing |
 
-**Step 4 — Fix mixed content:**
-Install **Really Simple SSL** plugin (free). It automatically finds and fixes `http://` references in the database and outputs HTTP to HTTPS in served pages.
-
-**Step 5 — Verify:**
-In Chrome, load the homepage and open DevTools > Console. Any mixed content warnings appear here. Target: zero warnings, padlock icon visible and green (or default locked state in modern Chrome).
-
----
-
-### Fix 10 — robots.txt
-
-**Priority: Week 1**
-**Effort: 10 minutes**
-
-**Current state:** Unverified. WordPress generates a default robots.txt via a virtual file — it may or may not be optimal.
-
-**Verify and fix:**
-
-Visit `https://wilsonssystems.com/robots.txt` in a browser. The correct content should be:
-
-```
-User-agent: *
-Disallow: /wp-admin/
-Allow: /wp-admin/admin-ajax.php
-
-Sitemap: https://wilsonssystems.com/sitemap_index.xml
-```
-
-This allows Googlebot to crawl everything except the admin area, and tells all crawlers where to find the sitemap.
-
-**Things to avoid in robots.txt:**
-- `Disallow: /` (blocks everything — catastrophic)
-- Disallowing `/wp-content/uploads/` (blocks image indexing)
-- Blocking CSS or JS files (Google needs these to render pages)
-
-If a plugin has added unnecessary disallow rules, remove them. The WordPress default is usually safe — just add the sitemap URL if it's missing.
+**Time to implement:** Approximately 2–3 hours to create and verify all listings. The NICEIC finder is the most valuable single directory for direct referral traffic — prioritise that one first.
 
 ---
 
-### Fix 11 — Mobile-First Check
+## Gap 6: E-E-A-T Improvements
 
-**Priority: Week 1–2**
-**Effort: 1–2 hours testing + variable fix time**
+**Status: Schema is in place, but human expertise signals are thin.**
 
-**Current state:** Unknown. WordPress themes are generally responsive, but responsive is not the same as optimised for mobile.
+Google's E-E-A-T (Experience, Expertise, Authoritativeness, Trust) framework is particularly scrutinised for trades and home service queries — categories where bad advice or unqualified work could cause real harm. The site's schema and credentials are in place, but the human layer is missing.
 
-**Testing protocol:**
+**What to add:**
 
-1. Chrome DevTools > Device toolbar > select "iPhone SE" (375px wide — smallest common screen still in significant use)
-2. Check every page type: homepage, service page, contact page
-3. Check at 390px (iPhone 14 standard) and 428px (iPhone 14 Plus)
+**About page — named individuals with qualifications:**
+Adding Ryan Wilson by name with his NICEIC Qualified Supervisor status, and noting his years in the trade, creates an explicit expertise claim that Google can evaluate. Other named staff members add depth. See `05-seo-onpage.md` for the About page brief.
 
-**Things to check and minimum standards:**
+**Guide pages — author attribution:**
+Any new guide pages published under `/guides/` should be attributed to Ryan Wilson by name with his qualifications in the page byline. This creates an author entity that Google can associate with qualified expertise in electrical and security work.
 
-| Element | Minimum Standard |
-|---------|-----------------|
-| Navigation | Hamburger menu that collapses cleanly — no overflow, no horizontal scroll |
-| Phone number | Click-to-call link, minimum 44×44px tap target |
-| CTA buttons | Minimum 44×44px, full width or near-full width on mobile |
-| Font size | Minimum 16px for body text (prevents iOS auto-zoom) |
-| Images | Must not exceed viewport width — `max-width: 100%` on all `<img>` |
-| Form fields | Minimum height 44px, font size 16px (prevents zoom on focus) |
-| Spacing | Adequate padding between tappable elements (minimum 8px gap) |
-| Horizontal scroll | None. Zero. Any horizontal scroll is a failure. |
+**Format example:**
+`Written by Ryan Wilson, NICEIC Qualified Supervisor | Managing Director, Wilsons Systems`
 
-**Run Google's Mobile-Friendly Test:**
-Visit [search.google.com/test/mobile-friendly](https://search.google.com/test/mobile-friendly) and paste the site URL. Fix any issues it flags.
-
-**Check Core Web Vitals on mobile:**
-PageSpeed Insights shows mobile and desktop scores separately. The mobile CWV score matters most for ranking (Google uses mobile-first indexing).
+**Review volume:**
+13 verified Google reviews is a start, but it is below the volume where the count itself becomes a trust signal. See `04-homepage-copy.md` for the review request process. Target: 50+ reviews within 12 months.
 
 ---
 
-## Rebuild Note — Next.js / Cloudflare Pages
+## Gap 7: sitemap.xml lastmod Dates
 
-If wilsonssystems.com is rebuilt on Next.js (App Router) deployed to Cloudflare Pages, the following items from the fix list are resolved by default or trivially:
+**Status: Minor maintenance task.**
 
-| Fix # | Item | Status in Rebuild |
-|-------|------|-------------------|
-| 1 | H1 tag | Solved by writing the correct H1 in JSX |
-| 3 | Comment form | Does not exist in a custom build — not an issue |
-| 7 | Page speed | Next.js with Cloudflare Pages typically scores 90+ by default: SSG pages, automatic image optimisation (`next/image`), edge CDN delivery, no WordPress overhead |
-| 11 | Mobile first | Solved by building mobile-first from the start in CSS |
+All pages in sitemap.xml currently show `<lastmod>2026-03-15</lastmod>`. When content is updated on any page, the lastmod date for that page should be updated to the date of the change. Stale lastmod dates across all pages simultaneously signals to Googlebot that nothing has changed — which may reduce crawl frequency over time.
 
-**Items that still require active implementation in a rebuild:**
+**Fix:** Update the `deploy.sh` script or build process to automatically set the lastmod date to the current date for any page that has been modified since the last deploy. If automation is not practical, manually update lastmod dates whenever substantial content changes are made to a page.
 
-| Fix # | Item | Action Required in Rebuild |
-|-------|------|---------------------------|
-| 2 | LocalBusiness schema | Implement in `app/layout.tsx` or as a shared component |
-| 4 | Google Business Profile | Not related to tech stack — process-based |
-| 5 | XML Sitemap | Use `next-sitemap` package to auto-generate |
-| 6 | Image alt text | Write correct alt text for every `<Image>` component at build time |
-| 8 | Click-to-call | Implement in header component with correct `href="tel:"` |
-| 9 | HTTPS | Cloudflare handles this — configure SSL/TLS as per Fix 9 |
-| 10 | robots.txt | Add `public/robots.txt` to the repo |
-
-**Next.js sitemap implementation:**
-
-Install `next-sitemap`:
-```bash
-npm install next-sitemap
-```
-
-Add `next-sitemap.config.js` to project root:
-```js
-/** @type {import('next-sitemap').IConfig} */
-module.exports = {
-  siteUrl: 'https://wilsonssystems.com',
-  generateRobotsTxt: true,
-  robotsTxtOptions: {
-    policies: [
-      { userAgent: '*', allow: '/' },
-    ],
-  },
-  exclude: ['/api/*', '/admin/*'],
-  changefreq: 'weekly',
-  priority: 0.7,
-  transform: async (config, path) => {
-    // Give homepage and high-priority pages higher priority
-    const highPriority = ['/', '/services/smart-home/control4', '/locations/electrician-blackpool']
-    return {
-      loc: path,
-      changefreq: config.changefreq,
-      priority: highPriority.includes(path) ? 1.0 : config.priority,
-      lastmod: new Date().toISOString(),
-    }
-  },
-}
-```
-
-Add to `package.json` scripts:
-```json
-"postbuild": "next-sitemap"
-```
-
-This generates both `sitemap.xml` and `robots.txt` automatically on every build.
-
----
-
-## Monitoring — Ongoing
-
-Once the fixes above are implemented, set up basic monitoring so regressions are caught early:
-
-| Tool | What to monitor | Frequency |
-|------|----------------|-----------|
-| Google Search Console | Impressions, clicks, average position, Coverage errors, Core Web Vitals | Weekly |
-| Google Analytics 4 | Organic sessions, conversion events (form submissions, phone link clicks), top landing pages | Weekly |
-| Google Business Profile | Profile views, search queries, review count, photo views | Monthly |
-| PageSpeed Insights | Mobile and desktop scores for homepage and top 3 service pages | Monthly |
-| Manual SERP check | Search "electrician Blackpool", "EICR Blackpool", "Control4 installer Blackpool" — note position | Monthly |
-
-All of these tools are free. The time investment is approximately 30 minutes per month once set up.
+This is a low-priority maintenance task — the indexing impact is marginal — but it is worth building into the workflow as content updates become more frequent.

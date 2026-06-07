@@ -1,352 +1,177 @@
 # Information Architecture — Wilsons Systems
 
-**Client:** Wilsons Systems / Wilsons Electrical Ltd
-**Skill applied:** Information Architecture
-**Date:** May 2026
+## Summary
+
+The IA is largely correct and well-structured. The URL hierarchy is logical, the internal linking strategy is implemented, and the navigation covers the three main service pillars. This document maps what exists accurately, identifies the genuine gaps, and specifies what should be built next.
 
 ---
 
-## Overview
+## Current Sitemap (Confirmed)
 
-The current site has one functional page. The architecture below is the complete structure for a rebuilt or significantly expanded wilsonssystems.com. It is organised to serve three goals simultaneously:
+### Core pages
+- `/` — Homepage
+- `/about/` — About Wilsons Systems
+- `/contact/` — Contact page (form only — no email address published)
+- `/projects/` — Completed project showcase
+- `/quick-quote/` — Quick Quote form (→ GCP Cloud Function → Simpro)
+- `/privacy/` — Privacy policy
+- `/404` — Custom 404 page
 
-1. **SEO** — every page targets a specific keyword cluster with a defined intent
-2. **Conversion** — every section of the site has a clear path to contact or quote
-3. **User need** — every visitor type (domestic homeowner, landlord, commercial manager, architect) has a clear journey
+### Primary service page (electrical — primary location)
+- `/electrician-lytham-st-annes/` — Primary electrical service page. Lytham St Annes is the PRIMARY focus.
 
----
+### Sub-service pages (electrical)
+- `/house-rewiring/`
+- `/consumer-unit-upgrades/`
+- `/eicr-testing/`
+- `/emergency-electrician/`
+- `/heat-pump-electrician/`
 
-## Full Sitemap
+### Sub-service pages (smart home / AV)
+- `/multi-room-audio/`
+- `/lighting-control/`
 
-### Core Pages
+### Discipline service pages (8 total — exact URLs to confirm against live site, but these represent the structure)
+- Smart homes / Control4
+- CCTV / Hikvision
+- Security alarms / Texecom
+- Access control / Videx
+- Networking
+- Home cinema / AV
+- Electrical (primary — covered by electrician-lytham-st-annes)
+- Commercial (mentioned but possibly thin)
 
-| Page | URL | Primary Purpose |
-|------|-----|----------------|
-| Homepage | `/` | Brand, trust, overview, CTA hub |
-| About Us | `/about` | Ryan's story, team, 40-year history, accreditations |
-| Accreditations | `/accreditations` | NICEIC, Control4, Safe Trader, Part P — with official badge display |
-| Reviews & Testimonials | `/reviews` | Google reviews feed + project testimonials |
-| Blog | `/blog` | Informational content, long-tail keyword capture |
-| Contact | `/contact` | Phone, form, map, opening hours |
-| Quote Request | `/quote` | Dedicated form page — longer form, routed by service type |
+### Location pages (5)
+- `/blackpool/` or `/electrician-blackpool/`
+- `/poulton-le-fylde/`
+- `/fleetwood/`
+- `/kirkham/`
+- `/preston/`
 
----
+Note: Lytham St Annes is covered by the primary service page (`/electrician-lytham-st-annes/`), not a dedicated location page. This is a valid structural choice — the service page with the primary keyword functions as both.
 
-### Service Hub Pages
+### Guides section (6 pages, no index page)
+- `/guides/texecom-connect-app/`
+- `/guides/diy-vs-professional-alarm-installation/`
+- `/guides/wireless-vs-wired-alarm/`
+- `/guides/hikconnect/`
+- `/guides/hikvision-health-monitoring/`
+- `/guides/control4-vs-diy/`
 
-One page per major discipline. Each hub page is 600–1,000 words, links down to all sub-service pages, and links sideways to relevant location pages.
+### Infrastructure
+- `sitemap.xml`
+- `robots.txt`
 
-| Hub Page | URL | Target Keyword |
-|----------|-----|----------------|
-| Electrical Services | `/services/electrical` | "electrical services Blackpool" |
-| Security Alarms | `/services/security-alarms` | "alarm installation Blackpool" |
-| CCTV Systems | `/services/cctv` | "CCTV installation Blackpool" |
-| Fire Alarms | `/services/fire-alarms` | "fire alarm installation Blackpool" |
-| Smart Home & Control4 | `/services/smart-home` | "Control4 installer Blackpool" |
-| Audio Visual | `/services/audio-visual` | "home cinema installation Blackpool" |
-| Access Control & Door Entry | `/services/access-control` | "access control installer Blackpool" |
-| EV Charger Installation | `/services/ev-chargers` | "EV charger installation Blackpool" |
-| Networking & Wi-Fi | `/services/networking` | "Wi-Fi installation Blackpool" |
-
----
-
-### Service Deep-Dive Pages
-
-Sub-pages under each hub. Each is 400–800 words. They target more specific long-tail keywords and feed traffic upward to the hub and sideways to location pages.
-
-#### Under Electrical Services (`/services/electrical/...`)
-
-| Page | URL | Target Keyword |
-|------|-----|----------------|
-| House Rewiring | `/services/electrical/house-rewiring` | "house rewire Blackpool" |
-| Consumer Unit Upgrades | `/services/electrical/consumer-unit-upgrade` | "consumer unit upgrade Blackpool" |
-| EICR — General | `/services/electrical/eicr` | "EICR Blackpool" |
-| EICR — Landlord Certificates | `/services/electrical/landlord-eicr` | "landlord electrical certificate Blackpool" |
-| Emergency Electrician | `/services/electrical/emergency-electrician` | "emergency electrician Blackpool" |
-| Commercial Electrical | `/services/electrical/commercial` | "commercial electrician Blackpool" |
-
-#### Under Security Alarms (`/services/security-alarms/...`)
-
-| Page | URL | Target Keyword |
-|------|-----|----------------|
-| Intruder Alarm Installation | `/services/security-alarms/intruder-alarm-installation` | "burglar alarm installation Blackpool" |
-| Intruder Alarm Maintenance | `/services/security-alarms/alarm-maintenance` | "alarm maintenance Blackpool" |
-| Wireless Alarm Systems | `/services/security-alarms/wireless-alarms` | "wireless alarm Blackpool" |
-
-#### Under CCTV Systems (`/services/cctv/...`)
-
-| Page | URL | Target Keyword |
-|------|-----|----------------|
-| CCTV Installation | `/services/cctv/cctv-installation` | "CCTV installation Blackpool" |
-| CCTV Maintenance | `/services/cctv/cctv-maintenance` | "CCTV maintenance Blackpool" |
-| Hikvision Systems | `/services/cctv/hikvision` | "Hikvision installer Blackpool" |
-| Commercial CCTV | `/services/cctv/commercial-cctv` | "commercial CCTV Blackpool" |
-
-#### Under Smart Home (`/services/smart-home/...`)
-
-| Page | URL | Target Keyword |
-|------|-----|----------------|
-| Control4 Installation | `/services/smart-home/control4` | "Control4 installer Blackpool" |
-| Smart Lighting | `/services/smart-home/smart-lighting` | "smart lighting installation Blackpool" |
-| Home Cinema | `/services/smart-home/home-cinema` | "home cinema installation Blackpool" |
-| Multi-Room Audio | `/services/smart-home/multi-room-audio` | "multi-room audio Blackpool" |
+**Total: 30+ pages confirmed.**
 
 ---
 
-### Location Pages
+## Navigation Hierarchy
 
-One page per target town. Each page is 400–600 words, references the specific town multiple times, and mentions at least two services commonly needed there. These pages do two jobs: they capture local search traffic ("electrician [town]") and they demonstrate local knowledge, which builds trust.
+The site uses a 3-column dropdown navigation already implemented:
 
-#### Primary Location Pages
+| Column 1: Electrical | Column 2: Security | Column 3: Smart Homes & AV |
+|---|---|---|
+| Lytham St Annes (primary) | CCTV | Control4 / Smart Homes |
+| House Rewiring | Security Alarms | Multi-Room Audio |
+| Consumer Unit Upgrades | Access Control | Lighting Control |
+| EICR Testing | Gate Automation (missing) | Home Cinema |
+| Emergency Electrician | | |
+| Heat Pump Electrician | | |
+| EV Charger Installation (missing) | | |
 
-| Page | URL | Primary Keyword |
-|------|-----|----------------|
-| Electrician Blackpool | `/locations/electrician-blackpool` | "electrician Blackpool" |
-| Electrician Lytham St Annes | `/locations/electrician-lytham-st-annes` | "electrician Lytham St Annes" |
-| Electrician Poulton-le-Fylde | `/locations/electrician-poulton-le-fylde` | "electrician Poulton-le-Fylde" |
-| Electrician Cleveleys | `/locations/electrician-cleveleys` | "electrician Cleveleys" |
-| Electrician Thornton | `/locations/electrician-thornton` | "electrician Thornton" |
-| Electrician Fleetwood | `/locations/electrician-fleetwood` | "electrician Fleetwood" |
-| Electrician Kirkham | `/locations/electrician-kirkham` | "electrician Kirkham" |
-| Electrician Preston | `/locations/electrician-preston` | "electrician Preston" |
-
-#### Specialist Location Pages (separate intent, different audience)
-
-| Page | URL | Primary Keyword |
-|------|-----|----------------|
-| Smart Home Installer Blackpool | `/locations/smart-home-blackpool` | "smart home installer Blackpool" |
-| CCTV Installation Blackpool | `/locations/cctv-blackpool` | "CCTV installation Blackpool" |
-| Control4 Installer Fylde Coast | `/locations/control4-fylde-coast` | "Control4 installer Fylde Coast" |
-| Alarm Installer Lytham St Annes | `/locations/alarm-installer-lytham-st-annes` | "alarm installer Lytham St Annes" |
+The navigation structure is sound. The two gaps highlighted above are genuine — services Wilsons offers with no corresponding page.
 
 ---
 
-### Blog Structure
+## Internal Linking Strategy — Documented
 
-Blog content is organised into four pillars, each targeting a different intent cluster. Each pillar contains 5–10 posts at launch, growing over time.
+The internal linking strategy is already implemented. The logic is:
 
-**URL structure:** `/blog/[pillar]/[post-slug]`
+**Service ↔ Service:** Each service page links to related services where there is a natural upgrade or companion relationship.
+- Example: EICR testing page links to consumer unit upgrades (EICR often reveals the need for a new consumer unit)
+- Example: Security alarms page links to CCTV and access control (natural security bundle)
+- Example: Smart homes page links to lighting control and multi-room audio (sub-services of the smart home offer)
 
-#### Pillar 1: Electrical Safety
-`/blog/electrical-safety/`
+**Service ↔ Location:** Each service page links to location pages where the service is particularly relevant; each location page links back to key services.
+- Example: Electrician page links to Blackpool, Poulton, Fleetwood, Kirkham, Preston location pages
+- Example: Location pages link to the relevant primary service page
 
-Example posts:
-- `/blog/electrical-safety/how-often-does-a-rental-property-need-an-eicr`
-- `/blog/electrical-safety/signs-your-house-needs-rewiring`
-- `/blog/electrical-safety/what-is-a-consumer-unit-upgrade`
-- `/blog/electrical-safety/fuse-box-vs-consumer-unit-whats-the-difference`
-- `/blog/electrical-safety/how-much-does-a-house-rewire-cost-in-blackpool`
+**Location ↔ Location:** Location pages link to adjacent location pages to build a geographic cluster.
+- Example: Blackpool page links to Poulton-le-Fylde, Fleetwood; Kirkham page links to Preston
 
-#### Pillar 2: Smart Home
-`/blog/smart-home/`
-
-Example posts:
-- `/blog/smart-home/what-is-control4-and-is-it-worth-it`
-- `/blog/smart-home/control4-vs-google-home-which-should-you-choose`
-- `/blog/smart-home/how-much-does-a-smart-home-system-cost-uk`
-- `/blog/smart-home/smart-lighting-what-can-it-actually-do`
-- `/blog/smart-home/home-cinema-setup-guide`
-
-#### Pillar 3: Security
-`/blog/security/`
-
-Example posts:
-- `/blog/security/hikvision-vs-dahua-which-cctv-is-better`
-- `/blog/security/how-to-choose-a-home-alarm-system-uk`
-- `/blog/security/do-i-need-planning-permission-for-cctv-uk`
-- `/blog/security/texecom-premier-elite-review`
-- `/blog/security/nsi-vs-ssaib-alarm-certification-whats-the-difference`
-
-#### Pillar 4: Fylde Coast Local
-`/blog/local/`
-
-Example posts:
-- `/blog/local/renovating-a-victorian-house-in-lytham-electrical-checklist`
-- `/blog/local/smart-home-new-build-blackpool`
-- `/blog/local/ev-charger-installation-blackpool-costs-and-grants`
-- `/blog/local/landlord-electrical-compliance-lancashire`
+This creates a well-structured cluster that Google can interpret as geographic and topical authority across the Fylde Coast.
 
 ---
 
-## URL Structure
+## Genuine Gaps in the IA
 
-### Rules
+### Gap 1: /guides/ index page
 
-1. All lowercase, hyphen-separated. No underscores, no camelCase.
-2. Service pages live under `/services/` — this keeps them in a coherent cluster for Google
-3. Location pages live under `/locations/` — same principle; separates them from service content
-4. Blog posts live under `/blog/[pillar]/[slug]` — the pillar directory creates topical authority clusters
-5. Core pages live at root: `/about`, `/contact`, `/reviews`, `/accreditations`
-6. No dates in blog URLs — content should be updatable without changing the URL
+**Status: Missing.**
 
-### URL Examples
+The 6 guide pages under `/guides/` exist and are likely indexed, but there is no `/guides/` index page listing them. This means:
+- There is no single page a user can navigate to see all guides
+- Google has no hub page to establish the guides section as a coherent topical cluster
+- There is no obvious location to add new guides in the navigation
 
-```
-https://wilsonssystems.com/
-https://wilsonssystems.com/about
-https://wilsonssystems.com/services/electrical
-https://wilsonssystems.com/services/electrical/eicr
-https://wilsonssystems.com/services/electrical/landlord-eicr
-https://wilsonssystems.com/services/smart-home/control4
-https://wilsonssystems.com/locations/electrician-blackpool
-https://wilsonssystems.com/locations/electrician-lytham-st-annes
-https://wilsonssystems.com/blog/electrical-safety/signs-your-house-needs-rewiring
-https://wilsonssystems.com/contact
-```
+**Fix:** Create `/guides/` as a simple index page listing all 6 guides with title, description, and link. This is low effort and immediately useful. See `05-seo-onpage.md` for the page spec.
 
----
+### Gap 2: /ev-charger-installation/ page
 
-## Navigation Recommendation
+**Status: Missing. High priority.**
 
-### Primary Navigation (Desktop)
+EV charger installation is mentioned in CLAUDE.md as a service Wilsons offers, and it appears in the homepage FAQ. There is no dedicated page. This is a high-growth search category with low local competition — Wilsons is leaving this traffic entirely uncaptured.
 
-```
-[Logo]   Services ▾   Locations ▾   About   Reviews   Blog   Contact   [01253 XXXXXX — call now]
-```
+**Fix:** Create `/ev-charger-installation/` as a sub-service page under Electrical. See `05-seo-onpage.md` for the full page spec.
 
-**Services dropdown (mega menu or structured dropdown):**
+### Gap 3: /gate-automation/ page
 
-```
-Electrical                  Security & CCTV           Smart Home & AV
-──────────────────          ──────────────────        ──────────────────
-House Rewiring              Security Alarms           Smart Home & Control4
-Consumer Unit Upgrades      CCTV Installation         Home Cinema
-EICR Certificates           Fire Alarms               Multi-Room Audio
-Emergency Electrician       Access Control            Audio Visual
-EV Charger Installation     
-Commercial Electrical       
+**Status: Missing.**
 
-Networking & Wi-Fi          [View all services →]
-```
+Gate automation is listed in CLAUDE.md as a service. It would sit logically under Security as a companion to access control. No page exists, and the keyword cluster ("electric gate installation Blackpool", "gate automation Fylde Coast") has low local competition.
 
-**Locations dropdown:**
+**Fix:** Create `/gate-automation/` as a sub-service page under Security. See `05-seo-onpage.md` for the full page spec.
 
-```
-Blackpool          Lytham St Annes       Poulton-le-Fylde
-Cleveleys          Thornton              Fleetwood
-Kirkham            Preston               [All locations →]
-```
+### Gap 4: Lytham-specific non-electrical landing pages
 
-### Mobile Navigation
+**Status: Optional — medium-term opportunity.**
 
-- Hamburger icon top right, logo top left
-- Phone number as a click-to-call button immediately below the hamburger — always visible on mobile, never hidden behind the menu
-- Menu opens as a full-width slide-in panel
-- Services → sub-accordion (tap to expand each discipline)
-- Core pages (About, Reviews, Blog, Contact) at the bottom of the mobile menu
+Lytham St Annes is the primary geographic target for the affluent audience. Currently, the only Lytham-specific page is `/electrician-lytham-st-annes/`. For the smart home, CCTV, and security services — where the Lytham audience is the ideal buyer — there are no Lytham-specific pages.
 
-### Persistent Elements (All Pages, All Devices)
+Potential additions:
+- `/smart-homes-lytham-st-annes/` — targets "smart home installer Lytham St Annes"
+- `/cctv-lytham-st-annes/` — targets "CCTV installation Lytham St Annes"
 
-| Element | Location | Why |
-|---------|----------|-----|
-| Phone number (click-to-call) | Header, footer | Emergency callout + impulse contact |
-| NICEIC badge | Footer accreditation strip | Persistent trust anchor |
-| Control4 badge | Footer accreditation strip | Differentiator — only dealer on Fylde Coast |
-| Safe Trader badge | Footer | Council-endorsed trust |
-| Company reg number | Footer | Credibility, legally required on limited company sites |
-| "Get a free quote" button | Header (desktop), sticky bottom bar (mobile) | Conversion at all scroll depths |
+These would follow the same pattern as the existing location pages but serve the high-value Lytham audience specifically for non-electrical services. This is a 3–6 month priority, not immediate.
+
+### What Must NOT Be Added
+
+**Fire alarm page — do not create.** Wilsons does not install fire alarms. Although fire alarms are mentioned tangentially in the commercial FAQ, a dedicated page would generate enquiries Wilsons cannot fulfil. This would damage conversion rate and waste Google's goodwill on a page that converts to nothing.
+
+**Ajax alarms page — do not create.** Wilsons installs Texecom only.
 
 ---
 
-## Internal Linking Strategy
+## Blog/Content Hub Structure
 
-### The Core Principle
+The `/guides/` section is the content hub. Do not create a separate `/blog/` — this would split the topical authority that is already building around `/guides/`.
 
-Every page should link to at least three other pages. Links should be relevant, natural in the copy, and anchor-text varied. The goal is to pass ranking signals between related pages and to guide users deeper into the site.
+**Current state:** 6 guides exist, no index, no ongoing content plan.
 
-### Service Hub → Deep-Dive (Downward Links)
+**Recommended structure:**
+- Add `/guides/` index page immediately (documents existing 6 guides, provides navigation anchor)
+- Add 1–2 new guide pages per month on a rolling basis
+- Attribute guides to Ryan Wilson by name for E-E-A-T purposes
 
-Each hub page lists and links to all its sub-pages in the body copy and in a structured "What We Do" section near the bottom.
+**New guide priorities (in order):**
 
-Example — Electrical hub links to:
-- House Rewiring page
-- Consumer Unit Upgrade page
-- EICR page
-- Landlord EICR page
-- Emergency Electrician page
-- Commercial Electrical page
+| Priority | Guide title | Target intent | Aligns to |
+|---|---|---|---|
+| 1 | How much does a house rewire cost? | Informational / high volume | /house-rewiring/ |
+| 2 | EICR guide for landlords | Commercial intent / recurring revenue | /eicr-testing/ |
+| 3 | Control4 vs competitors comparison | Buyer research / high value | Smart homes page |
+| 4 | EV charger buying guide | Growing volume / no Wilsons page yet | /ev-charger-installation/ (to create) |
+| 5 | Home cinema costs and planning guide | Premium audience / Lytham target | Home cinema page |
 
-### Deep-Dive → Location (Sideways Links)
-
-Each service sub-page links to the most relevant location pages in its body copy.
-
-Example — EICR page links to:
-- "EICR in Blackpool" (links to `/locations/electrician-blackpool`)
-- "EICR in Lytham St Annes" (links to `/locations/electrician-lytham-st-annes`)
-- "Serving landlords across the Fylde Coast" (links to `/locations/electrician-poulton-le-fylde` etc.)
-
-### Location → Service (Upward Links)
-
-Each location page mentions and links to the 3–5 services most commonly needed in that area.
-
-Example — Blackpool location page links to:
-- Consumer Unit Upgrades (high demand in older Blackpool housing stock)
-- EICR / Landlord Certificates (large rental sector in Blackpool)
-- CCTV Installation
-- Emergency Electrician
-- Security Alarms
-
-Example — Lytham St Annes location page links to:
-- Smart Home & Control4 (affluent homeowners)
-- Home Cinema
-- EV Charger Installation (higher EV ownership in affluent areas)
-- House Rewiring (older period properties)
-
-### Blog → Service + Location (Cross-Links)
-
-Every blog post links to at least one service page and one location page in its body copy.
-
-Example — "How often does a rental property need an EICR" links to:
-- `/services/electrical/landlord-eicr` (primary CTA)
-- `/locations/electrician-blackpool` (local anchor)
-- `/contact` (final CTA)
-
-### Homepage → All Hubs + Key Locations
-
-The homepage links to all nine service hubs and the top three location pages (Blackpool, Lytham St Annes, Poulton) in its body content. This distributes PageRank from the homepage — the highest-authority page — to the pages most likely to convert.
-
-### Related Services Cross-Links
-
-Some services naturally co-occur on the same project. Internal links should reflect this.
-
-| From | To | Why |
-|------|----|-----|
-| Smart Home page | Networking & Wi-Fi page | Smart home requires reliable networking |
-| CCTV page | Access Control page | Often installed together |
-| Consumer Unit page | EV Charger page | CU upgrade often precedes EV charger |
-| Fire Alarms page | Commercial Electrical page | Fire alarms usually commercial + electrical work |
-| Home Cinema page | Smart Lighting page | Often part of the same project |
-
----
-
-## Page Template Guidance
-
-### Service Hub Page Structure
-
-1. H1 — primary keyword + location
-2. Intro paragraph — 2–3 sentences, brand voice, what you get
-3. "Why Wilsons?" — 3 bullet points, credential-led
-4. Services covered (list with anchor links to sub-pages)
-5. How it works — 3-step process (brief, survey, install)
-6. Coverage area — list of towns with internal links
-7. FAQ — 3–5 questions with answers (also generates FAQ schema)
-8. CTA — phone + quote form link
-
-### Location Page Structure
-
-1. H1 — "Electrician [Town]" or "[Service] [Town]"
-2. Intro — references the specific town, mentions 40 years of local work
-3. Services available in [town] — list with links to service pages
-4. Local knowledge paragraph — something specific about the area (housing stock type, common electrical issues, planning notes)
-5. Coverage — how far Wilsons travels from Blackpool base
-6. Google reviews snippet — 1–2 reviews from local customers if available
-7. CTA — phone + quote form link
-
-### Blog Post Structure
-
-1. H1 — conversational question or statement (matches the search query)
-2. Intro — what the post covers, why it matters, who it's for
-3. Body — structured with H2 subheadings, short paragraphs, bullet lists
-4. Expert note — a sentence or two from "Ryan Wilson, Wilsons Systems" — positions the business as the author
-5. Related services CTA — "Need an EICR in Blackpool? Get a quote from our NICEIC-approved team."
-6. Internal links — at least one service page, one location page
+Each guide should follow the same structure as existing guides (long-form, detailed, genuine information) and include a clear CTA back to the relevant service page.

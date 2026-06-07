@@ -1,503 +1,208 @@
-# On-Page SEO Audit — Wilsons Systems
+# On-Page SEO — Wilsons Systems
 
-**Client:** Wilsons Systems / Wilsons Electrical Ltd
-**Skill applied:** SEO On-Page
-**Date:** May 2026
+## Framing
 
----
+The site's on-page SEO is already solid. Schema is on every page. Per-page keyword audit was completed in March 2026. This document covers three things:
 
-## Overview
-
-12 priority pages audited below. Pages marked "(create new)" do not currently exist and should be built as part of the site expansion described in File 2.
-
-For the top 5 pages, the audit also includes:
-- Exact recommended H1 wording
-- First paragraph of body copy (~80 words, keyword-rich, brand voice)
-
-**Title tag rules applied:**
-- Under 60 characters (to avoid truncation in SERPs)
-- Primary keyword first, or as close to the start as possible
-- Location included
-- Pipe separator between content and brand name
-
-**Meta description rules applied:**
-- Under 155 characters
-- Includes primary keyword and location
-- Includes a CTA or value proposition
-- Written for humans, not just for Google — it needs to earn the click
+1. Full specs for the two new pages that need creating (EV charger, gate automation)
+2. Spec for the missing /guides/ index page
+3. Safe, incremental improvements to existing pages — no URL changes, no H1 changes
 
 ---
 
-## Page 1 — Homepage
+## New Page Specs
 
-**Current title tag:** Unknown / likely not set correctly
-**Current H1:** "About Us" *(critical error)*
+### Page Spec 1: /ev-charger-installation/
 
-**Recommended title tag:**
-```
-Electrician Blackpool & Fylde Coast | Wilsons Systems
-```
-*(54 characters — safely within limit)*
+**URL:** `/ev-charger-installation/`
+**Parent service pillar:** Electrical
+**Priority:** Immediate — this is the highest-value missing page
 
-**Recommended meta description:**
-```
-NICEIC Approved Contractors serving Blackpool and the Fylde Coast for 40+ years. Electrical, CCTV, alarms, smart home & more. Call for a free quote.
-```
-*(149 characters)*
+**Title tag:** `EV Charger Installation Lytham St Annes & Blackpool | Wilsons Systems`
 
-**Recommended H1:**
-```
-Blackpool's Most Trusted Electrical & Smart Home Contractors
-```
-*(SEO note: H1 and title tag should not be identical. Title tag leads with keyword "Electrician Blackpool." H1 leads with location + brand positioning for on-page impact.)*
+**Meta description (160 chars max):**
+`NICEIC certified EV charger installation across Lytham St Annes, Blackpool and the Fylde Coast. Home and commercial EV charging points installed by qualified electricians.`
 
-**Schema type:** LocalBusiness (full JSON-LD) + WebSite (for sitelinks search box)
-*(Full schema snippet in File 6)*
+**H1:** `EV Charger Installation on the Fylde Coast — NICEIC Certified`
 
-**Internal link opportunities:**
-- Every service card links to the relevant service hub page
-- Town list in coverage section links to each location page
-- "40 years" stat links to About page
-- NICEIC badge links to Accreditations page
-- Google review count links to Reviews page
+**Opening paragraph (brand voice — write this verbatim or close to it):**
 
----
+> As more homeowners across Lytham St Annes and the Fylde Coast make the switch to electric vehicles, a properly installed home charging point is the obvious next step. As NICEIC Approved Contractors, we install EV charging points to the latest wiring regulations — ensuring your installation is safe, warranty-compliant, and carried out by qualified electricians who understand both the electrical requirements and the practical realities of charging at home. We cover Lytham St Annes, Blackpool, Poulton-le-Fylde, and the wider Lancashire area.
 
-**First paragraph (body copy — below hero, visible without scrolling on desktop):**
+**Page structure (H2 headings):**
+- Why choose a professional EV charger installation?
+- Which EV charger is right for your home? (covers tethered vs untethered, 7kW vs 22kW, popular brands such as Ohme, Zappi, Pod Point)
+- The installation process — what to expect
+- OZEV grant (if applicable — check whether Wilsons is registered; if not, mention the grant exists and that OZEV-approved installers are required)
+- Areas we cover (Lytham St Annes, Blackpool, Poulton-le-Fylde, Fleetwood, Kirkham, Preston)
+- FAQ — EV charger installation (4–6 questions)
+- CTA — Quick Quote / Get in touch
 
-> Wilsons Systems is a NICEIC Approved Contractor based in Blackpool, serving the whole of the Fylde Coast and beyond for over 40 years. We're a multi-discipline team — electrical, security, CCTV, fire alarms, smart home, networking, and EV chargers — which means one team handles the whole job, from initial survey to final certificate. We're also the only Control4 Authorised Dealer on the Fylde Coast, which makes us the natural choice for smart home installations anywhere from Blackpool to Lytham St Annes to Preston.
+**Schema types:**
+- Service (serviceType: "EV Charger Installation", areaServed: Lytham St Annes + Blackpool + Fylde Coast)
+- LocalBusiness (inherit from sitewide schema — NICEIC, address, telephone)
+- FAQPage (for the FAQ section)
+- BreadcrumbList (Home > EV Charger Installation)
 
-*(83 words. Contains: NICEIC Approved Contractor, Blackpool, Fylde Coast, 40 years, Control4 Authorised Dealer, Lytham St Annes, Preston — naturally, without stuffing.)*
+**Internal links to add:**
+- From `/electrician-lytham-st-annes/` — add a reference to EV charger installation as a related service
+- From the homepage services grid — add EV charger as a visible service option
+- From `/heat-pump-electrician/` — cross-link (both are low-carbon home technology services)
+- From relevant location pages — "EV charger installation in [town]" with a link to this page
 
----
-
-## Page 2 — Electrical Services Hub
-
-**Current state:** Does not exist — create new
-
-**Recommended title tag:**
-```
-Electrical Services Blackpool | NICEIC Approved | Wilsons
-```
-*(57 characters)*
-
-**Recommended meta description:**
-```
-Electrical services in Blackpool and across the Fylde Coast. Rewires, consumer units, EICRs, emergency callouts. NICEIC Approved Contractor. Get a quote.
-```
-*(153 characters)*
-
-**Recommended H1:**
-```
-Electrical Services in Blackpool and Across the Fylde Coast
-```
-
-**Schema type:** Service (with `areaServed`, `provider` linking to LocalBusiness)
-
-**Internal link opportunities:**
-- Links down to all 6 sub-pages (rewiring, CU, EICR, landlord EICR, emergency, commercial)
-- Links to Electrician Blackpool location page
-- Links to Electrician Lytham St Annes location page
-- Links to About page (40 years + NICEIC section)
-- Links to Accreditations page
-- Links to Contact / Quote page
+**Image alt text examples:**
+- "EV charging point installed by Wilsons Systems, Lytham St Annes"
+- "NICEIC approved EV charger installation, Fylde Coast"
 
 ---
 
-**First paragraph:**
+### Page Spec 2: /gate-automation/
 
-> If you need an electrician in Blackpool, Lytham St Annes, or anywhere across the Fylde Coast, Wilsons Systems is a NICEIC Approved Contractor with over 40 years of local experience. We carry out the full range of domestic and commercial electrical work — from single socket installations to full property rewires, consumer unit replacements, EICR certificates for landlords, and emergency callouts. Every job is certified under our NICEIC approval.
+**URL:** `/gate-automation/`
+**Parent service pillar:** Security
+**Priority:** 3 months
 
-*(76 words)*
+**Title tag:** `Electric Gate Automation Blackpool & Fylde Coast | Wilsons Systems`
 
----
+**Meta description (160 chars max):**
+`Electric gate installation and automation across Blackpool, Lytham St Annes and the Fylde Coast. Supply, installation and servicing by Wilsons Systems.`
 
-## Page 3 — EICR / Landlord Certificates
+**H1:** `Electric Gate Installation & Automation — Fylde Coast`
 
-**Current state:** Does not exist — create new
+**Opening paragraph (brand voice):**
 
-**Recommended title tag:**
-```
-EICR Blackpool | Landlord Electrical Certificate | Wilsons
-```
-*(58 characters)*
+> An automated gate is one of the most visible security and kerb appeal upgrades a property can have — and on the Fylde Coast, where we see a wide range of residential and commercial properties, the demand for well-installed gate automation has grown considerably. We supply and install electric gate systems for residential driveways, commercial entrances, and agricultural sites, covering everything from the initial survey and groundwork coordination through to commissioning and ongoing servicing.
 
-**Recommended meta description:**
-```
-EICR and landlord electrical certificates in Blackpool from a NICEIC Approved Contractor. Certificate issued within 3 working days. Get a fixed price quote.
-```
-*(157 characters — trim to: "EICR in Blackpool from a NICEIC Approved Contractor. Landlord certificates issued within 3 working days. Fixed price. Call or get a quote online.")*
+**Page structure (H2 headings):**
+- Swing gates vs sliding gates — which is right for your property?
+- Integration with access control and intercoms (cross-link to access control / Videx page)
+- The installation process
+- Servicing and maintenance
+- Areas we cover
+- FAQ — electric gate installation
+- CTA
 
-**Revised meta description:**
-```
-EICR in Blackpool from a NICEIC Approved Contractor. Landlord certificates issued within 3 working days. Fixed price. Call or get a quote online.
-```
-*(145 characters)*
+**Schema types:**
+- Service (serviceType: "Electric Gate Automation")
+- LocalBusiness
+- FAQPage
+- BreadcrumbList (Home > Gate Automation)
 
-**Recommended H1:**
-```
-EICR and Landlord Electrical Certificates in Blackpool
-```
-
-**Schema type:** Service + FAQPage (for common EICR questions — "What is an EICR?", "How often do I need one?", "How long does it take?")
-
-**Internal link opportunities:**
-- Links up to Electrical Services hub
-- Links to Electrician Blackpool location page
-- Links to Electrician Lytham St Annes (landlords across both areas)
-- Links to House Rewiring page (if remedial works identified)
-- Links to Consumer Unit Upgrade page (common remedial work after EICR)
-- Links to blog post: "How often does a landlord need an EICR?"
+**Internal links to add:**
+- From access control / Videx page — gate automation as a related service
+- From security alarms page — gate automation as part of a complete security solution
+- From relevant location pages
+- From the homepage, if gate automation is listed in the Security section of the services grid
 
 ---
 
-**First paragraph:**
+### Page Spec 3: /guides/ (Index Page)
 
-> An Electrical Installation Condition Report (EICR) is a formal inspection of a property's electrical installation — and since 2020, it's been a legal requirement for all privately rented properties in England. Wilsons Systems carries out EICR inspections across Blackpool, Lytham St Annes, Poulton-le-Fylde, and the wider Fylde Coast as a NICEIC Approved Contractor. You'll have your certificate issued within 3 working days of the inspection, with a clear report of any remedial work required.
+**URL:** `/guides/`
+**Priority:** Low effort — create immediately
 
-*(80 words)*
+**Title tag:** `Electrical & Security Guides | Wilsons Systems`
 
----
+**Meta description:**
+`Guides and advice from Wilsons Systems — covering home security, smart home technology, electrical work, and more. Written by our qualified team.`
 
-## Page 4 — Consumer Unit Upgrade
+**H1:** `Guides & Advice from Wilsons Systems`
 
-**Current state:** Does not exist — create new
+**Page structure:**
+A clean list of all 6 existing guides with:
+- Guide title (linked to the guide page)
+- One-sentence description of what the guide covers
+- The relevant service area (Electrical / Security / Smart Homes)
 
-**Recommended title tag:**
-```
-Consumer Unit Upgrade Blackpool | Fuse Box Replacement | Wilsons
-```
-*(63 characters — slightly over; trim to:)*
+No complex navigation needed — a simple, readable index is sufficient.
 
-```
-Consumer Unit Upgrade Blackpool | Wilsons Systems
-```
-*(49 characters)*
+**Schema:** ItemList listing all guide pages (ListItem with URL and name for each guide).
 
-**Recommended meta description:**
-```
-Consumer unit upgrades and fuse box replacements in Blackpool. NICEIC certified installation. Fixed price quote, job completed in a day. Call Wilsons Systems.
-```
-*(158 characters — trim:)*
-
-```
-Consumer unit upgrades in Blackpool. NICEIC certified, fixed price. Most jobs completed in one day. Call Wilsons for a free quote.
-```
-*(129 characters)*
-
-**Recommended H1:**
-```
-Consumer Unit Upgrade in Blackpool and Across the Fylde Coast
-```
-
-**Schema type:** Service
-
-**Internal link opportunities:**
-- Links up to Electrical Services hub
-- Links to EICR page (often required alongside CU upgrade)
-- Links to EV Charger page (CU upgrade often precedes EV charger install)
-- Links to Electrician Blackpool location page
-- Links to blog post: "What is a consumer unit upgrade and do I need one?"
+**Internal links:**
+- From the homepage — add a "Guides & Resources" link in the navigation or footer
+- From each individual guide page — "See all guides" link back to this index
+- From relevant service pages — where a guide is directly relevant, link to the guide from the service page and vice versa
 
 ---
 
-**First paragraph:**
+## Existing Page Improvements
 
-> If your property still has an old fuse box with ceramic fuses or a split-load board without RCD protection, a consumer unit upgrade brings it up to current wiring regulations and significantly reduces the risk of electrical fires. Wilsons Systems carries out consumer unit upgrades across Blackpool and the Fylde Coast as a NICEIC Approved Contractor — which means the new unit is inspected, tested, and certified as part of the job. Most upgrades are completed in a single day.
+### /about/ — Add team profiles
 
-*(80 words)*
+**No URL change. No H1 change. Add content only.**
 
----
+The About page currently lacks named team members. This is the single most important E-E-A-T improvement available — Google's guidelines for YMYL (Your Money/Your Life) and trades categories specifically look for demonstrated human expertise.
 
-## Page 5 — House Rewiring
+**What to add:**
+- Ryan Wilson — Managing Director. NICEIC Qualified Supervisor. [X] years in the electrical trade. Brief background paragraph in brand voice — not a CV, not a corporate bio, but a genuine description of how he got here and what he focuses on.
+- Named senior team members with qualifications — even first name and certification is better than no attribution. Example: "Jon — Senior Electrician, 18th Edition, 20+ years."
+- A photograph of Ryan (and ideally the team). This is the single most humanising element possible.
 
-**Current state:** Does not exist — create new
+**Alt text for team photo:** "Ryan Wilson, Managing Director of Wilsons Systems, Blackpool"
 
-**Recommended title tag:**
-```
-House Rewiring Blackpool | Full Rewire | Wilsons Systems
-```
-*(55 characters)*
+### /projects/ — Add real project descriptions
 
-**Recommended meta description:**
-```
-House rewiring in Blackpool and across the Fylde Coast. NICEIC Approved. 40+ years of local experience. Free survey and fixed price quote. Call Wilsons.
-```
-*(152 characters)*
+**No URL change. No H1 change. Add content.**
 
-**Recommended H1:**
-```
-House Rewiring in Blackpool — Full and Partial Rewires
-```
+The /projects/ page exists but is likely sparse. Each project entry should include:
+- Project name or descriptor (e.g. "Corka Bridge House — Control4 Integration")
+- Location area (general — Lytham St Annes, Blackpool, etc. — no exact addresses for privacy)
+- Services provided (brief list)
+- Brief outcome description (2–3 sentences in brand voice)
+- Photograph (real, not placeholder)
 
-**Schema type:** Service + FAQPage ("How long does a rewire take?", "Do I need to move out?", "What does a rewire cost?")
+**Example project entry (draft):**
 
-**Internal link opportunities:**
-- Links up to Electrical Services hub
-- Links to Consumer Unit Upgrade page (usually done simultaneously)
-- Links to EICR page (EICR often triggers rewire recommendation)
-- Links to Electrician Blackpool and Electrician Lytham St Annes location pages
-- Links to blog post: "Signs your house needs rewiring"
-- Links to blog post: "How much does a house rewire cost?"
+> **Corka Bridge House — Full Control4 Smart Home Integration, Lytham St Annes**
+>
+> A full Control4 smart home integration across a five-bedroom property in Lytham St Annes, covering 14 zones of multi-room audio, comprehensive lighting scene control, automated blinds integration, and gate control — all operated from a single Control4 interface. The project also included a full Hikvision CCTV installation and a Texecom Premier Elite security system, giving the client a genuinely unified view of their home from a single touchpoint.
 
----
+Each project entry strengthens the E-E-A-T signal and provides keyword-carrying content without requiring URL or structural changes.
 
-**First paragraph:**
+### /eicr-testing/ — Add landlord section
 
-> A house rewire is one of the larger electrical jobs a property will ever need — but in many Blackpool and Fylde Coast homes, especially those built before the 1970s, old wiring is a genuine safety risk. Wilsons Systems has been rewiring properties across this area for over 40 years. As a NICEIC Approved Contractor, every rewire includes a full electrical test and certificate on completion. We'll survey the property first, give you a fixed price, and tell you exactly what the job involves before we start.
+**No URL change. No H1 change. Insert new section.**
 
-*(86 words — trim lightly if needed)*
+The EICR page exists. Landlords are a high-value recurring revenue audience — they need EICR certificates on a 5-year cycle for every rental property they own. A landlord with 10 properties is worth 10 jobs, and they tend to be organised about compliance because the legal obligation is clear.
 
----
+**Section to add (insert as a new H2 section without changing existing content):**
 
-## Page 6 — CCTV Installation
+**H2:** EICR Testing for Landlords and Letting Agents
 
-**Current state:** Does not exist — create new
+**Copy brief:**
+- Explain the legal obligation: since 1 April 2021, all private rental properties in England require an EICR from a qualified electrician every 5 years, or at change of tenancy if sooner
+- Explain that the EICR must be carried out by a qualified person (and that Wilsons' NICEIC status confirms this)
+- Mention that Wilsons can manage multiple properties for letting agents — reducing the administrative burden
+- CTA: contact form / Quick Quote
 
-**Recommended title tag:**
-```
-CCTV Installation Blackpool | Hikvision Specialist | Wilsons
-```
-*(60 characters)*
-
-**Recommended meta description:**
-```
-CCTV installation in Blackpool for homes and businesses. Hikvision systems, remote access, 12-month warranty. 40+ years local experience. Get a quote today.
-```
-*(157 characters — trim:)*
-
-```
-CCTV installation in Blackpool. Hikvision specialist, remote access configured. 12-month warranty. Get a free quote from Wilsons Systems.
-```
-*(137 characters)*
-
-**Recommended H1:**
-```
-CCTV Installation in Blackpool and Across the Fylde Coast
-```
-
-**Schema type:** Service
-
-**Internal link opportunities:**
-- Links to CCTV hub page
-- Links to Hikvision sub-page
-- Links to Commercial CCTV sub-page
-- Links to Access Control page (often installed together)
-- Links to Security Alarms page (common bundle)
-- Links to Electrician Blackpool and CCTV Installation Blackpool location pages
+**Schema:** This content does not require additional schema — it sits within the existing Service + FAQPage schema context. The new copy will be crawled and indexed as part of the existing page.
 
 ---
 
-## Page 7 — Smart Home / Control4
+## Image Alt Text Audit
 
-**Current state:** Does not exist — create new
+All existing images should follow the pattern: `[Service] by Wilsons Systems, [location]`
 
-**Recommended title tag:**
-```
-Control4 Installer Blackpool | Smart Home | Wilsons Systems
-```
-*(58 characters)*
+Examples:
+- CCTV camera installation photo: `"Hikvision CCTV installation by Wilsons Systems, Blackpool"`
+- Consumer unit photo: `"Consumer unit upgrade by Wilsons Systems, Lytham St Annes"`
+- Control4 panel: `"Control4 smart home installation by Wilsons Systems, Fylde Coast"`
+- Team photo (when added): `"Wilsons Systems electrical team, Blackpool, Lancashire"`
 
-**Recommended meta description:**
-```
-Wilsons Systems is the only Control4 Authorised Dealer on the Fylde Coast. Smart home design and installation in Blackpool and Lancashire. Get a quote.
-```
-*(152 characters)*
-
-**Recommended H1:**
-```
-Control4 Smart Home Installation — The Fylde Coast's Only Authorised Dealer
-```
-
-**Schema type:** Service + LocalBusiness (with `hasCredential` for Control4 dealership)
-
-**Internal link opportunities:**
-- Links to Smart Home hub page
-- Links to Control4 sub-page (if separate from hub)
-- Links to Networking & Wi-Fi page (Control4 requires reliable networking)
-- Links to Home Cinema page
-- Links to Smart Lighting page
-- Links to Smart Home Installer Blackpool location page
-- Links to Control4 Installer Fylde Coast location page
+**Placeholder images:** Any remaining placehold.co URLs have no useful alt text because they have no useful visual content. Replacing placeholder images with real photographs is the single highest-impact image action — each replacement simultaneously improves E-E-A-T, alt text, and the visual impression for users. Prioritise:
+1. Smart homes / Control4 page images (highest value service, most premium audience)
+2. CCTV page images
+3. About page (team photo)
+4. Projects page (all entries)
 
 ---
 
-## Page 8 — Security Alarms
+## Title Tag and Meta Description Audit — Existing Pages
 
-**Current state:** Does not exist — create new
+The existing per-page keyword audit (March 2026) should have covered this. The following is a checklist for any new pages or pages that have not been reviewed:
 
-**Recommended title tag:**
-```
-Security Alarm Installation Blackpool | Wilsons Systems
-```
-*(54 characters)*
-
-**Recommended meta description:**
-```
-Intruder alarm installation in Blackpool and the Fylde Coast. Texecom Premier Elite systems. Domestic and commercial. NICEIC approved. Get a free quote.
-```
-*(152 characters)*
-
-**Recommended H1:**
-```
-Security Alarm Installation in Blackpool and Across the Fylde Coast
-```
-
-**Schema type:** Service
-
-**Internal link opportunities:**
-- Links to Security Alarms hub
-- Links to CCTV Installation page (common bundle)
-- Links to Access Control page
-- Links to Electrician Blackpool location page
-- Links to Alarm Installer Lytham St Annes location page
-
----
-
-## Page 9 — EV Charger Installation
-
-**Current state:** Does not exist — create new
-
-**Recommended title tag:**
-```
-EV Charger Installation Blackpool | Wilsons Systems
-```
-*(51 characters)*
-
-**Recommended meta description:**
-```
-Home EV charger installation in Blackpool and the Fylde Coast. NICEIC certified. We check your supply first. Fixed price quote. Call Wilsons Systems today.
-```
-*(155 characters)*
-
-**Recommended H1:**
-```
-EV Charger Installation in Blackpool and Across the Fylde Coast
-```
-
-**Schema type:** Service + FAQPage ("Do I need a new consumer unit?", "How long does installation take?", "Is there a grant available?")
-
-**Internal link opportunities:**
-- Links to Electrical Services hub
-- Links to Consumer Unit Upgrade page (CU upgrade sometimes required first)
-- Links to Electrician Blackpool location page
-- Links to Electrician Lytham St Annes location page (higher EV ownership)
-- Links to blog post: "EV charger installation cost Blackpool 2026"
-
----
-
-## Page 10 — Electrician Blackpool (Location Page)
-
-**Current state:** Does not exist — create new
-
-**Recommended title tag:**
-```
-Electrician Blackpool | NICEIC Approved | Wilsons Systems
-```
-*(56 characters)*
-
-**Recommended meta description:**
-```
-Looking for an electrician in Blackpool? Wilsons Systems — NICEIC Approved, 40+ years local experience. Rewires, EICRs, CCTV, alarms and more. Call today.
-```
-*(154 characters)*
-
-**Recommended H1:**
-```
-Electrician in Blackpool — NICEIC Approved, 40 Years Local
-```
-
-**Schema type:** LocalBusiness (with `areaServed: Blackpool`)
-
-**Internal link opportunities:**
-- Links to all service hub pages (electrical, CCTV, alarms, smart home)
-- Links to Emergency Electrician page
-- Links to EICR / Landlord Certificate page (Blackpool has large rental sector)
-- Links to Consumer Unit Upgrade page
-- Links to CCTV Installation Blackpool location page
-- Links to About page
-
----
-
-## Page 11 — Electrician Lytham St Annes (Location Page)
-
-**Current state:** Does not exist — create new
-
-**Recommended title tag:**
-```
-Electrician Lytham St Annes | NICEIC Approved | Wilsons
-```
-*(55 characters)*
-
-**Recommended meta description:**
-```
-Electrician in Lytham St Annes — NICEIC Approved Contractor with 40+ years on the Fylde Coast. Smart home, rewires, EICRs, CCTV. Call Wilsons Systems.
-```
-*(151 characters)*
-
-**Recommended H1:**
-```
-Electrician in Lytham St Annes — Full Electrical & Smart Home Services
-```
-
-**Schema type:** LocalBusiness (with `areaServed: Lytham St Annes`)
-
-**Internal link opportunities:**
-- Links to Smart Home & Control4 page (premium audience — this is the #1 service for Lytham)
-- Links to Home Cinema page
-- Links to House Rewiring page (older period properties in Lytham)
-- Links to EV Charger page (affluent audience, higher EV ownership)
-- Links to EICR page
-- Links to Electrician Blackpool location page
-- Links to About page
-
----
-
-## Page 12 — About Us
-
-**Current state:** Does not exist as a standalone page — create new
-
-**Recommended title tag:**
-```
-About Wilsons Systems | Electricians Blackpool | 40 Years
-```
-*(56 characters)*
-
-**Recommended meta description:**
-```
-Wilsons Systems — a family-run electrical and security contractor on the Fylde Coast since the 1980s. NICEIC Approved. Meet Ryan, Jon, Mat, and the team.
-```
-*(152 characters)*
-
-**Recommended H1:**
-```
-About Wilsons Systems — 40 Years on the Fylde Coast
-```
-
-**Schema type:** LocalBusiness (reinforcing the homepage schema) + Person (for Ryan Wilson as the NICEIC Qualified Supervisor)
-
-**Internal link opportunities:**
-- Links to Accreditations page
-- Links to Reviews / Testimonials page
-- Links to all service hub pages (this is where new visitors discover the full range)
-- Links to Contact page
-- Links to Blog (Ryan as the author / expert voice)
-
----
-
-## On-Page SEO Summary Table
-
-| Page | Title Tag | Meta Description | H1 | Schema | Priority |
-|------|-----------|------------------|----|--------|----------|
-| Homepage | ✓ Rewritten | ✓ Rewritten | ✓ Fix "About Us" | LocalBusiness + WebSite | Immediate |
-| Electrical Hub | ✓ New | ✓ New | ✓ New | Service | Week 1 |
-| EICR / Landlord | ✓ New | ✓ New | ✓ New | Service + FAQ | Week 1 |
-| Consumer Unit | ✓ New | ✓ New | ✓ New | Service | Week 1 |
-| House Rewiring | ✓ New | ✓ New | ✓ New | Service + FAQ | Week 1 |
-| CCTV Installation | ✓ New | ✓ New | ✓ New | Service | Week 2 |
-| Smart Home / Control4 | ✓ New | ✓ New | ✓ New | Service + LocalBusiness | Week 1 — priority |
-| Security Alarms | ✓ New | ✓ New | ✓ New | Service | Week 2 |
-| EV Charger | ✓ New | ✓ New | ✓ New | Service + FAQ | Week 2 |
-| Electrician Blackpool | ✓ New | ✓ New | ✓ New | LocalBusiness | Week 1 |
-| Electrician Lytham | ✓ New | ✓ New | ✓ New | LocalBusiness | Week 2 |
-| About Us | ✓ New | ✓ New | ✓ New | LocalBusiness + Person | Week 2 |
+- Title tag: under 60 characters, lead with primary keyword, end with brand name
+- Meta description: under 160 characters, include a secondary keyword, include a CTA word ("installed", "call", "get a quote")
+- H1: one per page, matches or closely relates to title tag keyword intent
+- First paragraph: mentions primary keyword within the first 100 words
+- Headings hierarchy: H1 → H2 → H3 — no skipped levels, no duplicate H1s
