@@ -8,7 +8,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![Skills](https://img.shields.io/badge/Skills-99-blue.svg)](#the-99-skill-catalog)
+[![Skills](https://img.shields.io/badge/Skills-103-blue.svg)](#the-103-skill-catalog)
 [![Made for Claude](https://img.shields.io/badge/Made%20for-Claude-orange.svg)](https://claude.ai)
 
 [![Website](https://img.shields.io/badge/rampstack.co-FF6B35?style=for-the-badge&logo=googlechrome&logoColor=white)](https://rampstack.co)
@@ -19,10 +19,37 @@
 </div>
 
 <!-- COUNT_INTRO:START -->
-> 99 stack-agnostic skills covering brand, design, content, SEO, dev, ops, growth, and research. Includes an Ahrefs MCP-powered SEO audit suite. Use them on Next.js, WordPress, Shopify, Webflow, plain HTML, or anything else.
+> 103 stack-agnostic skills covering brand, design, content, SEO, dev, ops, growth, and research. Includes an Ahrefs MCP-powered SEO audit suite. Use them on Next.js, WordPress, Shopify, Webflow, plain HTML, or anything else.
 <!-- COUNT_INTRO:END -->
 
 *Featured in [awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills) under Business & Marketing.*
+
+---
+
+## Install in Claude Code
+
+Add the marketplace, then install the plugin you want:
+
+```
+/plugin marketplace add rampstackco/claude-skills
+
+# full catalog (103 skills)
+/plugin install rampstack-skills@rampstack
+
+# focused subsets
+/plugin install rampstack-starter@rampstack
+/plugin install rampstack-seo@rampstack
+/plugin install rampstack-pm@rampstack
+```
+
+Prefer a lighter marketplace that lists only the curated subsets (no full catalog)? Add `rampstackco/plugins` instead and install the same three plugins from there:
+
+```
+/plugin marketplace add rampstackco/plugins
+/plugin install rampstack-starter@rampstack
+```
+
+Skills load on demand: each contributes roughly its name and description until Claude needs it.
 
 ---
 
@@ -40,11 +67,12 @@
 - [How the catalog connects](#how-the-catalog-connects)
 - [Surfaces](#surfaces)
 <!-- COUNT_TOC:START -->
-- [The 99-skill catalog](#the-99-skill-catalog)
+- [The 103-skill catalog](#the-103-skill-catalog)
 <!-- COUNT_TOC:END -->
 - [Recommended MCPs](#recommended-mcps)
 - [Authoring conventions](#authoring-conventions)
 - [Repository structure](#repository-structure)
+- [Trust and security](#trust-and-security)
 - [Contributing](#contributing)
 - [Acknowledgments](#acknowledgments)
 - [Resources](#resources)
@@ -69,8 +97,8 @@ This is not a curated list of other people's skills. It is a single, opinionated
 What you get:
 
 <!-- COUNT_WHATYOUGET:START -->
-- **99 skills** across 16 categories, every one with a complete `SKILL.md` and at least one reference file
-- **427 reference files** (templates, checklists, decision matrices, worked examples)
+- **103 skills** across 16 categories, every one with a complete `SKILL.md` and at least one reference file
+- **490 reference files** (templates, checklists, decision matrices, worked examples)
 <!-- COUNT_WHATYOUGET:END -->
 - **Stack-agnostic.** Works on any web stack. The only named-tool exception is the SEO audit suite, which assumes the Ahrefs MCP.
 - **Future-proof.** Principles over tools. Stable concepts over trending techniques. References to durable specs (W3C, WHATWG, Schema.org, MDN, NN/g, WCAG) over content that ages with each algorithm update.
@@ -100,7 +128,7 @@ Six entry-point skills, one per audience track. Run any of these standalone, or 
 
 ## See it in action
 
-**[The creative-direction skill rendered as a live showcase →](https://rampstack.co/showcase/creative-direction)**
+<strong><a href="https://rampstack.co/showcase/creative-direction" target="_blank" rel="noopener">The creative-direction skill rendered as a live showcase →</a></strong>
 
 Forty-two fictional brands generated from briefs that all use the same skill. Each is a fully styled brand site, not a mockup. The showcase demonstrates what the four-axis framework produces in practice and lets you filter by axis position to see how each combination renders.
 
@@ -141,18 +169,22 @@ Same skill, same brief format. Four completely different visual systems. Notice 
     <td width="50%"><img src="assets/showcase/archetype-forge-fitness.png" alt="Forge boutique fitness studio. Dark industrial hero with intense typography and motivational copy." /></td>
   </tr>
   <tr>
-    <td><strong>Pulse</strong> · music streaming<br/><em>Sound that moves with you.</em><br/>Playful / Expressive Maximalist / Companion / Resonant</td>
-    <td><strong>Forge</strong> · boutique fitness<br/><em>Show up. Get hammered.</em><br/>Provocative / Expressive Maximalist / Coach / Resonant</td>
+    <td><strong>Pulse</strong> · music streaming<br/><em>Sound that moves with you.</em><br/>Playful / Expressive Maximalist / Companion / Resonant<br/><a href="https://rampstack.co/showcase/creative-direction/pulse-music" target="_blank" rel="noopener">See Pulse demo example →</a></td>
+    <td><strong>Forge</strong> · boutique fitness<br/><em>Show up. Get hammered.</em><br/>Provocative / Expressive Maximalist / Coach / Resonant<br/><a href="https://rampstack.co/showcase/creative-direction/forge-fitness" target="_blank" rel="noopener">See Forge demo example →</a></td>
   </tr>
   <tr>
     <td><img src="assets/showcase/archetype-bloom-soda.png" alt="Bloom adaptogenic soda brand. Peachy gradient hero with tri-color headline 'Soda that loves you back' and a strawberries-around-soda-can product photo." /></td>
     <td><img src="assets/showcase/archetype-observatory-editorial.png" alt="Observatory Editorial. Cream paper hero with restrained serif headline 'An observability tool for the engineers who already know what they are doing'." /></td>
   </tr>
   <tr>
-    <td><strong>Bloom</strong> · adaptogenic soda<br/><em>Soda that loves you back.</em><br/>Playful / Expressive Maximalist / Companion / Resonant</td>
-    <td><strong>Observatory Editorial</strong> · observability tool<br/><em>An open-source tool that respects engineer time.</em><br/>Conversational / Editorial Restrained / Peer / Considered</td>
+    <td><strong>Bloom</strong> · adaptogenic soda<br/><em>Soda that loves you back.</em><br/>Playful / Expressive Maximalist / Companion / Resonant<br/><a href="https://rampstack.co/showcase/creative-direction/bloom-soda" target="_blank" rel="noopener">See Bloom demo example →</a></td>
+    <td><strong>Observatory Editorial</strong> · observability tool<br/><em>An open-source tool that respects engineer time.</em><br/>Conversational / Editorial Restrained / Peer / Considered<br/><a href="https://rampstack.co/showcase/creative-direction/observatory-editorial" target="_blank" rel="noopener">See Observatory demo example →</a></td>
   </tr>
 </table>
+
+<p align="center">
+  <strong><a href="https://rampstack.co/showcase/creative-direction" target="_blank" rel="noopener">See all the brands in the showcase →</a></strong>
+</p>
 
 ### Run this on your own brand
 
@@ -173,7 +205,7 @@ The logo-design skill is rendered on rampstack.co as two parallel surfaces. The 
 
 ### Per-brand depth
 
-**[The variant explorer →](https://rampstack.co/showcase/logo-design)**
+<strong><a href="https://rampstack.co/showcase/logo-design" target="_blank" rel="noopener">The variant explorer →</a></strong>
 
 Each brand has a primary mark plus variants across architectures and applied contexts. The logo-design skill walks through the discipline of choosing one architecture and rendering it consistently across the system the brand will actually use.
 
@@ -188,7 +220,7 @@ The brands are filterable by architecture, typographic register, and category. T
 
 ### Architectural taxonomy
 
-**[The marks gallery →](https://rampstack.co/showcase/logos)**
+<strong><a href="https://rampstack.co/showcase/logos" target="_blank" rel="noopener">The marks gallery →</a></strong>
 
 Ten fictional marks across eight mark architectures: wordmark, lockup, monogram, letterform-as-symbol, abstract, pictorial, combination, emblem. The taxonomy makes the architectural distinctions concrete by showing all eight side-by-side, with three wordmarks at three typographic registers so the architectural label does less work than the execution.
 
@@ -296,8 +328,7 @@ For the current API surface, request format, and limits, see the [Agent Skills A
 
 ### Want only a few skills?
 
-<!-- TODO: refresh hardcoded count below when catalog crosses next round number -->
-You do not have to install all 98. Pick the categories that match your work. The library is modular: each skill stands on its own.
+You do not have to install all 103. Pick the categories that match your work. The library is modular: each skill stands on its own.
 
 ---
 
@@ -429,7 +460,7 @@ You can also pull individual skills for one-off work. Need just a backlink audit
 
 ## How the catalog connects
 
-The skills compose with the tools your team already uses. 98 skills at the center; 35 integrations across 6 integration categories radiating out via MCPs.
+The skills compose with the tools your team already uses. 103 skills at the center; 35 integrations across 6 integration categories radiating out via MCPs.
 
 <p align="center">
   <picture>
@@ -455,12 +486,45 @@ The skills in this repository remain free, open-source, and stack-agnostic. The 
 
 ---
 
+## Design principles
+
+claude-skills follows the [Agent Skills Specification](https://agentskills.io), the open standard for portable AI agent skills originally developed by Anthropic and adopted across the AI tooling ecosystem (Claude Code, OpenAI Codex, Gemini CLI, GitHub Copilot, Cursor, VS Code, Goose, Spring AI, and 30+ other platforms as of early 2026).
+
+Beyond the format itself, the catalog is designed around three principles aligned with the guidance Anthropic publishes in [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents):
+
+**Simplicity.** Each skill covers one focused capability rather than trying to be a multi-purpose document. A roadmap-planning skill plans roadmaps. A keyword-research skill researches keywords. Composing them together produces complex workflows; mixing them inside one skill produces unreliable ones.
+
+**Transparency.** Every skill declares its scope, dependencies, and expected behavior in machine-readable YAML frontmatter. The catalog is inspectable by tooling, not just by humans reading prose.
+
+**Quality contracts via tooling.** Structural and content quality is enforced through automated checks (run `python .github/scripts/lint_skills.py`) rather than convention alone. Every skill is validated against a schema. Every catalog change is validated in CI.
+
+Skills in this catalog are designed to compose into the common agentic workflow patterns Anthropic documents: prompt chaining (sequential steps), routing (classify and direct), parallelization (sectioning or voting), orchestrator-workers (dynamic delegation), and evaluator-optimizer (iterative refinement).
+
+Because the catalog conforms to the open Agent Skills standard, skills work across any platform supporting the specification without modification.
+
+## Family repos
+
+claude-skills is the parent catalog. Curated subsets and companion repos focus on specific specialties:
+
+| Repo | Focus | Skills |
+|---|---|---|
+| [claude-skills](https://github.com/rampstackco/claude-skills) | Full catalog (you are here) | 103 |
+| [claude-skills-starter](https://github.com/rampstackco/claude-skills-starter) | General-purpose lite | 14 |
+| [claude-skills-seo](https://github.com/rampstackco/claude-skills-seo) | SEO consulting | 12 |
+| [claude-skills-pm](https://github.com/rampstackco/claude-skills-pm) | Product management | 12 |
+| [claude-skills-widgets](https://github.com/rampstackco/claude-skills-widgets) | UI patterns + components | 65 + 32 |
+| [awesome-claude-skills](https://github.com/rampstackco/awesome-claude-skills) | Curated discovery list | n/a |
+
+Each family repo is MIT-licensed, conforms to the Agent Skills Specification, and is stack-agnostic. Use the full catalog for breadth; use a specialty subset when working in one domain.
+
+---
+
 <!-- COUNT_CATALOG_HEADER:START -->
-## The 99-skill catalog
+## The 103-skill catalog
 <!-- COUNT_CATALOG_HEADER:END -->
 
 <!-- COUNT_CATALOG_INTRO:START -->
-All 99 skills are shipped. Each has a complete SKILL.md plus at least one reference file (template, checklist, or playbook).
+All 103 skills are shipped. Each has a complete SKILL.md plus at least one reference file (template, checklist, or playbook).
 <!-- COUNT_CATALOG_INTRO:END -->
 
 <!-- AUTO-GENERATED CATALOG: do not edit by hand. Run scripts/generate_readme_catalog.py --write -->
@@ -475,7 +539,7 @@ All 99 skills are shipped. Each has a complete SKILL.md plus at least one refere
 | [`information-architecture`](skills/information-architecture/SKILL.md) | Sitemap, navigation, URL structure, content types, taxonomy |
 | [`content-strategy`](skills/content-strategy/SKILL.md) | Editorial strategy, content calendar, topical authority planning |
 
-### Brand (6)
+### Brand (7)
 
 | Skill | What it does |
 |---|---|
@@ -485,16 +549,18 @@ All 99 skills are shipped. Each has a complete SKILL.md plus at least one refere
 | [`brand-voice`](skills/brand-voice/SKILL.md) | Voice attributes, tone shifts, vocabulary, paired-example library |
 | [`brand-archetype-system`](skills/brand-archetype-system/SKILL.md) | 12 archetype defaults across 18 verticals: color, type, voice, imagery starters |
 | [`logo-design`](skills/logo-design/SKILL.md) | Logo variants across architectures (wordmark, lockup, monogram, letterform-as-symbol), with rationale and application specs |
+| [`creative-brief-selector`](skills/creative-brief-selector/SKILL.md) | Live-reference-grounded creative briefs with divergence check against prior builds |
 
-### Design (3)
+### Design (4)
 
 | Skill | What it does |
 |---|---|
 | [`design-system`](skills/design-system/SKILL.md) | Component library, design tokens, design system documentation |
 | [`design-standards`](skills/design-standards/SKILL.md) | Production-grade page and component design standards |
 | [`art-direction`](skills/art-direction/SKILL.md) | Photography, illustration, and visual direction for campaigns |
+| [`vertical-site-conventions`](skills/vertical-site-conventions/SKILL.md) | Vertical page and site composition built to the experience bar |
 
-### Content (12)
+### Content (13)
 
 | Skill | What it does |
 |---|---|
@@ -510,6 +576,7 @@ All 99 skills are shipped. Each has a complete SKILL.md plus at least one refere
 | [`content-refresh-system`](skills/content-refresh-system/SKILL.md) | Systematic content refresh: quarterly audits, refresh prioritization, refresh-vs-merge-vs-delete decisions, the lifecycle discipline that distinguishes intentional programs from set-and-forget decay |
 | [`content-repurposing`](skills/content-repurposing/SKILL.md) | Cross-format content adaptation: one piece becomes many (blog series, email, social, webinar, podcast, video) with per-format adaptation rather than mass-blast that ignores medium constraints |
 | [`content-distribution`](skills/content-distribution/SKILL.md) | Content distribution discipline: owned, earned, and paid channels matched to audience and content type. Channel-fit decisions, distribution cadence, the strategic alternative to spam-everywhere or hope-and-pray |
+| [`evidence-based-reviews`](skills/evidence-based-reviews/SKILL.md) | Evidence tiers, methodology disclosure, honest review claims |
 
 ### SEO foundation (7)
 
@@ -622,7 +689,7 @@ Paid media discipline: strategy, creative, and performance analytics. Pairs with
 | [`ads-creative-development`](skills/ads-creative-development/SKILL.md) | Hook patterns, format selection, video pacing, variation systems, testing methodology, fatigue detection, and the platform-specific creative norms that separate ads from clutter |
 | [`ads-performance-analytics`](skills/ads-performance-analytics/SKILL.md) | Read paid media dashboards without fooling yourself: attribution models, platform reporting quirks, ROAS vs LTV, multi-platform reconciliation, incrementality testing, and the interpretation failures that compound into wasted budget |
 
-### Research (5)
+### Research (6)
 
 | Skill | What it does |
 |---|---|
@@ -631,6 +698,7 @@ Paid media discipline: strategy, creative, and performance analytics. Pairs with
 | [`journey-mapping`](skills/journey-mapping/SKILL.md) | Customer journey maps, service blueprints, friction analysis |
 | [`discovery-research-synthesis`](skills/discovery-research-synthesis/SKILL.md) | Synthesizing customer interviews, research notes, and support tickets into actionable PM decisions. Distinguishes data-dump (no synthesis) from insight-theater (overpolished narrative) from actionable synthesis (decision-grade clarity) |
 | [`user-feedback-aggregation`](skills/user-feedback-aggregation/SKILL.md) | Collecting and synthesizing user feedback across channels into continuous decision signal. Triage discipline that distinguishes loudest-voice (whoever complains most) from averaged-noise (every signal weighted equally) from triaged-synthesis (weighted by source quality and decision relevance) |
+| [`competitor-experience-audit`](skills/competitor-experience-audit/SKILL.md) | Cross-site experience patterns and gaps across a vertical |
 
 ### Cross-cutting workflows (5)
 
@@ -755,14 +823,28 @@ LICENSE                     (MIT)
 
 ---
 
+## Trust and security
+
+Skills are instructions and code that run with your agent's permissions, so how
+a catalog is maintained matters. Changes reach `main` only through pull requests
+with signed commits and linear history. Each skill is hashed into a checksum
+manifest (`SKILLS.lock`) you can verify against, and reviewed against a
+documented safety checklist before it merges.
+
+This process catches known classes of unsafe content and lets you confirm a
+skill matches the reviewed version. It is not a promise that any skill is
+risk-free. See [SECURITY.md](SECURITY.md) for the full process and how to report
+an issue.
+
+---
+
 ## Contributing
 
 Contributions are welcome. Whether you want to fix a typo, add a reference file, or propose an entirely new skill, the bar is the same: follow the uniform structure, keep the voice consistent, and prove the skill earns its place.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the full process.
 
-<!-- TODO: refresh hardcoded count below when catalog crosses next round number -->
-The fastest path: use the [`skill-creation-walkthrough`](skills/skill-creation-walkthrough/SKILL.md) skill itself. It teaches the same authoring discipline used across all 98 skills, with worked examples and a blank template.
+The fastest path: use the [`skill-creation-walkthrough`](skills/skill-creation-walkthrough/SKILL.md) skill itself. It teaches the same authoring discipline used across all 103 skills, with worked examples and a blank template.
 
 ---
 

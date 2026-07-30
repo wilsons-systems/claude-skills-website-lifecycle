@@ -5,7 +5,10 @@ Walks ``skills/`` and parses each ``SKILL.md`` frontmatter for the fields
 ``name``, ``description``, ``category``, ``catalog_summary``, and
 ``display_order``. Produces the README catalog section, the skill count
 badge, the subtitle blockquote, the "What you get" counts, the catalog
-header, the table-of-contents anchor, and the catalog intro line.
+header, the table-of-contents anchor, the catalog intro line, and a
+handful of inline skill counts (install block, install-all paragraph,
+hub paragraph, family-table claude-skills row, contributing paragraph)
+that are substituted via anchored regex rather than marker pairs.
 
 Two operating modes:
 
@@ -229,6 +232,14 @@ def load_skills() -> list[Skill]:
                 f"Allowed values: {allowed}"
             )
             continue
+        desc_len = len(str(description))
+        if desc_len > 1024:
+            errors.append(
+                f"{entry.name}: description is {desc_len} characters, "
+                f"exceeds the 1024-character portability cap (Codex CLI, Pi, "
+                f"and Antigravity reject longer descriptions)"
+            )
+            continue
         skills.append(
             Skill(
                 slug=entry.name,
@@ -262,7 +273,12 @@ def group_by_category(skills: list[Skill]) -> dict[str, list[Skill]]:
 
 
 def count_reference_files() -> int:
-    """Count files under any skills/*/references/ directory."""
+    """Count files under any skills/*/references/ directory, at any depth.
+
+    Recurses into nested reference subdirectories (for example
+    references/by-vertical/) so every shipped reference file is counted,
+    including the ones below the top level of references/.
+    """
     total = 0
     for entry in sorted(SKILLS_DIR.iterdir()):
         if not entry.is_dir():
@@ -270,7 +286,7 @@ def count_reference_files() -> int:
         ref_dir = entry / "references"
         if not ref_dir.exists():
             continue
-        for ref in ref_dir.iterdir():
+        for ref in ref_dir.rglob("*"):
             if ref.is_file():
                 total += 1
     return total
@@ -408,6 +424,23 @@ def replace_badge_count(text: str, total: int) -> str:
     return badge_pattern.sub(replacement, text, count=1)
 
 
+def replace_inline_count(text: str, pattern: str, total: int, label: str) -> str:
+    """Substitute a skill count embedded in prose or a code fence.
+
+    The pattern must capture the text before the count as group 1 and the
+    text after as group 2, with the digits ungrouped between them. Asserts
+    the pattern matches exactly once so a drifted or duplicated anchor fails
+    loudly rather than silently mis-substituting.
+    """
+    rx = re.compile(pattern)
+    matches = list(rx.finditer(text))
+    if not matches:
+        raise ValueError(f"{label}: count pattern not found in README.md")
+    if len(matches) > 1:
+        raise ValueError(f"{label}: count pattern appears more than once in README.md")
+    return rx.sub(rf"\g<1>{total}\g<2>", text, count=1)
+
+
 def render_readme(text: str, skills: list[Skill]) -> str:
     """Apply all marker replacements and return the updated README content."""
     grouped = group_by_category(skills)
@@ -416,6 +449,11 @@ def render_readme(text: str, skills: list[Skill]) -> str:
     ref_total = count_reference_files()
     cat_total = len(CATEGORIES)
     text = replace_badge_count(text, total)
+    text = replace_inline_count(text, r"(# full catalog \()\d+( skills\))", total, "install-block count")
+    text = replace_inline_count(text, r"(You do not have to install all )\d+(\.)", total, "install-all count")
+    text = replace_inline_count(text, r"(already uses\. )\d+( skills at the center)", total, "hub count")
+    text = replace_inline_count(text, r"(Full catalog \(you are here\) \| )\d+( \|)", total, "family-table count")
+    text = replace_inline_count(text, r"(authoring discipline used across all )\d+( skills)", total, "contributing count")
     text = replace_block(text, "COUNT_INTRO", generate_intro_blockquote(total))
     text = replace_block(
         text, "COUNT_WHATYOUGET", generate_whatyouget(total, ref_total, cat_total)
@@ -479,7 +517,9 @@ def main() -> int:
         )
         return 2
 
-    README.write_text(updated, encoding="utf-8")
+    # Write LF newlines explicitly so --write does not flip the file to
+    # CRLF on Windows, which would churn every line in the diff.
+    README.write_text(updated, encoding="utf-8", newline="\n")
     ref_total = count_reference_files()
     print(
         f"Updated {len(MARKERS)} sections in README.md, "
